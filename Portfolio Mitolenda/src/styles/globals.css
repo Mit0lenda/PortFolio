@@ -619,24 +619,38 @@ button {
   margin: 0;
 }
 
-.project-meta {
+.project-card-meta-grid {
   display: grid;
   gap: var(--space-3);
   margin: var(--space-4) 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
-.project-meta dt {
+.project-card-meta-item dt {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin-bottom: var(--space-1);
 }
 
-.project-meta dd {
+.project-card-meta-item dd {
   margin: 0;
   color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card-meta-item--stack dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
 }
 
 .stack-tags {

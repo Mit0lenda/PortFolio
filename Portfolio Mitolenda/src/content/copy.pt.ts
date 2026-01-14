@@ -97,9 +97,9 @@ export const copyPt: Copy = {
   projects: {
     title: "[Projetos]",
     intro: {
-      home: "Casos reais com restricoes, seguranca e impacto direto.",
-      recruiter: "Casos com foco em decisao tecnica, confiabilidade e operacao.",
-      client: "Casos com foco em entrega, impacto e integracao segura.",
+      home: "Casos reais que unem restricoes, seguranca e impacto mensuravel.",
+      recruiter: "Perfis voltados para decisao tecnica, confiabilidade e operacao segura.",
+      client: "Historias sobre entrega, integracoes seguras e impacto concreto.",
     },
     ctaLabel: "Ver caso",
   },

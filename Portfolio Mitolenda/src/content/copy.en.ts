@@ -97,9 +97,9 @@ export const copyEn: Copy = {
   projects: {
     title: "[Projects]",
     intro: {
-      home: "Real cases with constraints, security, and direct impact.",
-      recruiter: "Cases focused on technical decisions, reliability, and operations.",
-      client: "Cases focused on delivery, secure integrations, and impact.",
+      home: "Real cases that blend constraints, security, and tangible impact.",
+      recruiter: "Profiles centered on technical decisions, reliability, and safe operations.",
+      client: "Stories about delivery, secure integrations, and measurable impact.",
     },
     ctaLabel: "View case",
   },
