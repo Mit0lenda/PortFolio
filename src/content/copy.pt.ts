@@ -178,6 +178,7 @@ export const copyPt: Copy = {
         value: "WhatsApp: +55 51 9348-4339 · Vim pelo seu portfolio.",
         href: "https://wa.me/555193484339?text=Vim%20pelo%20seu%20portfolio%20e%20gostaria%20de%20conversar.",
       },
+      { label: "Instagram", value: "@dev_mitolenda", href: site.instagram },
       { label: "LinkedIn", value: "linkedin.com/in/mitolenda", href: site.linkedin },
       { label: "GitHub", value: "github.com/mitolenda", href: site.github },
       { label: "Email", value: site.email, href: `mailto:${site.email}` },

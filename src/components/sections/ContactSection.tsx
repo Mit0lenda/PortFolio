@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useCopy } from "../../lib/useCopy";
 import { useScrollReveal } from "../../lib/useScrollReveal";
 import { SectionHeader } from "../ui/SectionHeader";
@@ -25,6 +25,11 @@ const contactStyles = {
     icon: FaWhatsapp,
     hoverBg: "rgba(37, 211, 102, 0.18)",
     accent: "rgba(37, 211, 102, 1)",
+  },
+  Instagram: {
+    icon: FaInstagram,
+    hoverBg: "rgba(255, 59, 59, 0.16)",
+    accent: "rgba(255, 59, 59, 1)",
   },
 };
 
