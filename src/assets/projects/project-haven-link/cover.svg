@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Project Haven Link cover placeholder</title>
+  <desc id="desc">Abstract logistics map nodes and paths with warm accent.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd400"/>
+      <stop offset="100%" stop-color="#ff3b3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M260 260C420 180 560 220 700 300C880 400 980 360 1180 260" fill="none" stroke="#2a2a2a" stroke-width="8"/>
+  <path d="M320 620C520 520 720 560 900 680C1080 800 1240 760 1400 660" fill="none" stroke="#2a2a2a" stroke-width="8"/>
+  <circle cx="320" cy="260" r="22" fill="#2a2a2a"/>
+  <circle cx="700" cy="300" r="22" fill="#2a2a2a"/>
+  <circle cx="1180" cy="260" r="22" fill="#2a2a2a"/>
+  <circle cx="320" cy="620" r="22" fill="#2a2a2a"/>
+  <circle cx="900" cy="680" r="22" fill="#2a2a2a"/>
+  <circle cx="1400" cy="660" r="22" fill="#2a2a2a"/>
+  <circle cx="1240" cy="460" r="120" fill="url(#accent)" opacity="0.7"/>
+</svg>
