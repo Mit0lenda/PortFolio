@@ -32,12 +32,18 @@ export const ProjectsSection: React.FC<{ variant: Variant }> = ({ variant }) => 
             >
               <div className="project-card-layout">
                 <figure className="project-card-media">
-                  <img
-                    src={project.image.src}
-                    alt={getLocalizedText(project.image.alt, language)}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <div className="project-carousel" style={{ "--carousel-duration": `${(project.images?.length ?? 1) * 4}s` } as React.CSSProperties}>
+                    {(project.images?.length ? project.images : [project.image]).map((image, imageIndex) => (
+                      <img
+                        key={`${project.slug}-${imageIndex}`}
+                        src={image.src}
+                        alt={getLocalizedText(image.alt, language)}
+                        loading="lazy"
+                        decoding="async"
+                        style={{ animationDelay: `${imageIndex * 4}s` }}
+                      />
+                    ))}
+                  </div>
                 </figure>
                 <div className="project-card-content">
                   <header className="project-card-header">

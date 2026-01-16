@@ -3,6 +3,7 @@ import type { Variant } from "../../lib/types";
 import { useCopy } from "../../lib/useCopy";
 import { ButtonLink } from "../ui/ButtonLink";
 import { HighlightText } from "../ui/HighlightText";
+import { FaBoxOpen, FaChartLine, FaDownload, FaLock } from "react-icons/fa";
 import profileImage from "../../assets/hero/Gemini_Generated_Image_lakcirlakcirlakc.png";
 
 const variantToAccent: Record<Variant, "primary" | "secondary"> = {
@@ -16,9 +17,9 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
   const hero = copy.hero[variant];
   const accent = variantToAccent[variant];
   const primaryDownload = hero.primaryCta.href.endsWith(".pdf");
-  const highlightMatch = hero.title.match(/^(.*)\\[([^\\]]+)\\](.*)$/);
+  const highlightMatch = hero.title.match(/^(.*)\[([^\]]+)\](.*)$/);
   const hasHighlight = Boolean(highlightMatch);
-  const iconMap = ["🔒", "📊", "📦"];
+  const iconMap = [FaLock, FaChartLine, FaBoxOpen];
 
   return (
     <section className={`section hero-section section--accent-${accent} relative overflow-hidden`}>
@@ -46,7 +47,14 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
               download={primaryDownload}
               className="relative [--btn-shadow:0_0_45px_rgba(255,212,0,0.35)] hover:[--btn-shadow:0_0_70px_rgba(255,59,59,0.45)]"
             >
-              {hero.primaryCta.label}
+              {primaryDownload ? (
+                <>
+                  <FaDownload aria-hidden="true" />
+                  {hero.primaryCta.label}
+                </>
+              ) : (
+                hero.primaryCta.label
+              )}
             </ButtonLink>
             <ButtonLink href={hero.secondaryCta.href} variant={hero.secondaryCta.variant}>
               {hero.secondaryCta.label}
@@ -76,7 +84,10 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
                 <li key={item.title} className="panel-item">
                   <p className="panel-item-title">
                     <span className="panel-icon" aria-hidden="true">
-                      {iconMap[index] ?? "✨"}
+                      {(() => {
+                        const Icon = iconMap[index];
+                        return Icon ? <Icon /> : null;
+                      })()}
                     </span>
                     {item.title}
                   </p>

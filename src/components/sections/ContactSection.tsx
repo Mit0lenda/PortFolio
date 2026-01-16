@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useCopy } from "../../lib/useCopy";
 import { useScrollReveal } from "../../lib/useScrollReveal";
 import { SectionHeader } from "../ui/SectionHeader";
@@ -21,12 +21,25 @@ const contactStyles = {
     hoverBg: "rgba(255, 255, 255, 0.14)",
     accent: "rgba(255, 255, 255, 1)",
   },
+  WhatsApp: {
+    icon: FaWhatsapp,
+    hoverBg: "rgba(37, 211, 102, 0.18)",
+    accent: "rgba(37, 211, 102, 1)",
+  },
 };
 
 export const ContactSection: React.FC = () => {
   const copy = useCopy();
   const { ref, isInView } = useScrollReveal();
-  const primaryContact = copy.contact.items.find((item) => item.label === "Email");
+  const baseItems = copy.contact.items;
+  const whatsAppItem = baseItems.find((item) => item.label === "WhatsApp");
+  const orderedItems = [
+    ...(whatsAppItem ? [whatsAppItem] : []),
+    ...baseItems.filter((item) => item.label !== "WhatsApp"),
+  ];
+  const primaryContact =
+    orderedItems.find((item) => item.label === "WhatsApp") ??
+    orderedItems.find((item) => item.label === "Email");
 
   return (
     <section ref={ref} className="section section--accent-primary section--contact" id="contact">
@@ -49,7 +62,7 @@ export const ContactSection: React.FC = () => {
           ) : null}
         </div>
         <div className="contact-cards">
-          {copy.contact.items.map((item, index) => {
+          {orderedItems.map((item, index) => {
             const isExternal = item.href.startsWith("http");
             const config = contactStyles[item.label as keyof typeof contactStyles];
             const Icon = config?.icon ?? FaEnvelope;
@@ -74,9 +87,23 @@ export const ContactSection: React.FC = () => {
                 </span>
                 <span className="contact-text">
                   <span className="contact-label">{item.label}</span>
-                  <span className="contact-value transition-colors duration-300 ease-out">
-                    {item.value}
-                  </span>
+                  {item.label === "WhatsApp" && item.value.includes("·") ? (
+                    (() => {
+                      const [number, note] = item.value.split("·").map((part) => part.trim());
+                      return (
+                        <>
+                          <span className="contact-value transition-colors duration-300 ease-out">
+                            {number}
+                          </span>
+                          <span className="contact-note">{note}</span>
+                        </>
+                      );
+                    })()
+                  ) : (
+                    <span className="contact-value transition-colors duration-300 ease-out">
+                      {item.value}
+                    </span>
+                  )}
                 </span>
               </a>
             );

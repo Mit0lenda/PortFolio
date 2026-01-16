@@ -16,8 +16,8 @@ export const sites: Site[] = [
       },
     },
     description: {
-      en: "Elevator parts company serving maintenance teams nationwide with catalog access and fast contact.",
-      pt: "Empresa de peças para elevadores que atende o Brasil todo com catálogo, contato rápido e integrações.",
+      en: "Elevator parts catalog with fast contact for nationwide maintenance teams.",
+      pt: "Peças para elevadores com catálogo e contato rápido em todo o Brasil.",
     },
   },
   {
@@ -31,8 +31,8 @@ export const sites: Site[] = [
       },
     },
     description: {
-      en: "Elevator company with 15+ years in maintenance, modernization, and accessibility platforms.",
-      pt: "Empresa de elevadores com 15+ anos em manutenção, modernização e plataformas de acessibilidade.",
+      en: "Elevator maintenance and modernization with 15+ years of experience.",
+      pt: "Manutenção e modernização de elevadores com 15+ anos de experiência.",
     },
   },
   {
@@ -46,8 +46,8 @@ export const sites: Site[] = [
       },
     },
     description: {
-      en: "Personalized fitness coaching with training, nutrition plan, and daily WhatsApp support.",
-      pt: "Consultoria fitness personalizada com treino, dieta e suporte diário via WhatsApp.",
+      en: "Personalized fitness coaching with training, diet, and daily WhatsApp support.",
+      pt: "Consultoria fitness com treino, dieta e suporte diário no WhatsApp.",
     },
   },
   {
@@ -61,8 +61,8 @@ export const sites: Site[] = [
       },
     },
     description: {
-      en: "Custom digital solutions: web systems, CRMs, ERPs, apps, AI integrations, and dashboards.",
-      pt: "Soluções digitais sob medida: sistemas web, CRMs, ERPs, apps, IA e dashboards.",
+      en: "Custom digital solutions: systems, apps, AI integrations, and dashboards.",
+      pt: "Soluções digitais sob medida: sistemas, apps, IA e dashboards.",
     },
   },
 ];

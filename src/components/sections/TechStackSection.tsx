@@ -40,7 +40,8 @@ const techIconMap: Record<string, IconType> = {
   Java: FaJava,
   C: SiC,
   Python: SiPython,
-  "Azure (basico)": TbBrandAzure,
+  "Azure (básico)": TbBrandAzure,
+  "Azure (basic)": TbBrandAzure,
   Git: SiGit,
   GitHub: SiGithub,
 };
@@ -48,6 +49,19 @@ const techIconMap: Record<string, IconType> = {
 export const TechStackSection: React.FC = () => {
   const copy = useCopy();
   const { ref, isInView } = useScrollReveal();
+  const [openGroups, setOpenGroups] = React.useState<string[]>(
+    () => copy.stack.groups.map((group) => group.label),
+  );
+
+  React.useEffect(() => {
+    setOpenGroups(copy.stack.groups.map((group) => group.label));
+  }, [copy]);
+
+  const handleToggle = (label: string) => {
+    setOpenGroups((prev) =>
+      prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label],
+    );
+  };
 
   return (
     <section ref={ref} className="section section--stack" id="stack">
@@ -82,6 +96,38 @@ export const TechStackSection: React.FC = () => {
               </ul>
             </article>
           ))}
+        </div>
+        <div className="stack-accordion">
+          {copy.stack.groups.map((group, index) => {
+            const isOpen = openGroups.includes(group.label);
+
+            return (
+              <div
+                key={group.label}
+                className={`stack-accordion-item reveal-on-scroll ${isInView ? "is-visible" : ""}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <button
+                  type="button"
+                  className="stack-accordion-toggle"
+                  aria-expanded={isOpen}
+                  onClick={() => handleToggle(group.label)}
+                >
+                  <span>{group.label}</span>
+                  <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
+                </button>
+                <div className={`stack-accordion-panel ${isOpen ? "is-open" : ""}`}>
+                  <div className="stack-accordion-content">
+                    {group.items.map((item) => (
+                      <span key={item} className="stack-badge">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

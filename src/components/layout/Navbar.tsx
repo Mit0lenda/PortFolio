@@ -25,6 +25,7 @@ export const Navbar: React.FC = () => {
   const basePath = getBasePath(pathname);
   const projectsHref = `${basePath}#projects`;
   const sitesHref = `${basePath}#sites`;
+  const stackHref = `${basePath}#stack`;
   const contactHref = `${basePath}#contact`;
   const isClient = pathname.startsWith(routes.client);
 
@@ -72,6 +73,9 @@ export const Navbar: React.FC = () => {
           <Link to={sitesHref} className="nav-link">
             {stripHighlightTokens(copy.sites.title)}
           </Link>
+          <Link to={stackHref} className="nav-link">
+            {stripHighlightTokens(copy.stack.title)}
+          </Link>
           <Link to={contactHref} className="nav-link">
             {stripHighlightTokens(copy.contact.title)}
           </Link>
@@ -97,7 +101,7 @@ export const Navbar: React.FC = () => {
               aria-label="Close menu"
               onClick={() => setMenuOpen(false)}
             >
-              ✕
+              X
             </button>
           </div>
           <nav className="nav-drawer-links" aria-label="Mobile">
@@ -109,6 +113,9 @@ export const Navbar: React.FC = () => {
             </Link>
             <Link to={sitesHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
               {stripHighlightTokens(copy.sites.title)}
+            </Link>
+            <Link to={stackHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
+              {stripHighlightTokens(copy.stack.title)}
             </Link>
             <Link to={contactHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
               {stripHighlightTokens(copy.contact.title)}
@@ -125,3 +132,5 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
+
+

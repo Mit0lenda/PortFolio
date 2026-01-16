@@ -1,4 +1,4 @@
-﻿import type { Copy } from "../lib/types";
+import type { Copy } from "../lib/types";
 import { routes } from "../lib/routes";
 import { site } from "../lib/site";
 
@@ -39,11 +39,11 @@ export const copyPt: Copy = {
       kicker: "Fullstack developer - Flux Tecnologia",
       title: "Experiência com [sistemas] e dados sensíveis.",
       subtitle:
-        "Atuo no CRM da Flux com React, TypeScript e SQL/Supabase, participando de decisões de arquitetura, segurança e performance. Passei por perícia digital na Polícia Federal.",
+        "Atuei no CRM da Flux com React, TypeScript e SQL/Supabase, participando de decisões de arquitetura, segurança e performance. Na Polícia Federal, realizei estágio em perícia digital.",
       imageAlt: "Retrato profissional de Nicollas de Oliveira",
       primaryCta: {
         label: "Baixar currículo",
-        href: "/resume/Nicollas-Resume.pdf",
+        href: "/curriculo/Curriculo-Nicollas.pdf",
         variant: "primary",
       },
       secondaryCta: {
@@ -89,8 +89,10 @@ export const copyPt: Copy = {
   },
   about: {
     title: "[Sobre]",
-    body:
-      "Sou Nicollas de Oliveira (MITOLENDA), desenvolvedor fullstack na Flux Tecnologia. Atuo com React, TypeScript e SQL/Supabase, focado em automação, segurança e UX. Passei por perícia digital na Polícia Federal.",
+    summary:
+      "Sou Nicollas de Oliveira (MITOLENDA), desenvolvedor fullstack na Flux Tecnologia. Trabalho com React, TypeScript e SQL/Supabase para entregar sistemas confiáveis.",
+    details:
+      "Atuo com automação, segurança e UX, com experiência em decisões técnicas e colaboração com produto. Passei por perícia digital na Polícia Federal e sigo focado em impacto mensurável.",
     moreLabel: "Ler mais",
     bullets: [
       "B.Sc. em Ciência da Computação na Unisinos (formatura prevista 2027).",
@@ -117,7 +119,7 @@ export const copyPt: Copy = {
     ctaLabel: "Visitar site",
   },
   stack: {
-    title: "Stack [Tecnológico]",
+    title: "Stacks",
     groups: [
       {
         label: "Frontend",
@@ -150,23 +152,19 @@ export const copyPt: Copy = {
     items: [
       {
         title: "Segurança desde o início",
-        body:
-          "Dados sensíveis e controle de acesso entram na arquitetura, não no fim.",
+        body: "Dados sensíveis e controle de acesso entram na arquitetura.",
       },
       {
         title: "Operação simples",
-        body:
-          "Sistemas que o time entende, monitora e consegue evoluir.",
+        body: "Sistemas que o time entende, monitora e consegue evoluir.",
       },
       {
         title: "Decisão baseada em dados",
-        body:
-          "Experiência em análise e tratamento de dados com foco em clareza.",
+        body: "Experiência em análise e tratamento de dados com foco em clareza.",
       },
       {
         title: "Entrega no mundo real",
-        body:
-          "Foco em impacto mensurável e feedback rápido.",
+        body: "Foco em impacto mensurável e feedback rápido.",
       },
     ],
   },
@@ -175,6 +173,11 @@ export const copyPt: Copy = {
     body: "Contato direto para oportunidades e projetos.",
     ctaLabel: "Iniciar conversa",
     items: [
+      {
+        label: "WhatsApp",
+        value: "WhatsApp: +55 51 9348-4339 · Vim pelo seu portfolio.",
+        href: "https://wa.me/555193484339?text=Vim%20pelo%20seu%20portfolio%20e%20gostaria%20de%20conversar.",
+      },
       { label: "LinkedIn", value: "linkedin.com/in/mitolenda", href: site.linkedin },
       { label: "GitHub", value: "github.com/mitolenda", href: site.github },
       { label: "Email", value: site.email, href: `mailto:${site.email}` },

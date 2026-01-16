@@ -50,7 +50,8 @@ export type Copy = {
   };
   about: {
     title: string;
-    body: string;
+    summary: string;
+    details: string;
     moreLabel: string;
     bullets: string[];
   };
@@ -139,6 +140,10 @@ export type Project = {
     src: string;
     alt: LocalizedText;
   };
+  images?: {
+    src: string;
+    alt: LocalizedText;
+  }[];
   context: LocalizedText;
   role: LocalizedText;
   stack: string[];

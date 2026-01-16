@@ -43,7 +43,7 @@ export const copyEn: Copy = {
       imageAlt: "Professional portrait of Nicollas de Oliveira",
       primaryCta: {
         label: "Download resume",
-        href: "/resume/Nicollas-Resume.pdf",
+        href: "/curriculo/Curriculo-Nicollas.pdf",
         variant: "primary",
       },
       secondaryCta: {
@@ -89,8 +89,10 @@ export const copyEn: Copy = {
   },
   about: {
     title: "[About]",
-    body:
-      "I am Nicollas de Oliveira (MITOLENDA), a fullstack developer at Flux Tecnologia. I work with React, TypeScript, and SQL/Supabase, focused on automation, security, and UX. Former digital forensics intern at the Federal Police.",
+    summary:
+      "I am Nicollas de Oliveira (MITOLENDA), a fullstack developer at Flux Tecnologia. I build reliable systems with React, TypeScript, and SQL/Supabase.",
+    details:
+      "I focus on automation, security, and UX, with experience in technical decisions and product collaboration. Former digital forensics intern at the Federal Police.",
     moreLabel: "Read more",
     bullets: [
       "B.Sc. in Computer Science at Unisinos (expected 2027).",
@@ -175,6 +177,11 @@ export const copyEn: Copy = {
     body: "Direct contact for opportunities and projects.",
     ctaLabel: "Start conversation",
     items: [
+      {
+        label: "WhatsApp",
+        value: "WhatsApp: +55 51 9348-4339 · I came from your portfolio.",
+        href: "https://wa.me/555193484339?text=I%20came%20from%20your%20portfolio%20and%20would%20like%20to%20talk.",
+      },
       { label: "LinkedIn", value: "linkedin.com/in/mitolenda", href: site.linkedin },
       { label: "GitHub", value: "github.com/mitolenda", href: site.github },
       { label: "Email", value: site.email, href: `mailto:${site.email}` },
