@@ -10,8 +10,9 @@ export type LocalizedText = {
 
 export type HeroCta = {
   label: string;
-  href: string;
   variant: "primary" | "secondary";
+  href?: string;
+  to?: string;
 };
 
 export type HeroPanelItem = {

@@ -1,5 +1,5 @@
 import React from "react";
-import type { Variant } from "../../lib/types";
+import type { HeroCta, Variant } from "../../lib/types";
 import { useCopy } from "../../lib/useCopy";
 import { ButtonLink } from "../ui/ButtonLink";
 import { HighlightText } from "../ui/HighlightText";
@@ -16,7 +16,23 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
   const copy = useCopy();
   const hero = copy.hero[variant];
   const accent = variantToAccent[variant];
-  const primaryDownload = hero.primaryCta.href.endsWith(".pdf");
+  const getHeroCtaProps = (cta: HeroCta) => {
+    if (cta.to) {
+      return { to: cta.to };
+    }
+
+    const props: { href?: string; download?: boolean } = {};
+
+    if (cta.href) {
+      props.href = cta.href;
+      props.download = cta.href.endsWith(".pdf");
+    }
+
+    return props;
+  };
+
+  const primaryCtaProps = getHeroCtaProps(hero.primaryCta);
+  const secondaryCtaProps = getHeroCtaProps(hero.secondaryCta);
   const highlightMatch = hero.title.match(/^(.*)\[([^\]]+)\](.*)$/);
   const hasHighlight = Boolean(highlightMatch);
   const kickerParts = variant === "home" ? hero.kicker.split("/").map((part) => part.trim()) : [];
@@ -53,12 +69,11 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
           <p className="hero-subtitle reveal reveal-delay-2">{hero.subtitle}</p>
           <div className="hero-actions reveal reveal-delay-3">
             <ButtonLink
-              href={hero.primaryCta.href}
+              {...primaryCtaProps}
               variant={hero.primaryCta.variant}
-              download={primaryDownload}
               className="relative [--btn-shadow:0_0_45px_rgba(255,212,0,0.35)] hover:[--btn-shadow:0_0_70px_rgba(255,59,59,0.45)]"
             >
-              {primaryDownload ? (
+              {hero.primaryCta.href?.endsWith(".pdf") ? (
                 <>
                   <FaDownload aria-hidden="true" />
                   {hero.primaryCta.label}
@@ -67,7 +82,7 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
                 hero.primaryCta.label
               )}
             </ButtonLink>
-            <ButtonLink href={hero.secondaryCta.href} variant={hero.secondaryCta.variant}>
+            <ButtonLink {...secondaryCtaProps} variant={hero.secondaryCta.variant}>
               {hero.secondaryCta.label}
             </ButtonLink>
           </div>

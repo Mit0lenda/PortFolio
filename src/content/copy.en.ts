@@ -26,12 +26,12 @@ export const copyEn: Copy = {
       imageAlt: "Portrait of Nicollas Freitas",
       primaryCta: {
         label: "Recruiter profile",
-        href: routes.recruiter,
+        to: routes.recruiter,
         variant: "primary",
       },
       secondaryCta: {
         label: "Client profile",
-        href: routes.client,
+        to: routes.client,
         variant: "secondary",
       },
     },
