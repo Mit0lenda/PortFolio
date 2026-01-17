@@ -41,12 +41,6 @@ export const Navbar: React.FC = () => {
           <span className="brand-sub">{copy.brand.developerName}</span>
         </Link>
         <div className="nav-cta">
-          <NavLink
-            to={routes.client}
-            className={`nav-client-btn ${isClient ? "is-active" : ""}`}
-          >
-            {copy.nav.client}
-          </NavLink>
           <button
             type="button"
             className="nav-toggle"
