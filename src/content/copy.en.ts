@@ -6,7 +6,7 @@ export const copyEn: Copy = {
   locale: "en",
   brand: {
     name: "MITOLENDA",
-    developerName: "Nicollas de Oliveira",
+    developerName: "Nicollas Freitas",
     positioning: "Fullstack developer focused on security, data, and real delivery.",
   },
   nav: {
@@ -19,11 +19,11 @@ export const copyEn: Copy = {
   },
   hero: {
     home: {
-      kicker: "MITOLENDA / Nicollas de Oliveira",
+      kicker: "MITOLENDA / Nicollas Freitas",
       title: "Real systems. [Security] and delivery.",
       subtitle:
         "Fullstack developer focused on reliability, automation, and UX, with hands-on data work.",
-      imageAlt: "Portrait of Nicollas de Oliveira",
+      imageAlt: "Portrait of Nicollas Freitas",
       primaryCta: {
         label: "Recruiter profile",
         href: routes.recruiter,
@@ -36,11 +36,11 @@ export const copyEn: Copy = {
       },
     },
     recruiter: {
-      kicker: "Fullstack developer - Flux Tecnologia",
+      kicker: "Fullstack developer",
       title: "Experience with [systems] and sensitive data.",
       subtitle:
         "I build a modern CRM with React, TypeScript, and SQL/Supabase, contributing to architecture, security, and performance decisions. Former digital forensics intern at the Federal Police.",
-      imageAlt: "Professional portrait of Nicollas de Oliveira",
+      imageAlt: "Professional portrait of Nicollas Freitas",
       primaryCta: {
         label: "Download resume",
         href: "/curriculo/Curriculo-Nicollas.pdf",
@@ -57,7 +57,7 @@ export const copyEn: Copy = {
       title: "Products that run with [security] and clarity.",
       subtitle:
         "Automation, performance, and UX with secure integrations and simple operations.",
-      imageAlt: "Profile photo of Nicollas de Oliveira",
+      imageAlt: "Profile photo of Nicollas Freitas",
       primaryCta: {
         label: "Request proposal",
         href: "#contact",
@@ -90,7 +90,7 @@ export const copyEn: Copy = {
   about: {
     title: "[About]",
     summary:
-      "I am Nicollas de Oliveira (MITOLENDA), a fullstack developer at Flux Tecnologia. I build reliable systems with React, TypeScript, and SQL/Supabase.",
+      "I am Nicollas Freitas (MITOLENDA), a fullstack developer at Flux Tecnologia. I build reliable systems with React, TypeScript, and SQL/Supabase.",
     details:
       "I focus on automation, security, and UX, with experience in technical decisions and product collaboration. Former digital forensics intern at the Federal Police.",
     moreLabel: "Read more",
@@ -205,7 +205,7 @@ export const copyEn: Copy = {
   },
   seo: {
     siteName: "MITOLENDA",
-    defaultTitle: "MITOLENDA - Nicollas de Oliveira, Fullstack Developer",
+    defaultTitle: "MITOLENDA - Nicollas Freitas, Fullstack Developer",
     defaultDescription:
       "Fullstack developer focused on security, data, and real delivery.",
     home: {

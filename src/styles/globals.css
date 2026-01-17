@@ -534,6 +534,7 @@ button {
 .hero-portrait-frame {
   position: relative;
   width: clamp(220px, 30vw, 320px);
+  height: clamp(220px, 30vw, 320px);
   aspect-ratio: 1 / 1;
   border-radius: 28px;
   padding: 10px;
@@ -582,6 +583,28 @@ button {
   font-size: 0.75rem;
   color: var(--section-accent, var(--color-accent-primary));
   margin-bottom: var(--space-3);
+}
+
+.hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.hero-kicker-nick {
+  color: var(--section-accent, var(--color-accent-primary));
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.hero-kicker-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-kicker-name {
+  color: var(--color-text);
+  font-weight: 700;
 }
 
 .hero-title {

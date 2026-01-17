@@ -48,24 +48,24 @@ export const projects: Project[] = [
     ],
     summary: {
       en: "AI logistics tool for item recognition and inventory tracking during emergencies.",
-      pt: "Ferramenta log¡stica com IA para reconhecimento de itens e controle de invent rio em emergˆncias.",
+      pt: "Ferramenta logística com IA para reconhecimento de itens e controle de inventário em emergências.",
     },
     context: {
       en: "Built during the Rio Grande do Sul catastrophe to map shortages and speed mobilization.",
-      pt: "Criado durante a cat strofe no RS para mapear faltas e acelerar a mobiliza‡Æo.",
+      pt: "Criado durante a catástrofe no RS para mapear faltas e acelerar a mobilização.",
     },
     role: {
       en: "Delivered camera recognition and inventory mapping modules.",
-      pt: "Entreguei funcionalidades de reconhecimento por cƒmera e mapeamento de invent rio.",
+      pt: "Entreguei funcionalidades de reconhecimento por câmera e mapeamento de inventário.",
     },
     stack: ["AI", "Computer Vision", "Inventory", "Logistics"],
     decision: {
       en: "Adopted camera-based recognition to reduce human error and accelerate identification.",
-      pt: "Adotei reconhecimento por cƒmera para reduzir erro humano e acelerar identifica‡Æo.",
+      pt: "Adotei reconhecimento por câmera para reduzir erro humano e acelerar identificação.",
     },
     outcome: {
       en: "Won 3rd place in the iTwin Brasil competition and delivered actionable logistics data.",
-      pt: "3§ lugar na competi‡Æo iTwin Brasil e dados acion veis para decisäes em momento log¡stico cr¡tico.",
+      pt: "3º lugar na competição iTwin Brasil e dados acionáveis para decisões em momento logístico crítico.",
     },
     impact: 0,
   },
@@ -107,24 +107,24 @@ export const projects: Project[] = [
     ],
     summary: {
       en: "Construction logistics platform combining maps, camera feeds, and AI.",
-      pt: "Plataforma de log¡stica para obras que combina mapas, feeds de cƒmera e IA.",
+      pt: "Plataforma de logística para obras que combina mapas, feeds de câmera e IA.",
     },
     context: {
       en: "Startup incubated at CEI/UFRGS to orchestrate construction site logistics.",
-      pt: "Startup incubada no CEI/UFRGS para orquestrar a log¡stica de obras.",
+      pt: "Startup incubada no CEI/UFRGS para orquestrar a logística de obras.",
     },
     role: {
-      en: "Fullstack ownership, UI/UX validation,  gile delivery, and pitching.",
-      pt: "Fullstack, valida‡Æo de UI/UX, entrega  gil e pitching.",
+      en: "Fullstack ownership, UI/UX validation, agile delivery, and pitching.",
+      pt: "Fullstack, validação de UI/UX, entrega ágil e pitching.",
     },
     stack: ["React", "Node.js", "MySQL", "Azure", "AI"],
     decision: {
       en: "Fused map visualization with camera feeds and recognition models.",
-      pt: "Combinei visualiza‡Æo por mapa com feeds de cƒmera e modelos de reconhecimento.",
+      pt: "Combinei visualização por mapa com feeds de câmera e modelos de reconhecimento.",
     },
     outcome: {
       en: "Project in progress since 2024 with ongoing iteration.",
-      pt: "Projeto em andamento desde 2024, com itera‡äes cont¡nuas.",
+      pt: "Projeto em andamento desde 2024, com iterações contínuas.",
     },
     impact: 0,
   },
@@ -166,20 +166,20 @@ export const projects: Project[] = [
     ],
     summary: {
       en: "Internal FGTS advance platform with secure auth and banking connectors.",
-      pt: "Plataforma interna de antecipa‡Æo de FGTS com autentica‡Æo segura e integra‡äes banc rias.",
+      pt: "Plataforma interna de antecipação de FGTS com autenticação segura e integrações bancárias.",
     },
     context: {
       en: "Flow demanded tight authentication and banking integration to cut support delays.",
-      pt: "Fluxo exigia controle rigoroso de acesso e integra‡Æo banc ria para reduzir atrasos.",
+      pt: "Fluxo exigia controle rigoroso de acesso e integração bancária para reduzir atrasos.",
     },
     role: {
       en: "Led frontend and backend delivery, owning the secure auth and banking API integration.",
-      pt: "Liderei front e back com foco em autentica‡Æo segura e integra‡Æo com API banc ria.",
+      pt: "Liderei front e back com foco em autenticação segura e integração com API bancária.",
     },
     stack: ["React", "Node.js", "MySQL", "JWT", "OAuth2"],
     decision: {
       en: "Chosen JWT and OAuth2 to lock down access and call the banking API safely.",
-      pt: "Optei por JWT e OAuth2 para blindar o acesso e conversar com o banco com seguran‡a.",
+      pt: "Optei por JWT e OAuth2 para blindar o acesso e conversar com o banco com segurança.",
     },
     outcome: {
       en: "Cut service time ~70% and onboarded 100+ clients in the first two months.",

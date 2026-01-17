@@ -19,13 +19,24 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
   const primaryDownload = hero.primaryCta.href.endsWith(".pdf");
   const highlightMatch = hero.title.match(/^(.*)\[([^\]]+)\](.*)$/);
   const hasHighlight = Boolean(highlightMatch);
+  const kickerParts = variant === "home" ? hero.kicker.split("/").map((part) => part.trim()) : [];
   const iconMap = [FaLock, FaChartLine, FaBoxOpen];
 
   return (
     <section className={`section hero-section section--accent-${accent} relative overflow-hidden`}>
       <div className="container hero-grid">
         <div className="hero-content">
-          <p className="eyebrow reveal">{hero.kicker}</p>
+          <p className="eyebrow reveal hero-kicker">
+            {kickerParts.length === 2 ? (
+              <>
+                <span className="hero-kicker-nick">{kickerParts[0]}</span>
+                <span className="hero-kicker-sep">/</span>
+                <span className="hero-kicker-name">{kickerParts[1]}</span>
+              </>
+            ) : (
+              hero.kicker
+            )}
+          </p>
           <h1 className="hero-title reveal reveal-delay-1">
             {variant === "client" && hasHighlight && highlightMatch ? (
               <>
@@ -72,8 +83,9 @@ export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
                 src={profileImage}
                 alt={hero.imageAlt}
                 className="hero-portrait"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="high"
               />
             </div>
           </div>

@@ -9,7 +9,7 @@
   <rect x="80" y="80" width="1040" height="470" rx="24" stroke="#2B2B2B" stroke-width="2" fill="#121212" />
   <rect x="120" y="140" width="120" height="6" fill="#FFD400" />
   <text x="120" y="240" fill="#F7F7F7" font-size="64" font-family="Bebas Neue, Space Grotesk, sans-serif" font-weight="600">MITOLENDA</text>
-  <text x="120" y="305" fill="#B9B9B9" font-size="28" font-family="Space Grotesk, sans-serif">Nicollas de Oliveira</text>
+  <text x="120" y="305" fill="#B9B9B9" font-size="28" font-family="Space Grotesk, sans-serif">Nicollas Freitas</text>
   <text x="120" y="375" fill="#B9B9B9" font-size="28" font-family="Space Grotesk, sans-serif">Fullstack developer. Security and delivery.</text>
   <line x1="120" y1="440" x2="420" y2="440" stroke="#FF3B3B" stroke-width="4" />
 </svg>
