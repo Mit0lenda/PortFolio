@@ -151,6 +151,7 @@ export type Project = {
   decision: LocalizedText;
   outcome: LocalizedText;
   impact: number;
+  mediaNoFade?: boolean;
   links?: {
     live?: string;
     repo?: string;

@@ -1,0 +1,13 @@
+<svg width="720" height="480" viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b7a2d" />
+      <stop offset="100%" stop-color="#4dbb64" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="480" rx="32" fill="url(#grad)" />
+  <rect x="80" y="120" width="560" height="220" rx="16" fill="rgba(255,255,255,0.12)" />
+  <text x="100" y="180" font-family="Space Grotesk, sans-serif" font-size="42" fill="#fff" font-weight="600">Green Cortes</text>
+  <text x="100" y="230" font-family="Space Grotesk, sans-serif" font-size="28" fill="#e0f5df">Planner</text>
+  <text x="100" y="280" font-family="Space Grotesk, sans-serif" font-size="18" fill="#d4f1cf">Finanças, cortes e alertas em um único lugar.</text>
+</svg>

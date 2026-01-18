@@ -31,8 +31,23 @@ export const ProjectsSection: React.FC<{ variant: Variant }> = ({ variant }) => 
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="project-card-layout">
-                <figure className="project-card-media">
-                  <div className="project-carousel" style={{ "--carousel-duration": `${(project.images?.length ?? 1) * 4}s` } as React.CSSProperties}>
+                <figure
+                  className={[
+                    "project-card-media",
+                    project.mediaNoFade ? "project-card-media--no-fade" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  <div
+                    className={[
+                      "project-carousel",
+                      project.mediaNoFade ? "project-carousel--static" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    style={{ "--carousel-duration": `${(project.images?.length ?? 1) * 4}s` } as React.CSSProperties}
+                  >
                     {(project.images?.length ? project.images : [project.image]).map((image, imageIndex) => (
                       <img
                         key={`${project.slug}-${imageIndex}`}

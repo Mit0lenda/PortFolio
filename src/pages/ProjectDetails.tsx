@@ -21,6 +21,13 @@ export const ProjectDetailsPage: React.FC = () => {
     return <NotFoundPage />;
   }
 
+  const heroImages = project.images?.length ? project.images : [project.image];
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    setCurrentIndex(0);
+  }, [project.slug]);
+
   const title = `${copy.seo.project.titlePrefix}: ${getLocalizedText(project.title, language)}`;
   const description = `${copy.seo.project.descriptionPrefix} ${getLocalizedText(project.summary, language)}`;
   const path = routes.project(project.slug);
@@ -46,13 +53,38 @@ export const ProjectDetailsPage: React.FC = () => {
           <Link to={`${routes.home}#projects`} className="text-link">
             {copy.projectDetail.backLabel}
           </Link>
-          <figure className="project-hero-media">
-            <img
-              src={project.image.src}
-              alt={getLocalizedText(project.image.alt, language)}
-              loading="lazy"
-              decoding="async"
-            />
+          <figure className="project-hero-media project-hero-media--boxed">
+            <div className="project-hero-display">
+              <img
+                src={heroImages[currentIndex].src}
+                alt={getLocalizedText(heroImages[currentIndex].alt, language)}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            {heroImages.length > 1 ? (
+              <>
+                <button
+                  type="button"
+                  className="project-hero-nav project-hero-nav--prev"
+                  onClick={() => setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
+                  aria-label="Previous image"
+                >
+                  &lsaquo;
+                </button>
+                <button
+                  type="button"
+                  className="project-hero-nav project-hero-nav--next"
+                  onClick={() => setCurrentIndex((prev) => (prev + 1) % heroImages.length)}
+                  aria-label="Next image"
+                >
+                  &rsaquo;
+                </button>
+              </>
+            ) : null}
+            <div className="project-hero-indicator">
+              {currentIndex + 1} / {heroImages.length}
+            </div>
           </figure>
           <h1>{getLocalizedText(project.title, language)}</h1>
           <p className="body-lg">{getLocalizedText(project.summary, language)}</p>

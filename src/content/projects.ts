@@ -8,6 +8,7 @@ import haven3d from "../assets/projects/project-haven-link/3d.png";
 import nexusCover from "../assets/projects/project-nexus/mapa.png";
 import nexusLogin from "../assets/projects/project-nexus/login.png";
 import nexusTime from "../assets/projects/project-nexus/time.png";
+import lawnPlanCover from "../assets/projects/project-lawn-plan/cover.svg";
 
 export const projects: Project[] = [
   {
@@ -186,5 +187,42 @@ export const projects: Project[] = [
       pt: "Cortou cerca de 70% do tempo de atendimento e atendeu 100+ clientes nos dois primeiros meses.",
     },
     impact: 70,
+  },
+  {
+    slug: "project-lawn-plan",
+    title: {
+      en: "Green Cortes Planner",
+      pt: "Green Cortes Planner",
+    },
+    image: {
+      src: lawnPlanCover,
+      alt: {
+        en: "Green Cortes Planner concept art.",
+        pt: "Conceito visual do Green Cortes Planner.",
+      },
+    },
+    summary: {
+      en: "Smart spreadsheet for Green Cortes to organize finances, schedule cuts, and flag late jobs.",
+      pt: "Planilha inteligente para a Green Cortes organizar finanças, agendamentos e atrasos.",
+    },
+    context: {
+      en: "Green Cortes needed a lightweight tool to plan visits and keep clients updated without a full app.",
+      pt: "A Green Cortes precisava de uma ferramenta leve para planejar visitas e manter clientes atualizados sem construir um app completo.",
+    },
+    role: {
+      en: "Designed Excel formulas, dashboards, and automation rules to capture deposits, deadlines, and completion status.",
+      pt: "Projetei fórmulas no Excel, dashboards e regras de automação para capturar entrada de recursos, prazos e status de entrega.",
+    },
+    stack: ["Excel", "Formulas", "Automation"],
+    decision: {
+      en: "Added conditional formatting, overdue flags, and custom macros so the owner sees when payments or cuts fall behind.",
+      pt: "Adicionei formatação condicional, alertas de atraso e macros para que o dono saiba quando pagamentos ou cortes ficam defasados.",
+    },
+    outcome: {
+      en: "Cut missed appointments, kept financials in one place, and delivered weekly reports to the owner.",
+      pt: "Reduziu atendimentos perdidos, manteve as finanças centralizadas e entregou relatórios semanais ao dono.",
+    },
+    impact: 15,
+    mediaNoFade: true,
   },
 ];
