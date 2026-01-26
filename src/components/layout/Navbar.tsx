@@ -27,8 +27,6 @@ export const Navbar: React.FC = () => {
   const sitesHref = `${basePath}#sites`;
   const stackHref = `${basePath}#stack`;
   const contactHref = `${basePath}#contact`;
-  const isClient = pathname.startsWith(routes.client);
-
   React.useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
