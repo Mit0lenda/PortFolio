@@ -1851,6 +1851,15 @@ button {
     transition: none !important;
   }
 
+  .project-carousel img {
+    opacity: 1;
+    position: relative;
+  }
+
+  .project-carousel img:not(:first-child) {
+    display: none;
+  }
+
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
