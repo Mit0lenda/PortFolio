@@ -7,7 +7,7 @@ export const copyPt: Copy = {
   },
   hero: {
     eyebrow: "// Full-Stack Developer · Porto Alegre · Atende Brasil e exterior",
-    h1a: "TRANSFORMAMOS", h1b: "CÓDIGO EM", h1c: "RESULTADO REAL.",
+    h1a: "TRANSFORMO", h1b: "CÓDIGO EM", h1c: "RESULTADO REAL.",
     lead: "Sites, sistemas e automações para empresas que querem crescer sem contratar mais gente.",
     cta1: 'Manda "projeto" no direct →', cta2: "Chamar no WhatsApp",
     meta1: "DISPONÍVEL · MAIO 2026", meta2: "// PORTO ALEGRE — RS", meta3: "NICOLLAS FREITAS",
@@ -65,11 +65,11 @@ export const copyPt: Copy = {
     eyebrow: "// 07 — sobre",
     sub: "NICOLLAS FREITAS · POA",
     h3a: "Engenheiro que", h3b: "programa.",
-    bio1a: "Estudante de Ciência da Computação na ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack, ex-estagiário da ", bio1d: "Polícia Federal em perícia digital", bio1e: ".",
+    bio1a: "Estudante de Ciência da Computação na ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack e ex-estagiário da ", bio1d: "Polícia Federal na área de perícia digital", bio1e: ".",
     bio2: "Hoje atendo PMEs e negócios locais do Brasil inteiro como dev solo. Foco em entregar coisa que entra em produção e gera dinheiro — não vitrine de portfólio.",
     a1h1: "3º", a1h2: "nacional", a1d: "iTwin4Good BR",
     a2h1: "Startup", a2h2: "incubada", a2d: "CEI-UFRGS",
-    a3h1: "Perícia", a3h2: "digital", a3d: "Polícia Federal",
+    a3h1: "Perícia", a3h2: "digital", a3d: "Estágio · Polícia Federal",
   },
   faq: {
     eyebrow: "// 08 — perguntas frequentes",

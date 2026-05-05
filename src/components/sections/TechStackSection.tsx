@@ -5,15 +5,20 @@ const STACK: [string, string][] = [
   ["React", "lg"],
   ["TypeScript", "lg"],
   ["Node.js", "lg"],
-  ["Python", ""],
-  ["n8n", "imp"],
   ["Supabase", ""],
+  ["n8n", "imp"],
+  ["JavaScript", ""],
+  ["Python", ""],
+  ["PHP", ""],
   ["MySQL", ""],
   ["Azure", ""],
   ["JWT", ""],
   ["OAuth2", ""],
   ["GSAP", ""],
   ["Java", ""],
+  ["C", ""],
+  ["C++", ""],
+  ["C#", ""],
 ];
 
 export const TechStackSection: React.FC = () => {
