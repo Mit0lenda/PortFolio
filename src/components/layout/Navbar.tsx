@@ -1,128 +1,62 @@
 import React from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCopy } from "../../lib/useCopy";
-import { routes } from "../../lib/routes";
-import { stripHighlightTokens } from "../ui/HighlightText";
-import { AudienceToggle } from "./AudienceToggle";
-import { LanguageSwitch } from "./LanguageSwitch";
+import { useLanguage } from "../../app/LanguageProvider";
+import type { Language } from "../../lib/types";
 
-const getBasePath = (pathname: string): string => {
-  if (pathname.startsWith(routes.recruiter)) {
-    return routes.recruiter;
-  }
-
-  if (pathname.startsWith(routes.client)) {
-    return routes.client;
-  }
-
-  return routes.home;
+const go = (hash: string) => {
+  const el = document.querySelector(hash);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
 export const Navbar: React.FC = () => {
-  const copy = useCopy();
-  const { pathname } = useLocation();
-  const [isMenuOpen, setMenuOpen] = React.useState(false);
-  const basePath = getBasePath(pathname);
-  const projectsHref = `${basePath}#projects`;
-  const sitesHref = `${basePath}#sites`;
-  const stackHref = `${basePath}#stack`;
-  const contactHref = `${basePath}#contact`;
-  React.useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const t = useCopy();
+  const { language, setLanguage } = useLanguage();
+
+  const links: [string, string][] = [
+    ["#servicos", t.nav.servicos],
+    ["#projetos", t.nav.projetos],
+    ["#sites", t.nav.sites],
+    ["#stack", t.nav.stack],
+    ["#sobre", t.nav.sobre],
+    ["#faq", t.nav.faq],
+  ];
 
   return (
-    <header className="site-header">
-      <nav className="nav" aria-label="Primary">
-        <Link to={routes.home} className="brand" aria-label={`${copy.brand.name} home`}>
-          <span className="brand-name">{copy.brand.name}</span>
-          <span className="brand-sub">{copy.brand.developerName}</span>
-        </Link>
-        <div className="nav-cta">
-          <button
-            type="button"
-            className="nav-toggle"
-            aria-label="Open menu"
-            aria-expanded={isMenuOpen}
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-        <div className="nav-links">
-          <NavLink
-            to={routes.home}
-            end
-            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
-          >
-            {copy.nav.home}
-          </NavLink>
-          <Link to={projectsHref} className="nav-link">
-            {stripHighlightTokens(copy.projects.title)}
-          </Link>
-          <Link to={sitesHref} className="nav-link">
-            {stripHighlightTokens(copy.sites.title)}
-          </Link>
-          <Link to={stackHref} className="nav-link">
-            {stripHighlightTokens(copy.stack.title)}
-          </Link>
-          <Link to={contactHref} className="nav-link">
-            {stripHighlightTokens(copy.contact.title)}
-          </Link>
-        </div>
-        <div className="nav-actions nav-actions--desktop">
-          <AudienceToggle />
-          <LanguageSwitch />
-        </div>
-      </nav>
-      <div className={`nav-drawer ${isMenuOpen ? "is-open" : ""}`}>
+    <header className="nav">
+      <div className="container nav-inner">
         <button
-          type="button"
-          className="nav-drawer-overlay"
-          aria-label="Close menu"
-          onClick={() => setMenuOpen(false)}
-        />
-        <div className="nav-drawer-panel" role="dialog" aria-modal="true">
-          <div className="nav-drawer-header">
-            <span className="nav-drawer-title">{copy.brand.name}</span>
-            <button
-              type="button"
-              className="nav-drawer-close"
-              aria-label="Close menu"
-              onClick={() => setMenuOpen(false)}
-            >
-              X
-            </button>
+          className="brand"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <span className="p">DEV</span>
+          <span className="u" />
+          MITOLENDA
+        </button>
+
+        <nav className="nav-links">
+          {links.map(([hash, label]) => (
+            <a key={hash} onClick={() => go(hash)}>
+              {label}
+            </a>
+          ))}
+
+          <div className="lang-switch">
+            {(["pt", "en", "es"] as Language[]).map((l) => (
+              <button
+                key={l}
+                className={language === l ? "on" : ""}
+                onClick={() => setLanguage(l)}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
           </div>
-          <nav className="nav-drawer-links" aria-label="Mobile">
-            <NavLink to={routes.home} end className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {copy.nav.home}
-            </NavLink>
-            <Link to={projectsHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {stripHighlightTokens(copy.projects.title)}
-            </Link>
-            <Link to={sitesHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {stripHighlightTokens(copy.sites.title)}
-            </Link>
-            <Link to={stackHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {stripHighlightTokens(copy.stack.title)}
-            </Link>
-            <Link to={contactHref} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {stripHighlightTokens(copy.contact.title)}
-            </Link>
-            <NavLink to={routes.recruiter} className="nav-drawer-link" onClick={() => setMenuOpen(false)}>
-              {copy.nav.recruiter}
-            </NavLink>
-          </nav>
-          <div className="nav-drawer-footer">
-            <LanguageSwitch />
-          </div>
-        </div>
+
+          <button className="nav-cta" onClick={() => go("#contato")}>
+            {t.nav.cta}
+          </button>
+        </nav>
       </div>
     </header>
   );
 };
-
-

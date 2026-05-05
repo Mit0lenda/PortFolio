@@ -1,20 +1,28 @@
-﻿import React from "react";
-import { Seo } from "../components/seo/Seo";
-import { useCopy } from "../lib/useCopy";
-import { SectionsRenderer } from "./SectionsRenderer";
-import { routes } from "../lib/routes";
+import React from "react";
+import { HeroSection } from "../components/sections/HeroSection";
+import { ServicesSection } from "../components/sections/ServicesSection";
+import { ProjectsSection } from "../components/sections/ProjectsSection";
+import { VenturesSection } from "../components/sections/VenturesSection";
+import { SitesSection } from "../components/sections/SitesSection";
+import { TechStackSection } from "../components/sections/TechStackSection";
+import { AboutSection } from "../components/sections/AboutSection";
+import { FAQSection } from "../components/sections/FAQSection";
+import { FinalCTASection } from "../components/sections/FinalCTASection";
+import { ContactSection } from "../components/sections/ContactSection";
+import { StackStrip } from "../components/ui/StackStrip";
 
-export const HomePage: React.FC = () => {
-  const copy = useCopy();
-
-  return (
-    <>
-      <Seo
-        title={copy.seo.home.title}
-        description={copy.seo.home.description}
-        path={routes.home}
-      />
-      <SectionsRenderer variant="home" />
-    </>
-  );
-};
+export const HomePage: React.FC = () => (
+  <main className="page">
+    <HeroSection />
+    <StackStrip />
+    <ServicesSection />
+    <ProjectsSection />
+    <VenturesSection />
+    <SitesSection />
+    <TechStackSection />
+    <AboutSection />
+    <FAQSection />
+    <FinalCTASection />
+    <ContactSection />
+  </main>
+);

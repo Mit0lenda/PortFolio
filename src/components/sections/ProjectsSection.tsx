@@ -1,124 +1,61 @@
 import React from "react";
-import type { Variant } from "../../lib/types";
 import { useCopy } from "../../lib/useCopy";
-import { projects } from "../../content/projects";
-import { getLocalizedText } from "../../lib/localize";
-import { useLanguage } from "../../app/LanguageProvider";
-import { useScrollReveal } from "../../lib/useScrollReveal";
-import { SectionHeader } from "../ui/SectionHeader";
-import { ButtonLink } from "../ui/ButtonLink";
-import { Tag } from "../ui/Tag";
-import { routes } from "../../lib/routes";
 
-export const ProjectsSection: React.FC<{ variant: Variant }> = ({ variant }) => {
-  const copy = useCopy();
-  const { language } = useLanguage();
-  const { ref, isInView } = useScrollReveal();
+const IMGS = [
+  "/assets/photo-trofeu.png",
+  "/assets/site-nexium.png",
+  "/assets/work-atlas-dashboard.png",
+];
+
+const STACKS = [
+  ["React", "Node.js", "IA", "iTwin", "Mapas"],
+  ["React", "Leaflet", "Python", "CV", "Bentley"],
+  ["React", "Node.js", "JWT", "MySQL", "Azure"],
+];
+
+export const ProjectsSection: React.FC = () => {
+  const t = useCopy();
 
   return (
-    <section ref={ref} className="section section--accent-primary section--projects" id="projects">
+    <section id="projetos">
       <div className="container">
-        <SectionHeader
-          title={copy.projects.title}
-          intro={copy.projects.intro[variant]}
-          className={`reveal-on-scroll ${isInView ? "is-visible" : ""}`}
-        />
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <article
-              key={project.slug}
-              className={`card project-card reveal-on-scroll ${isInView ? "is-visible" : ""}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="project-card-layout">
-                <figure
-                  className={[
-                    "project-card-media",
-                    project.mediaNoFade ? "project-card-media--no-fade" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  <div
-                    className={[
-                      "project-carousel",
-                      project.mediaNoFade ? "project-carousel--static" : "",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")}
-                    style={{ "--carousel-duration": `${(project.images?.length ?? 1) * 4}s` } as React.CSSProperties}
-                  >
-                    {(project.images?.length ? project.images : [project.image]).map((image, imageIndex) => (
-                      <img
-                        key={`${project.slug}-${imageIndex}`}
-                        src={image.src}
-                        alt={getLocalizedText(image.alt, language)}
-                        loading="lazy"
-                        decoding="async"
-                        style={{ animationDelay: `${imageIndex * 4}s` }}
-                      />
-                    ))}
-                  </div>
-                </figure>
-                <div className="project-card-content">
-                  <header className="project-card-header">
-                    {project.slug === "project-haven-link" ? (
-                      <span className="project-badge" aria-label="3rd place iTwin Brasil">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                          className="project-badge-icon"
-                        >
-                          <path
-                            d="M7 4h10v3a4 4 0 0 1-10 0V4zm-2 1H3a3 3 0 0 0 3 3V6a1 1 0 0 1-1-1zm16 0h-2a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3zm-10 8h2v3h3v2H8v-2h3v-3z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                        3&ordm; lugar iTwin Brasil
-                      </span>
-                    ) : null}
-                    <h3>{getLocalizedText(project.title, language)}</h3>
-                    <p className="project-summary">{getLocalizedText(project.summary, language)}</p>
-                  </header>
-                  <dl className="project-card-meta-grid">
-                    {[
-                      {
-                        label: copy.labels.context,
-                        value: getLocalizedText(project.context, language),
-                      },
-                      {
-                        label: copy.labels.role,
-                        value: getLocalizedText(project.role, language),
-                      },
-                      {
-                        label: copy.labels.decision,
-                        value: getLocalizedText(project.decision, language),
-                      },
-                      {
-                        label: copy.labels.outcome,
-                        value: getLocalizedText(project.outcome, language),
-                      },
-                    ].map((item) => (
-                      <div key={`${project.slug}-${item.label}`} className="project-card-meta-item">
-                        <dt>{item.label}</dt>
-                        <dd>{item.value}</dd>
-                      </div>
-                    ))}
-                    <div className="project-card-meta-item project-card-meta-item--stack">
-                      <dt>{copy.labels.stack}</dt>
-                      <dd className="stack-tags">
-                        {project.stack.map((item) => (
-                          <Tag key={item} text={item} />
-                        ))}
-                      </dd>
-                    </div>
-                  </dl>
-                  <div className="project-actions">
-                    <ButtonLink to={routes.project(project.slug)} variant="secondary">
-                      {copy.projects.ctaLabel}
-                    </ButtonLink>
-                  </div>
+        <div className="section-head">
+          <span className="eyebrow">{t.projects.eyebrow}</span>
+          <h2>
+            {t.projects.h2a} <span className="impact">{t.projects.h2b}</span>
+          </h2>
+          <p className="desc">{t.projects.desc}</p>
+        </div>
+
+        <div className="feat-grid">
+          {t.projects.list.map((p, i) => (
+            <article className="feat" key={i}>
+              <div className="feat-shot">
+                <img
+                  src={IMGS[i]}
+                  alt={p.name}
+                  className={IMGS[i].includes("trofeu") ? "trophy" : ""}
+                />
+              </div>
+              <div className="feat-body">
+                <div className="feat-eyebrow">
+                  <span className="num">
+                    // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{p.tag}</span>
+                </div>
+                <span className="feat-trophy">{p.trophy}</span>
+                <h3 className="feat-name">
+                  {p.name}
+                  <span className="impact">.</span>
+                </h3>
+                <p className="feat-desc">{p.desc}</p>
+                <div className="feat-stack">
+                  {STACKS[i].map((s) => (
+                    <span className="chip" key={s}>
+                      {s}
+                    </span>
+                  ))}
                 </div>
               </div>
             </article>

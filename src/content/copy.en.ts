@@ -1,240 +1,109 @@
-﻿import type { Copy } from "../lib/types";
-import { routes } from "../lib/routes";
-import { site } from "../lib/site";
+import type { Copy } from "../lib/types";
 
 export const copyEn: Copy = {
-  locale: "en",
-  brand: {
-    name: "MITOLENDA",
-    developerName: "Nicollas Freitas",
-    positioning: "Fullstack developer focused on security, data, and real delivery.",
-  },
   nav: {
-    home: "Home",
-    recruiter: "Recruiter",
-    client: "Client",
-    languageLabel: "Language",
-    audienceLabel: "Audience view",
-    skipToContent: "Skip to content",
+    servicos: "Services", projetos: "Projects", sites: "Websites",
+    stack: "Stack", sobre: "About", faq: "FAQ", cta: 'DM "project" →',
   },
   hero: {
-    home: {
-      kicker: "MITOLENDA / Nicollas Freitas",
-      title: "Real systems. [Security] and delivery.",
-      subtitle:
-        "Fullstack developer focused on reliability, automation, and UX, with hands-on data work.",
-      imageAlt: "Portrait of Nicollas Freitas",
-      primaryCta: {
-        label: "Recruiter profile",
-        to: routes.recruiter,
-        variant: "primary",
-      },
-      secondaryCta: {
-        label: "Client profile",
-        to: routes.client,
-        variant: "secondary",
-      },
-    },
-    recruiter: {
-      kicker: "Fullstack developer",
-      title: "Experience with [systems] and sensitive data.",
-      subtitle:
-        "I build a modern CRM with React, TypeScript, and SQL/Supabase, contributing to architecture, security, and performance decisions. Former digital forensics intern at the Federal Police.",
-      imageAlt: "Professional portrait of Nicollas Freitas",
-      primaryCta: {
-        label: "Download resume",
-        href: "/curriculo/Curriculo-Nicollas.pdf",
-        variant: "primary",
-      },
-      secondaryCta: {
-        label: "View projects",
-        href: "#projects",
-        variant: "secondary",
-      },
-    },
-    client: {
-      kicker: "Product-focused delivery",
-      title: "Products that run with [security] and clarity.",
-      subtitle:
-        "Automation, performance, and UX with secure integrations and simple operations.",
-      imageAlt: "Profile photo of Nicollas Freitas",
-      primaryCta: {
-        label: "Request proposal",
-        href: "#contact",
-        variant: "primary",
-      },
-      secondaryCta: {
-        label: "See real cases",
-        href: "#projects",
-        variant: "secondary",
-      },
-    },
+    eyebrow: "// Full-Stack Developer · Porto Alegre · Serving Brazil & abroad",
+    h1a: "WE TURN", h1b: "CODE INTO", h1c: "REAL RESULTS.",
+    lead: "Websites, systems and automations for companies that want to grow without hiring more people.",
+    cta1: 'DM "project" on Instagram →', cta2: "Message on WhatsApp",
+    meta1: "AVAILABLE · MAY 2026", meta2: "// PORTO ALEGRE — BRAZIL", meta3: "NICOLLAS FREITAS",
+    badge1: "3RD PLACE NATIONAL", badge2: "iTwin4Good BR",
   },
-  heroPanel: {
-    title: "Direct focus",
-    items: [
-      {
-        title: "Applied security",
-        description: "Sensitive data and access control from day one.",
-      },
-      {
-        title: "Analytical mindset",
-        description: "Digital forensics experience and data handling.",
-      },
-      {
-        title: "Delivery with product",
-        description: "Agile work with product and design.",
-      },
-    ],
-  },
-  about: {
-    title: "[About]",
-    summary:
-      "I am Nicollas Freitas (MITOLENDA), a fullstack developer at Flux Tecnologia. I build reliable systems with React, TypeScript, and SQL/Supabase.",
-    details:
-      "I focus on automation, security, and UX, with experience in technical decisions and product collaboration. Former digital forensics intern at the Federal Police.",
-    moreLabel: "Read more",
-    bullets: [
-      "B.Sc. in Computer Science at Unisinos (expected 2027).",
-      "Former teaching assistant for Computer Architecture II (x8086 Assembly).",
-      "English fluent, Portuguese native, Spanish basic.",
+  services: {
+    eyebrow: "// 02 — services",
+    h2a: "Seven fronts.", h2b: "Zero", h2c: "runaround.",
+    desc: "Price and timeline on the table before the meeting. No mystery quotes.",
+    kInvest: "Investment", kPrazo: "Timeline",
+    list: [
+      { t: "Professional Website", d: "Complete corporate site, performant, optimized for SEO and conversion.",           price: "$500–1,600",    prazo: "7–21 days" },
+      { t: "Landing Page",         d: "Single page focused on conversion. Custom copy, design and code.",                 price: "$300–1,000",    prazo: "3–10 days" },
+      { t: "n8n Automation",       d: "Get people out of spreadsheets. Connect CRM, email, sheets and APIs in one flow.", price: "$400–2,400",    prazo: "5–20 days" },
+      { t: "Chatbot / AI",         d: "24/7 support with a language model trained on your business.",                     price: "$500–3,000",    prazo: "7–25 days" },
+      { t: "Custom Web System",    d: "CRM, light ERP, dashboards, client area. Auth + DB + API + UI.",                   price: "$1,600–6,000+", prazo: "20–90 days" },
+      { t: "API Integrations",     d: "Connect your systems: ERP ↔ e-commerce, CRM ↔ marketing, bank ↔ reports.",        price: "$400–2,000",    prazo: "5–20 days" },
+      { t: "Digital Consulting",   d: "Technical session to unblock projects, choose stack or audit code.",               price: "$100–600",      prazo: "2–7 days" },
     ],
   },
   projects: {
-    title: "[Projects]",
-    intro: {
-      home: "Real cases that blend constraints, security, and tangible impact.",
-      recruiter: "Profiles centered on technical decisions, reliability, and safe operations.",
-      client: "Stories about delivery, secure integrations, and measurable impact.",
-    },
-    ctaLabel: "View case",
+    eyebrow: "// 03 — featured projects",
+    h2a: "Code that", h2b: "wins.",
+    desc: "Three projects. One national award. One incubated startup. One system in production.",
+    labelProj: "PROJECT",
+    list: [
+      { name: "Haven Link", tag: "AI · Emergency logistics", trophy: "🥉 3RD PLACE NATIONAL · iTwin4Good BR", desc: "AI platform for emergency logistics — coordinates disaster rescue, connecting volunteers, NGOs and public agencies via real-time map. Awarded nationally." },
+      { name: "Nexus",      tag: "Startup · CEI-UFRGS",      trophy: "🚀 INCUBATED · CEI-UFRGS",             desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Currently incubated at UFRGS Entrepreneurship Center." },
+      { name: "Atlas",      tag: "FGTS financial system",    trophy: "// IN PRODUCTION · FREELANCE",         desc: "Complete FGTS financial management system for a sales team. CRM for proposals, calendar, bulk queries, report exports." },
+    ],
   },
   sites: {
-    title: "[Sites]",
-    intro: {
-      home: "Sites delivered for clients who trusted my work.",
-      recruiter: "Sites delivered as a freelancer for clients who trusted my work.",
-      client: "Live sites shipped for clients who trusted my work.",
-    },
-    ctaLabel: "Visit site",
+    eyebrow: "// 04 — websites delivered",
+    h2a: "Live.", h2b: "Selling.",
+    desc: "Clients across different sectors. Common denominator: fast site, honest copy, measured conversion.",
+  },
+  ventures: {
+    eyebrow: "// 05 — my ventures",
+    h2a: "Not just dev.", h2b: "Founder.",
+    desc: "Two companies I co-founded. Where I'm CEO alongside my partners.",
+    labelRole: "CEO & CO-FOUNDER",
+    cta: "visit site →",
+    list: [
+      { n: "Codaryn", tag: "Digital solutions", url: "codaryn.com.br", desc: "Digital solutions company for your business. We apply technologies that simplify challenges and amplify results — full team of developers, support and administration.", tags: ["Full team", "Support", "Applied tech"] },
+      { n: "Nexium",  tag: "AI construction monitoring", url: "nexusbrtech.com", desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Incubated at CEI-UFRGS.", tags: ["Applied AI", "CEI-UFRGS incubated", "Real-time map"] },
+    ],
   },
   stack: {
-    title: "Tech [Stack]",
-    groups: [
-      {
-        label: "Frontend",
-        items: ["React", "TypeScript", "HTML", "CSS", "JavaScript"],
-      },
-      {
-        label: "Backend and APIs",
-        items: ["Node.js", "REST", "JWT", "OAuth2"],
-      },
-      {
-        label: "Data",
-        items: ["MySQL", "SQL", "Supabase"],
-      },
-      {
-        label: "Languages",
-        items: ["Java", "C", "Python", "VHDL", "Assembly x8086"],
-      },
-      {
-        label: "Cloud and tools",
-        items: ["Azure (basic)", "Git", "GitHub"],
-      },
-      {
-        label: "Domains",
-        items: ["Digital forensics", "Information security", "Networks"],
-      },
+    eyebrow: "// 06 — tech stack",
+    h2a: "A tool", h2b: "is not a faith.",
+    desc1: "I pick the stack based on the client's problem, not the dev's taste.",
+    desc2: "But, in general, this is the lineup:",
+  },
+  about: {
+    eyebrow: "// 07 — about",
+    sub: "NICOLLAS FREITAS · POA",
+    h3a: "An engineer who", h3b: "codes.",
+    bio1a: "Computer Science student at ", bio1b: "Unisinos + UERGS", bio1c: ", fullstack dev, former intern at the ", bio1d: "Federal Police in digital forensics", bio1e: ".",
+    bio2: "Today I serve SMBs and local businesses across Brazil as a solo dev. Focus on shipping things that go to production and make money — not portfolio vitrine.",
+    a1h1: "3rd", a1h2: "nationally", a1d: "iTwin4Good BR",
+    a2h1: "Incubated", a2h2: "startup", a2d: "CEI-UFRGS",
+    a3h1: "Digital", a3h2: "forensics", a3d: "Federal Police",
+  },
+  faq: {
+    eyebrow: "// 08 — frequently asked questions",
+    h2a: "Before", h2b: "booking a call.",
+    list: [
+      { q: "What is the average timeline for a website?",         a: "Landing page: 3–10 days. Corporate site: 7–21 days. Custom system: 20+ days. I send a milestone schedule before starting." },
+      { q: "Do you offer maintenance after delivery?",            a: "Yes. Monthly SLA (fixes, small evolutions, monitoring) or hourly billing. Your choice." },
+      { q: "Do I need to have a domain and hosting?",             a: "You don't need to — I handle setup. If you have one, great, we migrate. If not, I help you buy with proper invoicing." },
+      { q: "Do you serve clients outside Rio Grande do Sul?",     a: "Yes. I work with clients all over Brazil 100% remotely. Meetings via Meet/Zoom, weekly deliveries." },
+      { q: "How does payment work?",                              a: "50% upfront + 50% on delivery for short projects. For long projects, milestone-based. PIX, bank slip or card (with fee)." },
+      { q: "What is n8n automation?",                             a: "n8n is a tool that connects your systems (CRM, email, spreadsheet, WhatsApp, ERP) in a single flow. Ex.: client fills form → enters CRM → triggers email → creates proposal. Removes humans from repetitive tasks." },
+      { q: "Difference between landing page and corporate site?", a: "Landing page is a single page focused on ONE conversion (lead, sale, booking). Corporate site has multiple pages (home, about, services, blog, contact) and exists for brand presence + SEO." },
     ],
   },
-  thinking: {
-    title: "How I [Think]",
-    items: [
-      {
-        title: "Security from day one",
-        body:
-          "Sensitive data and access control belong in the architecture.",
-      },
-      {
-        title: "Simple operations",
-        body:
-          "Systems the team can run, monitor, and evolve.",
-      },
-      {
-        title: "Data-backed decisions",
-        body:
-          "Analytical approach to data extraction and treatment.",
-      },
-      {
-        title: "Real-world delivery",
-        body:
-          "Ship, measure, and improve with clear impact.",
-      },
-    ],
+  finalCta: {
+    eyebrow: "// start now",
+    h2a: "Ready to", h2b: "transform", h2c: "your business?",
+    lead: "Tell me your problem. In 5 minutes I'll tell you the best path.",
+    cta1: 'DM "project" on Instagram →', cta2: "Message on WhatsApp",
+    ig: 'DM with the word "PROJECT"',
   },
   contact: {
-    title: "[Contact]",
-    body: "Direct contact for opportunities and projects.",
-    ctaLabel: "Start conversation",
-    items: [
-      {
-        label: "WhatsApp",
-        value: "WhatsApp: +55 51 9348-4339 · I came from your portfolio.",
-        href: "https://wa.me/555193484339?text=I%20came%20from%20your%20portfolio%20and%20would%20like%20to%20talk.",
-      },
-      { label: "Instagram", value: "@dev_mitolenda", href: site.instagram },
-      { label: "LinkedIn", value: "linkedin.com/in/mitolenda", href: site.linkedin },
-      { label: "GitHub", value: "github.com/mitolenda", href: site.github },
-      { label: "Email", value: site.email, href: `mailto:${site.email}` },
+    eyebrow: "// 09 — contact",
+    h2a: "Let's", h2b: "talk.",
+    desc: "Pick the channel you use most. I usually reply within 24h on weekdays.",
+    cards: [
+      { k: "WhatsApp",  v: "Open chat",             sub: "Reply < 24h",           hint: "open chat →",       href: "https://wa.me/555193484339?text=I%20came%20from%20your%20portfolio%20and%20would%20like%20to%20chat." },
+      { k: "Instagram", v: "@dev_mitolenda",         sub: "DM 'project'",          hint: "open profile →",    href: "https://instagram.com/dev_mitolenda" },
+      { k: "Email",     v: "devmitolenda@gmail.com", tech: 1, sub: "Detailed brief",       hint: "compose email →",   href: "mailto:devmitolenda@gmail.com" },
+      { k: "LinkedIn",  v: "in/nicollasde",          tech: 1, sub: "Professional profile", hint: "open linkedin →",   href: "https://linkedin.com/in/nicollasde" },
     ],
   },
   footer: {
-    note: "MITOLENDA. Straight to the point.",
-  },
-  labels: {
-    context: "Context",
-    role: "Role",
-    stack: "Stack",
-    decision: "Key decision",
-    outcome: "Outcome",
-    impact: "Project impact",
-  },
-  projectDetail: {
-    backLabel: "Back to projects",
-    viewLiveLabel: "View live",
-  },
-  seo: {
-    siteName: "MITOLENDA",
-    defaultTitle: "MITOLENDA - Nicollas Freitas, Fullstack Developer",
-    defaultDescription:
-      "Fullstack developer focused on security, data, and real delivery.",
-    home: {
-      title: "MITOLENDA - Real systems with security and delivery",
-      description:
-        "Nicollas (MITOLENDA) delivers reliable, secure systems with real outcomes.",
-    },
-    recruiter: {
-      title: "Recruiter View - MITOLENDA",
-      description:
-        "Recruiter-focused profile with CRM delivery, digital forensics, and technical decisions.",
-    },
-    client: {
-      title: "Client View - MITOLENDA",
-      description:
-        "Client-focused view highlighting delivery, secure integrations, and impact.",
-    },
-    project: {
-      titlePrefix: "Case Study",
-      descriptionPrefix: "Project case study focused on real constraints and outcomes:",
-    },
-    notFound: {
-      title: "Page not found - MITOLENDA",
-      description: "The page you requested does not exist.",
-    },
-  },
-  sectionOrder: {
-    home: ["hero", "about", "projects", "sites", "stack", "thinking", "contact"],
-    recruiter: ["hero", "about", "stack", "thinking", "projects", "sites", "contact"],
-    client: ["hero", "projects", "sites", "about", "thinking", "stack", "contact"],
+    inicio: "home", servicos: "services", projetos: "projects",
+    sobre: "about", faq: "faq", contato: "contact",
   },
 };

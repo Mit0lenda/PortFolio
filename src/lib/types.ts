@@ -1,169 +1,155 @@
-﻿export type Language = "en" | "pt";
-export type Variant = "home" | "recruiter" | "client";
+export type Language = "pt" | "en" | "es";
 
-export type SectionId = "hero" | "about" | "projects" | "sites" | "stack" | "thinking" | "contact";
-
-export type LocalizedText = {
-  en: string;
-  pt: string;
+export type ServiceItem = {
+  t: string;
+  d: string;
+  price: string;
+  prazo: string;
 };
 
-export type HeroCta = {
-  label: string;
-  variant: "primary" | "secondary";
-  href?: string;
-  to?: string;
+export type ProjectItem = {
+  name: string;
+  tag: string;
+  trophy: string;
+  desc: string;
 };
 
-export type HeroPanelItem = {
-  title: string;
-  description: string;
+export type VentureItem = {
+  n: string;
+  tag: string;
+  url: string;
+  desc: string;
+  tags: string[];
 };
 
-export type HeroCopy = {
-  kicker: string;
-  title: string;
-  subtitle: string;
-  imageAlt: string;
-  primaryCta: HeroCta;
-  secondaryCta: HeroCta;
+export type ContactCard = {
+  k: string;
+  v: string;
+  tech?: number;
+  sub: string;
+  hint: string;
+  href: string;
+};
+
+export type FaqItem = {
+  q: string;
+  a: string;
 };
 
 export type Copy = {
-  locale: Language;
-  brand: {
-    name: string;
-    developerName: string;
-    positioning: string;
-  };
   nav: {
-    home: string;
-    recruiter: string;
-    client: string;
-    languageLabel: string;
-    audienceLabel: string;
-    skipToContent: string;
+    servicos: string;
+    projetos: string;
+    sites: string;
+    stack: string;
+    sobre: string;
+    faq: string;
+    cta: string;
   };
-  hero: Record<Variant, HeroCopy>;
-  heroPanel: {
-    title: string;
-    items: HeroPanelItem[];
+  hero: {
+    eyebrow: string;
+    h1a: string;
+    h1b: string;
+    h1c: string;
+    lead: string;
+    cta1: string;
+    cta2: string;
+    meta1: string;
+    meta2: string;
+    meta3: string;
+    badge1: string;
+    badge2: string;
   };
-  about: {
-    title: string;
-    summary: string;
-    details: string;
-    moreLabel: string;
-    bullets: string[];
+  services: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    h2c: string;
+    desc: string;
+    kInvest: string;
+    kPrazo: string;
+    list: ServiceItem[];
   };
   projects: {
-    title: string;
-    intro: Record<Variant, string>;
-    ctaLabel: string;
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc: string;
+    labelProj: string;
+    list: ProjectItem[];
   };
   sites: {
-    title: string;
-    intro: Record<Variant, string>;
-    ctaLabel: string;
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc: string;
+  };
+  ventures: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc: string;
+    labelRole: string;
+    cta: string;
+    list: VentureItem[];
   };
   stack: {
-    title: string;
-    groups: {
-      label: string;
-      items: string[];
-    }[];
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc1: string;
+    desc2: string;
   };
-  thinking: {
-    title: string;
-    items: {
-      title: string;
-      body: string;
-    }[];
+  about: {
+    eyebrow: string;
+    sub: string;
+    h3a: string;
+    h3b: string;
+    bio1a: string;
+    bio1b: string;
+    bio1c: string;
+    bio1d: string;
+    bio1e: string;
+    bio2: string;
+    a1h1: string;
+    a1h2: string;
+    a1d: string;
+    a2h1: string;
+    a2h2: string;
+    a2d: string;
+    a3h1: string;
+    a3h2: string;
+    a3d: string;
+  };
+  faq: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    list: FaqItem[];
+  };
+  finalCta: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    h2c: string;
+    lead: string;
+    cta1: string;
+    cta2: string;
+    ig: string;
   };
   contact: {
-    title: string;
-    body: string;
-    ctaLabel: string;
-    items: {
-      label: string;
-      value: string;
-      href: string;
-    }[];
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc: string;
+    cards: ContactCard[];
   };
   footer: {
-    note: string;
-  };
-  labels: {
-    context: string;
-    role: string;
-    stack: string;
-    decision: string;
-    outcome: string;
-    impact: string;
-  };
-  projectDetail: {
-    backLabel: string;
-    viewLiveLabel: string;
-  };
-  seo: {
-    siteName: string;
-    defaultTitle: string;
-    defaultDescription: string;
-    home: {
-      title: string;
-      description: string;
-    };
-    recruiter: {
-      title: string;
-      description: string;
-    };
-    client: {
-      title: string;
-      description: string;
-    };
-    project: {
-      titlePrefix: string;
-      descriptionPrefix: string;
-    };
-    notFound: {
-      title: string;
-      description: string;
-    };
-  };
-  sectionOrder: Record<Variant, SectionId[]>;
-};
-
-export type Project = {
-  slug: string;
-  title: LocalizedText;
-  summary: LocalizedText;
-  image: {
-    src: string;
-    alt: LocalizedText;
-  };
-  images?: {
-    src: string;
-    alt: LocalizedText;
-  }[];
-  context: LocalizedText;
-  role: LocalizedText;
-  stack: string[];
-  decision: LocalizedText;
-  outcome: LocalizedText;
-  impact: number;
-  mediaNoFade?: boolean;
-  links?: {
-    live?: string;
-    repo?: string;
-  };
-};
-
-export type Site = {
-  name: string;
-  url: string;
-  description: LocalizedText;
-  image: {
-    src: string;
-    alt: LocalizedText;
+    inicio: string;
+    servicos: string;
+    projetos: string;
+    sobre: string;
+    faq: string;
+    contato: string;
   };
 };

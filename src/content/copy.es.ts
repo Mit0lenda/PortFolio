@@ -1,0 +1,109 @@
+import type { Copy } from "../lib/types";
+
+export const copyEs: Copy = {
+  nav: {
+    servicos: "Servicios", projetos: "Proyectos", sites: "Sitios",
+    stack: "Stack", sobre: "Sobre mí", faq: "FAQ", cta: 'DM "proyecto" →',
+  },
+  hero: {
+    eyebrow: "// Desarrollador Full-Stack · Porto Alegre · Atiende Brasil y exterior",
+    h1a: "TRANSFORMAMOS", h1b: "CÓDIGO EN", h1c: "RESULTADO REAL.",
+    lead: "Sitios, sistemas y automatizaciones para empresas que quieren crecer sin contratar más gente.",
+    cta1: 'DM "proyecto" en Instagram →', cta2: "Mensaje por WhatsApp",
+    meta1: "DISPONIBLE · MAYO 2026", meta2: "// PORTO ALEGRE — BRASIL", meta3: "NICOLLAS FREITAS",
+    badge1: "3º LUGAR NACIONAL", badge2: "iTwin4Good BR",
+  },
+  services: {
+    eyebrow: "// 02 — servicios",
+    h2a: "Siete frentes.", h2b: "Cero", h2c: "vueltas.",
+    desc: "Precio y plazo sobre la mesa antes de la reunión. Sin presupuestos misteriosos.",
+    kInvest: "Inversión", kPrazo: "Plazo",
+    list: [
+      { t: "Sitio Profesional",    d: "Sitio institucional completo, rápido, optimizado para SEO y conversión.",           price: "R$ 2.500–8.000",   prazo: "7–21 días" },
+      { t: "Landing Page",         d: "Página única enfocada en conversión. Copy, diseño y código a medida.",              price: "R$ 1.500–5.000",   prazo: "3–10 días" },
+      { t: "Automatización n8n",   d: "Saca a la gente de la planilla. Conecta CRM, email, hojas y APIs en un solo flujo.",price: "R$ 2.000–12.000",  prazo: "5–20 días" },
+      { t: "Chatbot / IA",         d: "Atención 24/7 con un modelo de lenguaje entrenado en tu negocio.",                  price: "R$ 2.500–15.000",  prazo: "7–25 días" },
+      { t: "Sistema Web a Medida", d: "CRM, ERP ligero, dashboards, área de cliente. Auth + base + API + UI.",             price: "R$ 8.000–30.000+", prazo: "20–90 días" },
+      { t: "Integración de APIs",  d: "Conecta tus sistemas: ERP ↔ e-commerce, CRM ↔ marketing, banco ↔ reportes.",       price: "R$ 2.000–10.000",  prazo: "5–20 días" },
+      { t: "Consultoría Digital",  d: "Sesión técnica para destrabar proyecto, elegir stack o auditar código.",            price: "R$ 500–3.000",     prazo: "2–7 días" },
+    ],
+  },
+  projects: {
+    eyebrow: "// 03 — proyectos destacados",
+    h2a: "Código que", h2b: "gana.",
+    desc: "Tres proyectos. Un premio nacional. Una startup incubada. Un sistema en producción.",
+    labelProj: "PROYECTO",
+    list: [
+      { name: "Haven Link", tag: "IA · Logística de emergencia", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR", desc: "Plataforma de IA para logística de emergencia — coordina rescate en desastres, conectando voluntarios, ONGs y organismos públicos vía mapa en tiempo real. Premiada nacionalmente." },
+      { name: "Nexus",      tag: "Startup · CEI-UFRGS",          trophy: "🚀 INCUBADA · CEI-UFRGS",            desc: "Plataforma de monitoreo de obras con IA aplicada. Mapa por construcción, control de stock por punto y detección visual en el sitio. Hoy incubada en el Centro de Emprendedurismo de la UFRGS." },
+      { name: "Atlas",      tag: "Sistema financiero FGTS",      trophy: "// EN PRODUCCIÓN · FREELANCE",       desc: "Sistema financiero FGTS completo para un equipo comercial. CRM de propuestas, agenda, consultas masivas, exportación de reportes." },
+    ],
+  },
+  sites: {
+    eyebrow: "// 04 — sitios entregados",
+    h2a: "En el aire.", h2b: "Vendiendo.",
+    desc: "Clientes en diferentes sectores. El denominador común: sitio rápido, copy honesto, conversión medida.",
+  },
+  ventures: {
+    eyebrow: "// 05 — mis empresas",
+    h2a: "No solo desarrollo.", h2b: "Construyo.",
+    desc: "Dos empresas que co-fundé. Donde soy CEO junto a mis socios.",
+    labelRole: "CEO & CO-FUNDADOR",
+    cta: "visitar sitio →",
+    list: [
+      { n: "Codaryn", tag: "Soluciones digitales", url: "codaryn.com.br", desc: "Empresa de soluciones digitales para tu negocio. Aplicamos tecnologías que simplifican desafíos y potencian resultados — equipo completo de programadores, soporte y administración.", tags: ["Equipo completo", "Soporte", "Tecnología aplicada"] },
+      { n: "Nexium",  tag: "Monitoreo de obras con IA", url: "nexusbrtech.com", desc: "Plataforma de monitoreo de obras con IA aplicada. Mapa por construcción, control de stock por punto y detección visual en el sitio. Incubada en CEI-UFRGS.", tags: ["IA aplicada", "Incubada CEI-UFRGS", "Mapa en tiempo real"] },
+    ],
+  },
+  stack: {
+    eyebrow: "// 06 — tech stack",
+    h2a: "Una herramienta", h2b: "no es una fe.",
+    desc1: "Elijo el stack por el problema del cliente, no por el gusto del dev.",
+    desc2: "Pero, en general, va por aquí:",
+  },
+  about: {
+    eyebrow: "// 07 — sobre mí",
+    sub: "NICOLLAS FREITAS · POA",
+    h3a: "Ingeniero que", h3b: "programa.",
+    bio1a: "Estudiante de Ciencias de la Computación en ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack, ex-becario de la ", bio1d: "Policía Federal en pericia digital", bio1e: ".",
+    bio2: "Hoy atiendo PYMEs y negocios locales de todo Brasil como dev solo. Foco en entregar cosas que entran en producción y generan dinero — no vitrina de portafolio.",
+    a1h1: "3º", a1h2: "nacional", a1d: "iTwin4Good BR",
+    a2h1: "Startup", a2h2: "incubada", a2d: "CEI-UFRGS",
+    a3h1: "Pericia", a3h2: "digital", a3d: "Policía Federal",
+  },
+  faq: {
+    eyebrow: "// 08 — preguntas frecuentes",
+    h2a: "Antes de", h2b: "la llamada.",
+    list: [
+      { q: "¿Cuál es el plazo medio para un sitio?",                  a: "Landing page: 3–10 días. Sitio institucional: 7–21 días. Sistema custom: a partir de 20 días. Te envío cronograma con hitos antes de empezar." },
+      { q: "¿Haces mantenimiento después de la entrega?",             a: "Sí. Cobro mensual por SLA (correcciones, pequeñas evoluciones, monitoreo) o por hora suelta. Tú eliges." },
+      { q: "¿Necesito tener dominio y hosting?",                      a: "No es necesario — yo me encargo de la configuración. Si ya tienes, perfecto, migramos. Si no, te ayudo a comprar con factura." },
+      { q: "¿Atiendes fuera de RS?",                                  a: "Sí. Trabajo con clientes de todo Brasil 100% remoto. Reuniones por Meet/Zoom y entregas semanales." },
+      { q: "¿Cómo funciona el pago?",                                 a: "50% al inicio + 50% en la entrega para proyectos cortos. En proyectos largos, divido por hitos. PIX, boleto o tarjeta (con tasa)." },
+      { q: "¿Qué es la automatización n8n?",                          a: "n8n es una herramienta que conecta tus sistemas (CRM, email, hoja de cálculo, WhatsApp, ERP) en un único flujo. Ej.: cliente llena formulario → entra al CRM → dispara email → crea propuesta." },
+      { q: "¿Diferencia entre landing page y sitio institucional?",   a: "Landing page es una página enfocada en UNA conversión (lead, venta, agendamiento). Sitio institucional tiene varias páginas (home, sobre, servicios, blog, contacto) y existe para presencia de marca + SEO." },
+    ],
+  },
+  finalCta: {
+    eyebrow: "// empezar ahora",
+    h2a: "¿Listo para", h2b: "transformar", h2c: "tu negocio?",
+    lead: "Cuéntame tu problema. En 5 minutos te digo el mejor camino.",
+    cta1: 'DM "proyecto" en Instagram →', cta2: "Mensaje por WhatsApp",
+    ig: 'DM con la palabra "PROYECTO"',
+  },
+  contact: {
+    eyebrow: "// 09 — contacto",
+    h2a: "Vamos a", h2b: "conversar.",
+    desc: "Elige el canal que más usas. En general respondo en 24h, días hábiles.",
+    cards: [
+      { k: "WhatsApp",  v: "Abrir conversación",    sub: "Respuesta < 24h",   hint: "abrir conversación →", href: "https://wa.me/555193484339?text=Vine%20de%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." },
+      { k: "Instagram", v: "@dev_mitolenda",         sub: "DM con 'proyecto'", hint: "abrir perfil →",       href: "https://instagram.com/dev_mitolenda" },
+      { k: "Email",     v: "devmitolenda@gmail.com", tech: 1, sub: "Brief detallado", hint: "componer email →",     href: "mailto:devmitolenda@gmail.com" },
+      { k: "LinkedIn",  v: "in/nicollasde",          tech: 1, sub: "Perfil profesional", hint: "abrir linkedin →",  href: "https://linkedin.com/in/nicollasde" },
+    ],
+  },
+  footer: {
+    inicio: "inicio", servicos: "servicios", projetos: "proyectos",
+    sobre: "sobre", faq: "faq", contato: "contacto",
+  },
+};

@@ -1,24 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useCopy } from "../../lib/useCopy";
-import { site } from "../../lib/site";
+
+const go = (hash: string) => {
+  const el = document.querySelector(hash);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
 export const Footer: React.FC = () => {
-  const copy = useCopy();
+  const t = useCopy();
 
   return (
-    <footer className="site-footer">
-      <div className="container footer-content">
-        <p className="footer-note">{copy.footer.note}</p>
-        <div className="footer-actions">
-          <a
-            href={site.instagram}
-            className="text-link"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Instagram @dev_mitolenda
+    <footer>
+      <div className="container foot">
+        <span className="sig">
+          <span className="p">DEV_</span>MITOLENDA &nbsp;&nbsp;//2026
+        </span>
+        <nav className="nav-foot">
+          <a onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>{t.footer.inicio}</a>
+          <a onClick={() => go("#servicos")}>{t.footer.servicos}</a>
+          <a onClick={() => go("#projetos")}>{t.footer.projetos}</a>
+          <a onClick={() => go("#sobre")}>{t.footer.sobre}</a>
+          <a onClick={() => go("#faq")}>{t.footer.faq}</a>
+          <a onClick={() => go("#contato")}>{t.footer.contato}</a>
+          <a href="https://instagram.com/dev_mitolenda" target="_blank" rel="noreferrer">
+            @dev_mitolenda
           </a>
-          <p className="footer-meta">{new Date().getFullYear()} {copy.brand.name}</p>
+        </nav>
+        <div className="foot-legal">
+          <Link to="/termos">Termos de Serviço</Link>
+          <Link to="/privacidade">Política de Privacidade</Link>
         </div>
       </div>
     </footer>
