@@ -1,133 +1,44 @@
 import React from "react";
-import type { IconType } from "react-icons";
-import { TbBrandAzure } from "react-icons/tb";
-import {
-  SiC,
-  SiCss3,
-  SiGithub,
-  SiGit,
-  SiHtml5,
-  SiJavascript,
-  SiJsonwebtokens,
-  SiMysql,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiSwagger,
-  SiSupabase,
-  SiTypescript,
-  SiPython,
-  SiKeycdn,
-} from "react-icons/si";
 import { useCopy } from "../../lib/useCopy";
-import { useScrollReveal } from "../../lib/useScrollReveal";
-import { SectionHeader } from "../ui/SectionHeader";
-import { FaJava } from "react-icons/fa";
 
-const techIconMap: Record<string, IconType> = {
-  React: SiReact,
-  TypeScript: SiTypescript,
-  HTML: SiHtml5,
-  CSS: SiCss3,
-  JavaScript: SiJavascript,
-  "Node.js": SiNodedotjs,
-  REST: SiSwagger,
-  JWT: SiJsonwebtokens,
-  OAuth2: SiKeycdn,
-  MySQL: SiMysql,
-  SQL: SiPostgresql,
-  Supabase: SiSupabase,
-  Java: FaJava,
-  C: SiC,
-  Python: SiPython,
-  "Azure (básico)": TbBrandAzure,
-  "Azure (basic)": TbBrandAzure,
-  Git: SiGit,
-  GitHub: SiGithub,
-};
+const STACK: [string, string][] = [
+  ["React", "lg"],
+  ["TypeScript", "lg"],
+  ["Node.js", "lg"],
+  ["Python", ""],
+  ["n8n", "imp"],
+  ["Supabase", ""],
+  ["MySQL", ""],
+  ["Azure", ""],
+  ["JWT", ""],
+  ["OAuth2", ""],
+  ["GSAP", ""],
+  ["Java", ""],
+];
 
 export const TechStackSection: React.FC = () => {
-  const copy = useCopy();
-  const { ref, isInView } = useScrollReveal();
-  const [openGroups, setOpenGroups] = React.useState<string[]>(
-    () => copy.stack.groups.map((group) => group.label),
-  );
-
-  React.useEffect(() => {
-    setOpenGroups(copy.stack.groups.map((group) => group.label));
-  }, [copy]);
-
-  const handleToggle = (label: string) => {
-    setOpenGroups((prev) =>
-      prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label],
-    );
-  };
+  const t = useCopy();
 
   return (
-    <section ref={ref} className="section section--stack" id="stack">
+    <section id="stack">
       <div className="container">
-        <SectionHeader
-          title={copy.stack.title}
-          className={`reveal-on-scroll ${isInView ? "is-visible" : ""}`}
-        />
-        <div className="stack-grid">
-          {copy.stack.groups.map((group, index) => (
-            <article
-              key={group.label}
-              className={`card stack-card reveal-on-scroll ${isInView ? "is-visible" : ""}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <h3 className="stack-title">{group.label}</h3>
-              <ul className="stack-list">
-                {group.items.map((item) => {
-                  const Icon = techIconMap[item];
-
-                  return (
-                    <li key={item} className="stack-item">
-                      {Icon ? (
-                        <span className="stack-item-icon">
-                          <Icon aria-hidden="true" focusable="false" />
-                        </span>
-                      ) : null}
-                      <span>{item}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </article>
-          ))}
+        <div className="section-head">
+          <span className="eyebrow">{t.stack.eyebrow}</span>
+          <h2>
+            {t.stack.h2a} <span className="impact">{t.stack.h2b}</span>
+          </h2>
+          <p className="desc">{t.stack.desc1}</p>
+          <p className="desc" style={{ marginTop: 8 }}>
+            {t.stack.desc2}
+          </p>
         </div>
-        <div className="stack-accordion">
-          {copy.stack.groups.map((group, index) => {
-            const isOpen = openGroups.includes(group.label);
 
-            return (
-              <div
-                key={group.label}
-                className={`stack-accordion-item reveal-on-scroll ${isInView ? "is-visible" : ""}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <button
-                  type="button"
-                  className="stack-accordion-toggle"
-                  aria-expanded={isOpen}
-                  onClick={() => handleToggle(group.label)}
-                >
-                  <span>{group.label}</span>
-                  <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
-                </button>
-                <div className={`stack-accordion-panel ${isOpen ? "is-open" : ""}`}>
-                  <div className="stack-accordion-content">
-                    {group.items.map((item) => (
-                      <span key={item} className="stack-badge">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="stack-cloud">
+          {STACK.map(([name, cls]) => (
+            <span className={`badge ${cls}`} key={name}>
+              {name}
+            </span>
+          ))}
         </div>
       </div>
     </section>

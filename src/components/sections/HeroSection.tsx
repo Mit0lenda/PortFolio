@@ -1,130 +1,53 @@
 import React from "react";
-import type { HeroCta, Variant } from "../../lib/types";
 import { useCopy } from "../../lib/useCopy";
-import { ButtonLink } from "../ui/ButtonLink";
-import { HighlightText } from "../ui/HighlightText";
-import { FaBoxOpen, FaChartLine, FaDownload, FaLock } from "react-icons/fa";
-import profileImage from "../../assets/hero/Gemini_Generated_Image_lakcirlakcirlakc.png";
 
-const variantToAccent: Record<Variant, "primary" | "secondary"> = {
-  home: "primary",
-  recruiter: "primary",
-  client: "primary",
+const go = (hash: string) => {
+  const el = document.querySelector(hash);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
-export const HeroSection: React.FC<{ variant: Variant }> = ({ variant }) => {
-  const copy = useCopy();
-  const hero = copy.hero[variant];
-  const accent = variantToAccent[variant];
-  const getHeroCtaProps = (cta: HeroCta) => {
-    if (cta.to) {
-      return { to: cta.to };
-    }
-
-    const props: { href?: string; download?: boolean } = {};
-
-    if (cta.href) {
-      props.href = cta.href;
-      props.download = cta.href.endsWith(".pdf");
-    }
-
-    return props;
-  };
-
-  const primaryCtaProps = getHeroCtaProps(hero.primaryCta);
-  const secondaryCtaProps = getHeroCtaProps(hero.secondaryCta);
-  const highlightMatch = hero.title.match(/^(.*)\[([^\]]+)\](.*)$/);
-  const hasHighlight = Boolean(highlightMatch);
-  const kickerParts = variant === "home" ? hero.kicker.split("/").map((part) => part.trim()) : [];
-  const iconMap = [FaLock, FaChartLine, FaBoxOpen];
+export const HeroSection: React.FC = () => {
+  const t = useCopy();
 
   return (
-    <section className={`section hero-section section--accent-${accent} relative overflow-hidden`}>
-      <div className="container hero-grid">
-        <div className="hero-content">
-          <p className="eyebrow reveal hero-kicker">
-            {kickerParts.length === 2 ? (
-              <>
-                <span className="hero-kicker-nick">{kickerParts[0]}</span>
-                <span className="hero-kicker-sep">/</span>
-                <span className="hero-kicker-name">{kickerParts[1]}</span>
-              </>
-            ) : (
-              hero.kicker
-            )}
-          </p>
-          <h1 className="hero-title reveal reveal-delay-1">
-            {variant === "client" && hasHighlight && highlightMatch ? (
-              <>
-                <span className="hero-title-line">{highlightMatch[1].trim()}</span>
-                <span className="hero-title-line">
-                  <span className="text-accent">{highlightMatch[2]}</span>
-                  {highlightMatch[3]}
-                </span>
-              </>
-            ) : (
-              <HighlightText text={hero.title} />
-            )}
-          </h1>
-          <p className="hero-subtitle reveal reveal-delay-2">{hero.subtitle}</p>
-          <div className="hero-actions reveal reveal-delay-3">
-            <ButtonLink
-              {...primaryCtaProps}
-              variant={hero.primaryCta.variant}
-              className="relative [--btn-shadow:0_0_45px_rgba(255,212,0,0.35)] hover:[--btn-shadow:0_0_70px_rgba(255,59,59,0.45)]"
-            >
-              {hero.primaryCta.href?.endsWith(".pdf") ? (
-                <>
-                  <FaDownload aria-hidden="true" />
-                  {hero.primaryCta.label}
-                </>
-              ) : (
-                hero.primaryCta.label
-              )}
-            </ButtonLink>
-            <ButtonLink {...secondaryCtaProps} variant={hero.secondaryCta.variant}>
-              {hero.secondaryCta.label}
-            </ButtonLink>
-          </div>
-        </div>
-        <div className="relative flex flex-col items-center gap-6">
-          <div className="relative flex items-center justify-center">
-            <div
-              aria-hidden="true"
-              className="hero-orb"
-            />
-            <div className="hero-portrait-frame reveal reveal-delay-2">
-              <img
-                src={profileImage}
-                alt={hero.imageAlt}
-                className="hero-portrait"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </div>
-          </div>
-          <aside className="hero-panel reveal reveal-delay-2 w-full max-w-sm" aria-label={copy.heroPanel.title}>
-            <p className="panel-title">{copy.heroPanel.title}</p>
-            <ul className="panel-list">
-              {copy.heroPanel.items.map((item, index) => (
-                <li key={item.title} className="panel-item">
-                  <p className="panel-item-title">
-                    <span className="panel-icon" aria-hidden="true">
-                      {(() => {
-                        const Icon = iconMap[index];
-                        return Icon ? <Icon /> : null;
-                      })()}
-                    </span>
-                    {item.title}
-                  </p>
-                  <p className="panel-item-body">{item.description}</p>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </div>
+    <div className="container hero" id="home">
+      <div className="hero-floating-badge">
+        <span className="medal">🥉</span>
+        <span>
+          <span className="ev">{t.hero.badge1}</span>
+          <br />
+          {t.hero.badge2}
+        </span>
       </div>
-    </section>
+
+      <span className="eyebrow">{t.hero.eyebrow}</span>
+
+      <h1 style={{ marginTop: 18 }}>
+        {t.hero.h1a}
+        <br />
+        {t.hero.h1b}
+        <br />
+        <span className="impact">{t.hero.h1c}</span>
+      </h1>
+
+      <p className="lead">{t.hero.lead}</p>
+
+      <div className="hero-actions">
+        <button className="btn btn-cta" onClick={() => go("#contato")}>
+          {t.hero.cta1}
+        </button>
+        <button className="btn btn-ghost" onClick={() => go("#contato")}>
+          {t.hero.cta2}
+        </button>
+      </div>
+
+      <div className="hero-meta">
+        <span>
+          <span className="dot">●</span>&nbsp;{t.hero.meta1}
+        </span>
+        <span>{t.hero.meta2}</span>
+        <span>{t.hero.meta3}</span>
+      </div>
+    </div>
   );
 };

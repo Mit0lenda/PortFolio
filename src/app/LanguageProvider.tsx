@@ -1,7 +1,7 @@
-﻿import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { Language } from "../lib/types";
 
-const STORAGE_KEY = "mitolenda:language";
+const STORAGE_KEY = "dm-lang";
 
 type LanguageContextValue = {
   language: Language;
@@ -11,17 +11,13 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 const resolveInitialLanguage = (): Language => {
-  if (typeof window === "undefined") {
-    return "en";
-  }
-
+  if (typeof window === "undefined") return "pt";
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "en" || stored === "pt") {
-    return stored;
-  }
-
+  if (stored === "pt" || stored === "en" || stored === "es") return stored;
   const browser = window.navigator.language.toLowerCase();
-  return browser.startsWith("pt") ? "pt" : "en";
+  if (browser.startsWith("pt")) return "pt";
+  if (browser.startsWith("es")) return "es";
+  return "en";
 };
 
 export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -29,7 +25,7 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, language);
-    document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
+    document.documentElement.lang = language === "pt" ? "pt-BR" : language;
   }, [language]);
 
   const value = useMemo(() => ({ language, setLanguage }), [language]);
@@ -39,8 +35,6 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }
 
 export const useLanguage = (): LanguageContextValue => {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within LanguageProvider");
-  }
+  if (!context) throw new Error("useLanguage must be used within LanguageProvider");
   return context;
 };

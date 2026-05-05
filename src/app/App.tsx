@@ -1,24 +1,17 @@
-﻿import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
-import { ScrollToTop } from "../components/ui/ScrollToTop";
 import { HomePage } from "../pages/Home";
-import { RecruiterPage } from "../pages/Recruiter";
-import { ClientPage } from "../pages/Client";
-import { ProjectDetailsPage } from "../pages/ProjectDetails";
-import { NotFoundPage } from "../pages/NotFound";
+import { TermsPage } from "../pages/TermsPage";
+import { PrivacyPage } from "../pages/PrivacyPage";
 
 export const App: React.FC = () => (
-  <>
-    <ScrollToTop />
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/recruiter" element={<RecruiterPage />} />
-        <Route path="/client" element={<ClientPage />} />
-        <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
-  </>
+  <Routes>
+    <Route element={<Layout />}>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/termos" element={<TermsPage />} />
+      <Route path="/privacidade" element={<PrivacyPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Route>
+  </Routes>
 );
