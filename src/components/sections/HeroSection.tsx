@@ -22,12 +22,10 @@ export const HeroSection: React.FC = () => {
 
       <span className="eyebrow">{t.hero.eyebrow}</span>
 
-      <h1 style={{ marginTop: 18 }}>
-        {t.hero.h1a}
-        <br />
-        {t.hero.h1b}
-        <br />
-        <span className="impact">{t.hero.h1c}</span>
+      <h1 className="hero-title">
+        <span className="hero-line hero-line--top">{t.hero.h1a}</span>
+        <span className="hero-line hero-line--mid">{t.hero.h1b}</span>
+        <span className="hero-line hero-line--bottom impact">{t.hero.h1c}</span>
       </h1>
 
       <p className="lead">{t.hero.lead}</p>

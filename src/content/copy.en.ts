@@ -65,11 +65,11 @@ export const copyEn: Copy = {
     eyebrow: "// 07 — about",
     sub: "NICOLLAS FREITAS · POA",
     h3a: "An engineer who", h3b: "codes.",
-    bio1a: "Computer Science student at ", bio1b: "Unisinos + UERGS", bio1c: ", fullstack dev, former intern at the ", bio1d: "Federal Police in digital forensics", bio1e: ".",
+    bio1a: "Computer Science student at ", bio1b: "Unisinos + UERGS", bio1c: ", fullstack dev and former intern at the ", bio1d: "Federal Police in digital forensics", bio1e: ".",
     bio2: "Today I serve SMBs and local businesses across Brazil as a solo dev. Focus on shipping things that go to production and make money — not portfolio vitrine.",
     a1h1: "3rd", a1h2: "nationally", a1d: "iTwin4Good BR",
     a2h1: "Incubated", a2h2: "startup", a2d: "CEI-UFRGS",
-    a3h1: "Digital", a3h2: "forensics", a3d: "Federal Police",
+    a3h1: "Digital", a3h2: "forensics", a3d: "Internship · Federal Police",
   },
   faq: {
     eyebrow: "// 08 — frequently asked questions",

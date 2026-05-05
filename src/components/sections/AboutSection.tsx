@@ -1,5 +1,6 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
+import profileImage from "../../assets/hero/nicollas-profile-2026.jpeg";
 
 export const AboutSection: React.FC = () => {
   const t = useCopy();
@@ -14,7 +15,7 @@ export const AboutSection: React.FC = () => {
 
         <div className="about">
           <div className="photo">
-            <img src="/assets/profile-nicollas.png" alt="Nicollas Freitas" />
+            <img src={profileImage} alt="Nicollas Freitas" />
           </div>
 
           <div className="body">
