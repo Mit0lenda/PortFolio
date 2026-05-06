@@ -7,7 +7,7 @@ export const copyEs: Copy = {
   },
   hero: {
     eyebrow: "// Desarrollador Full-Stack · Porto Alegre · Atiende Brasil y exterior",
-    h1a: "TRANSFORMAMOS", h1b: "CÓDIGO EN", h1c: "RESULTADO REAL.",
+    h1a: "TRANSFORMO", h1b: "CÓDIGO EN", h1c: "RESULTADO REAL.",
     lead: "Sitios, sistemas y automatizaciones para empresas que quieren crecer sin contratar más gente.",
     cta1: 'DM "proyecto" en Instagram →', cta2: "Mensaje por WhatsApp",
     meta1: "DISPONIBLE · MAYO 2026", meta2: "// PORTO ALEGRE — BRASIL", meta3: "NICOLLAS FREITAS",
