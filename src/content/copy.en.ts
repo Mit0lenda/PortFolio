@@ -7,7 +7,7 @@ export const copyEn: Copy = {
   },
   hero: {
     eyebrow: "// Full-Stack Developer · Porto Alegre · Serving Brazil & abroad",
-    h1a: "WE TURN", h1b: "CODE INTO", h1c: "REAL RESULTS.",
+    h1a: "I TURN", h1b: "CODE INTO", h1c: "REAL RESULTS.",
     lead: "Websites, systems and automations for companies that want to grow without hiring more people.",
     cta1: 'DM "project" on Instagram →', cta2: "Message on WhatsApp",
     meta1: "AVAILABLE · MAY 2026", meta2: "// PORTO ALEGRE — BRAZIL", meta3: "NICOLLAS FREITAS",
