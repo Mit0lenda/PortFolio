@@ -21,7 +21,7 @@ export const VenturesSection: React.FC = () => {
           {t.ventures.list.map((v, i) => (
             <article className="venture" key={v.n}>
               <div className="venture-shot">
-                <img src={IMGS[i]} alt={v.n} />
+                <img src={IMGS[i]} alt={v.n} loading="lazy" decoding="async" />
               </div>
               <div className="venture-body">
                 <span className="venture-role">{t.ventures.labelRole}</span>

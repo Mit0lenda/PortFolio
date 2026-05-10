@@ -32,7 +32,7 @@ export const SitesSection: React.FC = () => {
               style={{ textDecoration: "none", borderBottom: 0 }}
             >
               <div className="site-shot">
-                <img src={s.img} alt={s.n} />
+                <img src={s.img} alt={s.n} loading="lazy" decoding="async" />
               </div>
               <div className="site-body">
                 <span className="n">{s.n}</span>

@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
 
         <div className="about">
           <div className="photo">
-            <img src={profileImage} alt="Nicollas Freitas" />
+            <img src={profileImage} alt="Nicollas Freitas" loading="lazy" decoding="async" />
           </div>
 
           <div className="body">

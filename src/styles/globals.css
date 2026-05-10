@@ -354,7 +354,7 @@ section {
   gap: 48px;
   animation: scroll 28s linear infinite;
   white-space: nowrap;
-  will-change: transform;
+  width: max-content;
 }
 
 .strip .item {
@@ -375,11 +375,11 @@ section {
 
 @keyframes scroll {
   from {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
 
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translateX(-50%);
   }
 }
 
@@ -1229,7 +1229,6 @@ footer {
   z-index: 5;
   max-width: 280px;
   line-height: 1.4;
-  will-change: transform;
 }
 
 .hero-floating-badge .medal {

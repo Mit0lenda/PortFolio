@@ -35,6 +35,8 @@ export const ProjectsSection: React.FC = () => {
                   src={IMGS[i]}
                   alt={p.name}
                   className={IMGS[i].includes("trofeu") ? "trophy" : ""}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="feat-body">

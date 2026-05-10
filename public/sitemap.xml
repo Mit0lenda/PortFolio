@@ -1,21 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mitolenda.dev/</loc>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mitolenda.dev/recruiter</loc>
+    <loc>https://mitolenda.dev/termos</loc>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mitolenda.dev/client</loc>
-  </url>
-  <url>
-    <loc>https://mitolenda.dev/projects/ops-control-platform</loc>
-  </url>
-  <url>
-    <loc>https://mitolenda.dev/projects/billing-ledger</loc>
-  </url>
-  <url>
-    <loc>https://mitolenda.dev/projects/support-intelligence-hub</loc>
+    <loc>https://mitolenda.dev/privacidade</loc>
+    <priority>0.5</priority>
   </url>
 </urlset>
