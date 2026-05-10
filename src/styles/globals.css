@@ -20,6 +20,12 @@ html {
   scroll-behavior: smooth;
 }
 
+#root {
+  overflow-x: clip;
+  width: 100%;
+  position: relative;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -348,6 +354,7 @@ section {
   gap: 48px;
   animation: scroll 28s linear infinite;
   white-space: nowrap;
+  will-change: transform;
 }
 
 .strip .item {
@@ -368,11 +375,11 @@ section {
 
 @keyframes scroll {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1222,6 +1229,7 @@ footer {
   z-index: 5;
   max-width: 280px;
   line-height: 1.4;
+  will-change: transform;
 }
 
 .hero-floating-badge .medal {
@@ -1238,11 +1246,11 @@ footer {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-6px);
+    transform: translate3d(0, -6px, 0);
   }
 }
 
@@ -1254,12 +1262,12 @@ footer {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translate3d(0, 8px, 0);
   }
 
   to {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -1394,7 +1402,6 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: calc(120svh - 72px);
     padding: 56px 0 48px;
   }
 
@@ -1520,7 +1527,6 @@ footer {
 
 @media (max-width: 480px) {
   .hero {
-    min-height: calc(145svh - 72px);
     padding: 28px 0 48px;
   }
 
@@ -1574,7 +1580,6 @@ footer {
   }
 
   .hero {
-    min-height: calc(124svh - 72px);
     padding: 46px 0 42px;
   }
 
