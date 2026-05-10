@@ -3,7 +3,7 @@ import type { Copy } from "../lib/types";
 export const copyPt: Copy = {
   nav: {
     servicos: "Serviços", projetos: "Projetos", sites: "Sites",
-    stack: "Stack", sobre: "Sobre", faq: "FAQ", cta: 'Manda "projeto" →',
+    stack: "Stack", sobre: "Sobre", faq: "FAQ", cta: 'Falar comigo →',
   },
   hero: {
     eyebrow: "// Full-Stack Developer · Porto Alegre · Atende Brasil e exterior",
@@ -96,7 +96,7 @@ export const copyPt: Copy = {
     h2a: "Bora", h2b: "conversar.",
     desc: "Escolhe o canal que você usa mais. Em geral respondo em até 24h, dias úteis.",
     cards: [
-      { k: "WhatsApp",  v: "Abrir conversa",          sub: "Resposta < 24h",      hint: "abrir conversa →",  href: "https://wa.me/555193484339?text=Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." },
+      { k: "WhatsApp",  v: "+55 51 3199-9319",          sub: "Resposta < 24h",      hint: "abrir conversa →",  href: "https://wa.me/555131999319?text=Ol%C3%A1%21%20Quero%20fazer%20um%20projeto%21" },
       { k: "Instagram", v: "@dev_mitolenda",           sub: "DM com 'projeto'",    hint: "abrir perfil →",    href: "https://instagram.com/dev_mitolenda" },
       { k: "E-mail",    v: "devmitolenda@gmail.com",   tech: 1, sub: "Briefing detalhado", hint: "compor email →",    href: "mailto:devmitolenda@gmail.com" },
       { k: "LinkedIn",  v: "in/nicollasde",            tech: 1, sub: "Perfil profissional", hint: "abrir linkedin →", href: "https://linkedin.com/in/nicollasde" },

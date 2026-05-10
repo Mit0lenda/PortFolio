@@ -1,10 +1,7 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
 
-const go = (hash: string) => {
-  const el = document.querySelector(hash);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
+
 
 export const HeroSection: React.FC = () => {
   const t = useCopy();
@@ -31,10 +28,10 @@ export const HeroSection: React.FC = () => {
       <p className="lead">{t.hero.lead}</p>
 
       <div className="hero-actions">
-        <button className="btn btn-cta" onClick={() => go("#contato")}>
+        <button className="btn btn-cta" onClick={() => window.open(t.contact.cards[1].href, "_blank")}>
           {t.hero.cta1}
         </button>
-        <button className="btn btn-ghost" onClick={() => go("#contato")}>
+        <button className="btn btn-ghost" onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
           {t.hero.cta2}
         </button>
       </div>

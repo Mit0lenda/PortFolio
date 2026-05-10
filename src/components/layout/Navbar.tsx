@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <button className="nav-cta" onClick={() => go("#contato")}>
+          <button className="nav-cta" onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
             {t.nav.cta}
           </button>
         </nav>

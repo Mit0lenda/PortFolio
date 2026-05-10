@@ -3,7 +3,7 @@ import type { Copy } from "../lib/types";
 export const copyEn: Copy = {
   nav: {
     servicos: "Services", projetos: "Projects", sites: "Websites",
-    stack: "Stack", sobre: "About", faq: "FAQ", cta: 'DM "project" →',
+    stack: "Stack", sobre: "About", faq: "FAQ", cta: 'Talk to me →',
   },
   hero: {
     eyebrow: "// Full-Stack Developer · Porto Alegre · Serving Brazil & abroad",
@@ -96,7 +96,7 @@ export const copyEn: Copy = {
     h2a: "Let's", h2b: "talk.",
     desc: "Pick the channel you use most. I usually reply within 24h on weekdays.",
     cards: [
-      { k: "WhatsApp",  v: "Open chat",             sub: "Reply < 24h",           hint: "open chat →",       href: "https://wa.me/555193484339?text=I%20came%20from%20your%20portfolio%20and%20would%20like%20to%20chat." },
+      { k: "WhatsApp",  v: "+55 51 3199-9319",             sub: "Reply < 24h",           hint: "open chat →",       href: "https://wa.me/555131999319?text=Hello%21%20I%20want%20to%20start%20a%20project%21" },
       { k: "Instagram", v: "@dev_mitolenda",         sub: "DM 'project'",          hint: "open profile →",    href: "https://instagram.com/dev_mitolenda" },
       { k: "Email",     v: "devmitolenda@gmail.com", tech: 1, sub: "Detailed brief",       hint: "compose email →",   href: "mailto:devmitolenda@gmail.com" },
       { k: "LinkedIn",  v: "in/nicollasde",          tech: 1, sub: "Professional profile", hint: "open linkedin →",   href: "https://linkedin.com/in/nicollasde" },

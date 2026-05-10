@@ -96,7 +96,7 @@ export const copyEs: Copy = {
     h2a: "Vamos a", h2b: "conversar.",
     desc: "Elige el canal que más usas. En general respondo en 24h, días hábiles.",
     cards: [
-      { k: "WhatsApp",  v: "Abrir conversación",    sub: "Respuesta < 24h",   hint: "abrir conversación →", href: "https://wa.me/555193484339?text=Vine%20de%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." },
+      { k: "WhatsApp",  v: "+55 51 3199-9319",    sub: "Respuesta < 24h",   hint: "abrir conversación →", href: "https://wa.me/555131999319?text=%C2%A1Hola%21%20%C2%A1Quiero%20hacer%20un%20proyecto%21" },
       { k: "Instagram", v: "@dev_mitolenda",         sub: "DM con 'proyecto'", hint: "abrir perfil →",       href: "https://instagram.com/dev_mitolenda" },
       { k: "Email",     v: "devmitolenda@gmail.com", tech: 1, sub: "Brief detallado", hint: "componer email →",     href: "mailto:devmitolenda@gmail.com" },
       { k: "LinkedIn",  v: "in/nicollasde",          tech: 1, sub: "Perfil profesional", hint: "abrir linkedin →",  href: "https://linkedin.com/in/nicollasde" },

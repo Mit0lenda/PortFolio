@@ -153,7 +153,7 @@ export const TermsPage: React.FC = () => (
         <p>Para dúvidas, propostas ou solicitações relacionadas a estes termos:</p>
         <ul>
           <li>Email: <a href="mailto:devmitolenda@gmail.com">devmitolenda@gmail.com</a></li>
-          <li>WhatsApp: <a href="https://wa.me/5551934843390" target="_blank" rel="noreferrer">+55 51 9348-4339</a></li>
+          <li>WhatsApp: <a href="https://wa.me/555131999319" target="_blank" rel="noreferrer">+55 51 3199-9319</a></li>
           <li>Instagram: <a href="https://instagram.com/dev_mitolenda" target="_blank" rel="noreferrer">@dev_mitolenda</a></li>
         </ul>
       </article>

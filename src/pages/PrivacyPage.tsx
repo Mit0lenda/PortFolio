@@ -139,7 +139,7 @@ export const PrivacyPage: React.FC = () => (
         <p>Solicitações relacionadas a privacidade e proteção de dados podem ser enviadas para:</p>
         <ul>
           <li>Email: <a href="mailto:devmitolenda@gmail.com">devmitolenda@gmail.com</a></li>
-          <li>WhatsApp: <a href="https://wa.me/5551934843390" target="_blank" rel="noreferrer">+55 51 9348-4339</a></li>
+          <li>WhatsApp: <a href="https://wa.me/555131999319" target="_blank" rel="noreferrer">+55 51 3199-9319</a></li>
         </ul>
         <p>Sempre que possível, informe o contexto da solicitação para agilizar o atendimento.</p>
 

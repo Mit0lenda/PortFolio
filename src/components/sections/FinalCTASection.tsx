@@ -1,10 +1,7 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
 
-const go = (hash: string) => {
-  const el = document.querySelector(hash);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
+
 
 export const FinalCTASection: React.FC = () => {
   const t = useCopy();
@@ -22,10 +19,10 @@ export const FinalCTASection: React.FC = () => {
         </h2>
         <p className="lead">{t.finalCta.lead}</p>
         <div className="hero-actions" style={{ justifyContent: "center" }}>
-          <button className="btn btn-cta" onClick={() => go("#contato")}>
+          <button className="btn btn-cta" onClick={() => window.open(t.contact.cards[1].href, "_blank")}>
             {t.finalCta.cta1}
           </button>
-          <button className="btn btn-ghost" onClick={() => go("#contato")}>
+          <button className="btn btn-ghost" onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
             {t.finalCta.cta2}
           </button>
         </div>

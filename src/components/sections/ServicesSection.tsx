@@ -1,10 +1,7 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
 
-const go = (hash: string) => {
-  const el = document.querySelector(hash);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
+
 
 export const ServicesSection: React.FC = () => {
   const t = useCopy();
@@ -24,7 +21,7 @@ export const ServicesSection: React.FC = () => {
 
         <div className="services3">
           {t.services.list.map((s, i) => (
-            <div className="svc" key={i} onClick={() => go("#contato")}>
+            <div className="svc" key={i} onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
               <span className="svc-num">// {String(i + 1).padStart(2, "0")}</span>
               <h3 className="svc-name">{s.t}</h3>
               <p className="svc-desc">{s.d}</p>
