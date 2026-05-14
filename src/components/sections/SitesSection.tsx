@@ -2,6 +2,7 @@ import React from "react";
 import { useCopy } from "../../lib/useCopy";
 
 const SITES = [
+  { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png" },
   { n: "MultiParts Elevadores", url: "multipartselevadores.com.br", img: "/assets/site-multiparts.png" },
   { n: "Engipro Elevadores",    url: "engipro.com.br",              img: "/assets/site-engipro.png" },
   { n: "Wisebody",              url: "wisebody.com.br",             img: "/assets/site-wisebody.png" },
