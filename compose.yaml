@@ -1,9 +1,17 @@
 services:
-  frontend:
+  portfolio:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: portfolio-frontend
+    container_name: portfolio-nextjs
     ports:
-      - "8080:80"
+      - "3000:3000"
+    env_file:
+      - .env.local        # create from .env.example; never committed
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

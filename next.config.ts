@@ -3,6 +3,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   outputFileTracingRoot: process.cwd(),
   images: {
     remotePatterns: [
