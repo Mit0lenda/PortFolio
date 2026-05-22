@@ -4,7 +4,7 @@
 
 | # | Milestone | Features | Status |
 |---|---|---|---|
-| M1 | Cloudflare Hardened | CF-01 → CF-05 | 🔴 Pending |
+| M1 | Cloudflare Hardened | CF-01 → CF-05 | 🟡 CF-01..04 done, CF-05 deferred to M3 |
 | M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending |
 | M3 | Next.js Live | MIG-01 → MIG-10 | 🔴 Pending |
 | M4 | SEO Complete | SEO-01 → SEO-06 | 🔴 Pending |
@@ -16,11 +16,11 @@
 
 | ID | Feature | Priority | Milestone |
 |---|---|---|---|
-| CF-01 | SSL/TLS Full (Strict) + Origin Certificate | P1 | M1 |
-| CF-02 | Cache Rules for static assets + ISR pages | P1 | M1 |
-| CF-03 | WAF + Bot Fight Mode + Rate Limiting Rule | P1 | M1 |
-| CF-04 | Cloudflare Tunnel (cloudflared daemon) | P1 | M1 |
-| CF-05 | Security Headers via Cloudflare Transform Rules | P2 | M1 |
+| CF-01 | SSL/TLS Full (Strict) + Origin Certificate | P1 | M1 | ✅ Done 2026-05-22 |
+| CF-02 | Cache Rules for static assets + ISR pages | P1 | M1 | ✅ Done 2026-05-22 |
+| CF-03 | WAF + Bot Fight Mode + Rate Limiting Rule | P1 | M1 | ✅ Done 2026-05-22 |
+| CF-04 | Cloudflare Tunnel (cloudflared daemon) | P1 | M1 | ✅ Done 2026-05-22 (Easypanel native) |
+| CF-05 | Security Headers via next.config.ts headers() | P2 | M3 | 🔴 Deferred to M3 |
 
 ### Phase 2 — Backend & Data
 

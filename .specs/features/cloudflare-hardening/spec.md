@@ -6,10 +6,10 @@ mitolenda.dev's Cloudflare is likely running with default settings — possibly 
 
 ## Goals
 
-- [ ] 100% of bot/scanner traffic blocked at Cloudflare edge (never reaches VPS)
-- [ ] Static assets (`_next/static/*`) served from Cloudflare cache — `CF-Cache-Status: HIT`
-- [ ] VPS IP hidden from public DNS (no A/AAAA records pointing to real IP)
-- [ ] SSL/TLS validated as Full (Strict) mode
+- [x] 100% of bot/scanner traffic blocked at Cloudflare edge (never reaches VPS)
+- [x] Static assets (`_next/static/*`) served from Cloudflare cache — `CF-Cache-Status: HIT`
+- [x] VPS IP hidden from public DNS (no A/AAAA records pointing to real IP)
+- [x] SSL/TLS validated as Full (Strict) mode
 
 ## Out of Scope
 
@@ -116,11 +116,11 @@ mitolenda.dev's Cloudflare is likely running with default settings — possibly 
 
 | Requirement ID | Story | Phase | Status |
 |---|---|---|---|
-| CF-01 | SSL Full Strict | Tasks | Pending |
-| CF-02 | Cache Rules | Tasks | Pending |
-| CF-03 | WAF + Bot Fight | Tasks | Pending |
-| CF-04 | Cloudflare Tunnel | Tasks | Pending |
-| CF-05 | Security Headers | Tasks | Pending |
+| CF-01 | SSL Full Strict | Tasks | ✅ Done 2026-05-22 — Full (Strict) + Always HTTPS + TLS 1.2 + HSTS via API |
+| CF-02 | Cache Rules | Tasks | ✅ Done 2026-05-22 — 4 rules: _next/static (30d), _next/image (7d), /assets (30d), /api bypass |
+| CF-03 | WAF + Bot Fight | Tasks | ✅ Done 2026-05-22 — "Block known scanners" rule Active (9 patterns) + Bot Fight Mode ON |
+| CF-04 | Cloudflare Tunnel | Tasks | ✅ Done 2026-05-22 — Easypanel native integration, VPS IP hidden (A record deleted, CNAME → tunnel) |
+| CF-05 | Security Headers | Tasks | 🔴 Deferred → MIG-01 (will go in next.config.ts headers()) |
 
 ---
 
