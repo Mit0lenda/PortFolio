@@ -119,15 +119,16 @@ mitolenda.dev's Cloudflare is likely running with default settings — possibly 
 | CF-01 | SSL Full Strict | Tasks | ✅ Done 2026-05-22 — Full (Strict) + Always HTTPS + TLS 1.2 + HSTS via API |
 | CF-02 | Cache Rules | Tasks | ✅ Done 2026-05-22 — 4 rules: _next/static (30d), _next/image (7d), /assets (30d), /api bypass |
 | CF-03 | WAF + Bot Fight | Tasks | ✅ Done 2026-05-22 — "Block known scanners" rule Active (9 patterns) + Bot Fight Mode ON |
-| CF-04 | Cloudflare Tunnel | Tasks | ✅ Done 2026-05-22 — Easypanel native integration, VPS IP hidden (A record deleted, CNAME → tunnel) |
+| CF-04 | Cloudflare Tunnel | Tasks | ✅ Done 2026-05-22 — Ingress: `mitolenda.dev → http://projetos_portfolio:80` via CF API (Easypanel UI returns 400). HTTP/3 200, cf-ray GRU confirmed. |
 | CF-05 | Security Headers | Tasks | 🔴 Deferred → MIG-01 (will go in next.config.ts headers()) |
 
 ---
 
 ## Success Criteria
 
-- [ ] `curl -I https://mitolenda.dev` shows `strict-transport-security`
-- [ ] `CF-Cache-Status: HIT` for `/_next/static/*` assets
-- [ ] `dig A mitolenda.dev` returns Cloudflare IP, not VPS IP
-- [ ] Cloudflare Firewall Events shows blocked bot requests after 24h
-- [ ] Zero direct-to-origin access possible (verified by checking with VPS firewall logs)
+- [ ] `curl -I https://mitolenda.dev` shows `strict-transport-security` (pending CF-05 / MIG-01)
+- [ ] `CF-Cache-Status: HIT` for `/_next/static/*` assets (pending M3 Next.js deploy)
+- [x] `dig A mitolenda.dev` returns Cloudflare IP, not VPS IP — confirmed 2026-05-22
+- [x] HTTP/3 200 via cf-ray GRU (São Paulo) — confirmed 2026-05-22
+- [ ] Cloudflare Firewall Events shows blocked bot requests after 24h (check dashboard)
+- [ ] Zero direct-to-origin access possible (verify VPS firewall logs)
