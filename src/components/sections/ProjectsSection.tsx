@@ -1,4 +1,7 @@
+'use client'
+
 import React from "react";
+import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 
 const IMGS = [
@@ -30,13 +33,13 @@ export const ProjectsSection: React.FC = () => {
         <div className="feat-grid">
           {t.projects.list.map((p, i) => (
             <article className="feat" key={i}>
-              <div className="feat-shot">
-                <img
+              <div className="feat-shot" style={{ position: "relative" }}>
+                <Image
                   src={IMGS[i]}
                   alt={p.name}
+                  fill
                   className={IMGS[i].includes("trofeu") ? "trophy" : ""}
-                  loading="lazy"
-                  decoding="async"
+                  style={{ objectFit: IMGS[i].includes("trofeu") ? "contain" : "cover" }}
                 />
               </div>
               <div className="feat-body">

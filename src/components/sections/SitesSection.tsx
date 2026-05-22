@@ -1,4 +1,7 @@
+'use client'
+
 import React from "react";
+import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 
 const SITES = [
@@ -32,8 +35,8 @@ export const SitesSection: React.FC = () => {
               rel="noreferrer"
               style={{ textDecoration: "none", borderBottom: 0 }}
             >
-              <div className="site-shot">
-                <img src={s.img} alt={s.n} loading="lazy" decoding="async" />
+              <div className="site-shot" style={{ position: "relative" }}>
+                <Image src={s.img} alt={s.n} fill style={{ objectFit: "cover" }} />
               </div>
               <div className="site-body">
                 <span className="n">{s.n}</span>

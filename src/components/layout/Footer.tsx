@@ -1,5 +1,7 @@
+'use client'
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 
 const go = (hash: string) => {
@@ -28,8 +30,8 @@ export const Footer: React.FC = () => {
           </a>
         </nav>
         <div className="foot-legal">
-          <Link to="/termos">Termos de Serviço</Link>
-          <Link to="/privacidade">Política de Privacidade</Link>
+          <Link href="/termos">Termos de Serviço</Link>
+          <Link href="/privacidade">Política de Privacidade</Link>
         </div>
       </div>
     </footer>

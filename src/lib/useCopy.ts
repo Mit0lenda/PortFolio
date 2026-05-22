@@ -1,7 +1,7 @@
 import { copyEn } from "../content/copy.en";
 import { copyPt } from "../content/copy.pt";
 import { copyEs } from "../content/copy.es";
-import { useLanguage } from "../app/LanguageProvider";
+import { useLanguage } from "../_vite/LanguageProvider";
 import type { Copy } from "./types";
 
 export const useCopy = (): Copy => {

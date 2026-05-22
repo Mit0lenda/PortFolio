@@ -4,9 +4,9 @@
 
 | # | Milestone | Features | Status |
 |---|---|---|---|
-| M1 | Cloudflare Hardened | CF-01 → CF-05 | 🟡 CF-01..04 done, CF-05 deferred to M3 |
-| M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending |
-| M3 | Next.js Live | MIG-01 → MIG-10 | 🔴 Pending |
+| M1 | Cloudflare Hardened | CF-01 → CF-05 | 🟡 CF-01..04 ✅ done, CF-05 deferred to M3 |
+| M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending (NestJS repo — next session) |
+| M3 | Next.js Live | MIG-01 → MIG-10 | ✅ **Done 2026-05-22** — build clean, 9 routes |
 | M4 | SEO Complete | SEO-01 → SEO-06 | 🔴 Pending |
 | M5 | Continuous Optimization | OPT-01 → OPT-04 | 🔴 Pending |
 

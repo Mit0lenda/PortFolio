@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
-import { HomePage } from "../pages/Home";
-import { TermsPage } from "../pages/TermsPage";
-import { PrivacyPage } from "../pages/PrivacyPage";
+import { HomePage } from "../_pages/Home";
+import { TermsPage } from "../_pages/TermsPage";
+import { PrivacyPage } from "../_pages/PrivacyPage";
 
 export const App: React.FC = () => (
   <Routes>
