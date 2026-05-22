@@ -1,4 +1,7 @@
+'use client'
+
 import React from "react";
+import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 import profileImage from "../../assets/hero/nicollas-profile-2026.jpeg";
 
@@ -14,8 +17,8 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <div className="about">
-          <div className="photo">
-            <img src={profileImage} alt="Nicollas Freitas" loading="lazy" decoding="async" />
+          <div className="photo" style={{ position: "relative" }}>
+            <Image src={profileImage} alt="Nicollas Freitas" fill style={{ objectFit: "cover" }} priority />
           </div>
 
           <div className="body">

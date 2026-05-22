@@ -1,6 +1,28 @@
-node_modules
-dist
+# Git
 .git
 .gitignore
+.gitattributes
+
+# Secrets — never bake into image
+.env
+.env.local
+.env.*.local
+
+# Build artifacts already handled by multi-stage
+node_modules
+.next
+
+# Dev tooling
 .claude
+.specs
+anthropic-skills
+Dev_mitolenda-handoff*
+
+# Docs / logs
 README.md
+build-error.log
+*.log
+
+# Local infra files (not needed inside the container)
+nginx.conf
+compose.yaml

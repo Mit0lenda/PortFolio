@@ -4,11 +4,11 @@
 
 | # | Milestone | Features | Status |
 |---|---|---|---|
-| M1 | Cloudflare Hardened | CF-01 → CF-05 | 🟡 CF-01..04 done, CF-05 deferred to M3 |
-| M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending |
-| M3 | Next.js Live | MIG-01 → MIG-10 | 🔴 Pending |
-| M4 | SEO Complete | SEO-01 → SEO-06 | 🔴 Pending |
-| M5 | Continuous Optimization | OPT-01 → OPT-04 | 🔴 Pending |
+| M1 | Cloudflare Hardened | CF-01 → CF-05 | ✅ Done 2026-05-22 — CF-01..04 via API; CF-05 merged into M3 |
+| M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending (NestJS repo — next session) |
+| M3 | Next.js Live | MIG-01 → MIG-10 | ✅ **Done 2026-05-22** — build clean, 9 routes |
+| M4 | SEO Complete | SEO-01 → SEO-06 | 🟡 SEO-01..05 ✅ done 2026-05-22; SEO-06 pending deploy |
+| M5 | Continuous Optimization | OPT-01 → OPT-04 | ✅ Done 2026-05-22 — CI yml + analyzer + web-vitals + CF Analytics |
 
 ## Feature List
 
@@ -49,23 +49,23 @@
 
 ### Phase 4 — SEO & Structured Data
 
-| ID | Feature | Priority | Milestone |
-|---|---|---|---|
-| SEO-01 | metadata API in layout.tsx (title, description, OG, twitter) | P1 | M4 |
-| SEO-02 | OG image PNG 1200×630 (convert from SVG) | P1 | M4 |
-| SEO-03 | JSON-LD Person + WebSite schemas | P1 | M4 |
-| SEO-04 | app/sitemap.ts (dynamic, with lastModified) | P1 | M4 |
-| SEO-05 | app/robots.ts (replace static public/robots.txt) | P1 | M4 |
-| SEO-06 | Google Search Console setup + DNS TXT verification | P2 | M4 |
+| ID | Feature | Priority | Milestone | Status |
+|---|---|---|---|---|
+| SEO-01 | metadata API in layout.tsx (title, description, OG, twitter) | P1 | M4 | ✅ Done 2026-05-22 — full OG + twitter + robots + keywords |
+| SEO-02 | OG image PNG 1200×630 (convert from SVG) | P1 | M4 | 🔴 Pending — convert public/og/og-default.svg manually |
+| SEO-03 | JSON-LD Person + WebSite schemas | P1 | M4 | ✅ Done 2026-05-22 — inline in layout.tsx body |
+| SEO-04 | app/sitemap.ts (dynamic, with lastModified) | P1 | M4 | ✅ Done 2026-05-22 — 12 URLs, /sitemap.xml route |
+| SEO-05 | app/robots.ts (replace static public/robots.txt) | P1 | M4 | ✅ Done 2026-05-22 — disallows /api/, /_next/ |
+| SEO-06 | Google Search Console setup + DNS TXT verification | P2 | M4 | 🔴 Pending deploy |
 
 ### Phase 5 — Continuous Optimization
 
-| ID | Feature | Priority | Milestone |
-|---|---|---|---|
-| OPT-01 | Lighthouse CI GitHub Actions workflow | P2 | M5 |
-| OPT-02 | @next/bundle-analyzer budget enforcement | P2 | M5 |
-| OPT-03 | web-vitals reporting in production | P2 | M5 |
-| OPT-04 | Cloudflare Web Analytics (free, cookieless) | P2 | M5 |
+| ID | Feature | Priority | Milestone | Status |
+|---|---|---|---|---|
+| OPT-01 | Lighthouse CI GitHub Actions workflow | P2 | M5 | ✅ Done 2026-05-22 — .github/workflows/lighthouse.yml + .lighthouserc.json |
+| OPT-02 | @next/bundle-analyzer budget enforcement | P2 | M5 | ✅ Done 2026-05-22 — ANALYZE=true npm run build |
+| OPT-03 | web-vitals reporting in production | P2 | M5 | ✅ Done 2026-05-22 — src/app/web-vitals.ts, beacon to CF Analytics |
+| OPT-04 | Cloudflare Web Analytics (free, cookieless) | P2 | M5 | ✅ Done 2026-05-22 — Script in layout.tsx, token-gated by env var |
 
 ## Dependencies
 

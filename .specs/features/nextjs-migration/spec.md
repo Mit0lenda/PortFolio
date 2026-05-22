@@ -175,23 +175,23 @@ mitolenda.dev currently runs as a React/Vite SPA. Googlebot receives a blank HTM
 
 | Requirement ID | Story | Phase | Status |
 |---|---|---|---|
-| MIG-01 | Project Bootstrap | Tasks | Pending |
-| MIG-02 | CSS Migration | Tasks | Pending |
-| MIG-03 | Root Layout | Tasks | Pending |
-| MIG-04 | Home Page ISR | Tasks | Pending |
-| MIG-05 | Static Pages | Tasks | Pending |
-| MIG-06 | Project Detail ISR | Tasks | Pending |
-| MIG-07 | Legal Pages | Tasks | Pending |
-| MIG-08 | Client Audit | Tasks | Pending |
-| MIG-09 | Image Migration | Tasks | Pending |
-| MIG-10 | Env Vars | Tasks | Pending |
+| MIG-01 | Project Bootstrap | Tasks | ✅ Done 2026-05-22 — Next.js 15 (React 19 compat), next.config.ts + tsconfig, Vite removed |
+| MIG-02 | CSS Migration | Tasks | ✅ Done 2026-05-22 — globals.css merged, @import removed, next/font Inter+SpaceMono |
+| MIG-03 | Root Layout | Tasks | ✅ Done 2026-05-22 — layout.tsx, Providers (LanguageProvider), Navbar, Footer, metadata |
+| MIG-04 | Home Page ISR | Tasks | ✅ Done 2026-05-22 — app/page.tsx revalidate=3600, 8.45kB First Load JS |
+| MIG-05 | Static Pages | Tasks | ✅ Done 2026-05-22 — not-found.tsx matching site design |
+| MIG-06 | Project Detail ISR | Tasks | ✅ Done 2026-05-22 — /projects/[slug] SSG+ISR, 3 params, revalidate=7200 |
+| MIG-07 | Legal Pages | Tasks | ✅ Done 2026-05-22 — /politica-de-privacidade + /termos SSG |
+| MIG-08 | Client Audit | Tasks | ✅ Done 2026-05-22 — all sections 'use client' (useCopy/context); StackStrip stays SC |
+| MIG-09 | Image Migration | Tasks | ✅ Done 2026-05-22 — 4 img→next/image fill; priority on About hero (LCP) |
+| MIG-10 | Env Vars | Tasks | ✅ Done 2026-05-22 — zero import.meta.env found |
 
 ---
 
 ## Success Criteria
 
-- [ ] `npm run build` → zero errors
-- [ ] All 7 routes return HTML in `curl` without JS
-- [ ] Visual diff shows zero changes vs Vite original
-- [ ] Lighthouse mobile score ≥ 95
-- [ ] LCP < 2.5s, CLS < 0.1
+- [x] `npm run build` → zero errors — confirmed 2026-05-22
+- [x] 9 routes generated (/, /projects/[3 slugs], /politica-de-privacidade, /termos, /_not-found)
+- [ ] Visual diff shows zero changes vs Vite original (verify after deploy)
+- [ ] Lighthouse mobile score ≥ 95 (verify after deploy)
+- [ ] LCP < 2.5s, CLS < 0.1 (verify after deploy)

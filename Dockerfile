@@ -1,34 +1,53 @@
-# Estágio 1: Build da aplicação Vite (React)
-FROM node:22-alpine AS builder
+# ─────────────────────────────────────────────────────────────────────────────
+# Multi-stage Next.js standalone build
+# Produces a minimal image (~200 MB) using Next.js output: 'standalone'
+#
+# Easypanel: apontar porta 3000
+# Tunnel:    cloudflared ingress → http://<service-name>:3000
+# ─────────────────────────────────────────────────────────────────────────────
 
+# Stage 1 — Install production deps only (cached layer)
+FROM node:22-alpine AS deps
 WORKDIR /app
 
-# Copia os arquivos de dependências
 COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
-# Instala as dependências de forma limpa e otimizada
+# Stage 2 — Full install + build
+FROM node:22-alpine AS builder
+WORKDIR /app
+
+COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copia o restante do código da aplicação
 COPY . .
 
-# Realiza o build de produção
+# Disable telemetry during build
+ENV NEXT_TELEMETRY_DISABLED=1
+
 RUN npm run build
 
-# Estágio 2: Servidor Web (Nginx) para produção
-FROM nginx:alpine
+# Stage 3 — Minimal production image
+FROM node:22-alpine AS runner
+WORKDIR /app
 
-# Remove a página padrão do Nginx
-RUN rm -rf /usr/share/nginx/html/*
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
-# Copia a configuração customizada do Nginx para suportar a SPA (React Router)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs \
+ && adduser  --system --uid 1001 nextjs
 
-# Copia os arquivos estáticos gerados no build para a pasta pública do Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copy only what the standalone server needs
+COPY --from=builder /app/public            ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static     ./.next/static
 
-# Expõe a porta 80
-EXPOSE 80
+USER nextjs
 
-# Inicia o Nginx em foreground
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+# Next.js standalone entry point
+CMD ["node", "server.js"]

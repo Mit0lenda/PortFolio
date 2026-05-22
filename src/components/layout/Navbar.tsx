@@ -1,6 +1,8 @@
+'use client'
+
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
-import { useLanguage } from "../../app/LanguageProvider";
+import { useLanguage } from "../../_vite/LanguageProvider";
 import type { Language } from "../../lib/types";
 
 const go = (hash: string) => {

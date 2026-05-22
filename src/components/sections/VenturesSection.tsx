@@ -1,4 +1,7 @@
+'use client'
+
 import React from "react";
+import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 
 const IMGS = ["/assets/codaryn-hero.png", "/assets/site-nexium.png"];
@@ -20,8 +23,8 @@ export const VenturesSection: React.FC = () => {
         <div className="ventures-grid">
           {t.ventures.list.map((v, i) => (
             <article className="venture" key={v.n}>
-              <div className="venture-shot">
-                <img src={IMGS[i]} alt={v.n} loading="lazy" decoding="async" />
+              <div className="venture-shot" style={{ position: "relative" }}>
+                <Image src={IMGS[i]} alt={v.n} fill style={{ objectFit: "cover" }} />
               </div>
               <div className="venture-body">
                 <span className="venture-role">{t.ventures.labelRole}</span>
