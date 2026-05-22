@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import withBundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -26,4 +27,7 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+// Bundle analyzer: run `ANALYZE=true npm run build` to open the bundle report
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})(nextConfig)
