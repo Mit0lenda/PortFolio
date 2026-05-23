@@ -132,7 +132,7 @@ export const ContactForm: React.FC = () => {
           )}
 
           <button
-            className="btn-primary cf-btn"
+            className="btn btn-cta cf-btn"
             type="submit"
             disabled={status === "sending"}
           >
