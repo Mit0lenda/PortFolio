@@ -1764,3 +1764,87 @@ footer {
 .foot-legal a:hover {
   color: var(--paper);
 }
+
+/* ── ContactForm ──────────────────────────────────────────────────────────── */
+
+.contact-form-wrap {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.contact-form-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray-support);
+  margin: 0 0 1.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+}
+
+@media (max-width: 600px) {
+  .cf-row { grid-template-columns: 1fr; }
+}
+
+.cf-input {
+  width: 100%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px;
+  padding: .75rem 1rem;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  transition: border-color .2s;
+  box-sizing: border-box;
+}
+
+.cf-input::placeholder { color: var(--gray-support); }
+
+.cf-input:focus {
+  outline: none;
+  border-color: var(--orange-impact);
+}
+
+.cf-input:disabled { opacity: .5; cursor: not-allowed; }
+
+.cf-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.cf-btn {
+  align-self: flex-start;
+  margin-top: .25rem;
+}
+
+.cf-feedback {
+  font-size: .875rem;
+  padding: .6rem 1rem;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.cf-success {
+  background: rgba(0,200,100,.12);
+  border: 1px solid rgba(0,200,100,.3);
+  color: #4ecca3;
+}
+
+.cf-error {
+  background: rgba(255,60,60,.1);
+  border: 1px solid rgba(255,60,60,.3);
+  color: #ff6b6b;
+}
