@@ -13,8 +13,6 @@ export function FloatingContactButton() {
 
   // Show after delay OR scroll
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>
-
     const show = () => {
       if (!visible) setVisible(true)
     }
@@ -24,7 +22,7 @@ export function FloatingContactButton() {
       if (pct >= SCROLL_THRESHOLD) show()
     }
 
-    timer = setTimeout(show, DELAY_MS)
+    const timer = setTimeout(show, DELAY_MS)
     window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
