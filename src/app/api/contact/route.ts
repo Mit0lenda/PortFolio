@@ -1,87 +1,151 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { validateContactPayload } from '../../../lib/contact/validateContactPayload'
+import { classifyLead }           from '../../../lib/contact/classifyLead'
+import { saveLead }               from '../../../lib/contact/saveLead'
+import { notifyLead }             from '../../../lib/contact/notifyLead'
+import type { ContactPayload }    from '../../../lib/contact/validateContactPayload'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-const n8nWebhookUrl = process.env.N8N_CONTACT_WEBHOOK_URL
+// ─── Rate limiting (in-memory, per IP + email) ──────────────────────────────
+// Allows up to MAX_REQUESTS per WINDOW_MS per key (IP or email)
+const RATE_WINDOW_MS  = 15 * 60 * 1000 // 15 minutes
+const MAX_REQUESTS    = 5
 
-function hashIp(ip: string): string {
-  let hash = 0
-  for (let i = 0; i < ip.length; i++) {
-    const char = ip.charCodeAt(i)
-    hash = (hash << 5) - hash + char
-    hash |= 0
+const ratemap = new Map<string, { count: number; resetAt: number }>()
+
+function isRateLimited(key: string): boolean {
+  const now   = Date.now()
+  const entry = ratemap.get(key)
+
+  if (!entry || now > entry.resetAt) {
+    ratemap.set(key, { count: 1, resetAt: now + RATE_WINDOW_MS })
+    return false
   }
-  return Math.abs(hash).toString(36)
+
+  if (entry.count >= MAX_REQUESTS) return true
+
+  entry.count++
+  return false
 }
 
+// Prevent memory leak — clean up stale entries every 30 min
+setInterval(() => {
+  const now = Date.now()
+  for (const [key, entry] of ratemap.entries()) {
+    if (now > entry.resetAt) ratemap.delete(key)
+  }
+}, 30 * 60 * 1000)
+
+// ─── IP helper ───────────────────────────────────────────────────────────────
+function getIp(req: NextRequest): string {
+  return (
+    req.headers.get('cf-connecting-ip') ??
+    req.headers.get('x-real-ip') ??
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
+    'unknown'
+  )
+}
+
+function hashIp(ip: string): string {
+  let h = 0
+  for (let i = 0; i < ip.length; i++) {
+    h = Math.imul(31, h) + ip.charCodeAt(i) | 0
+  }
+  return Math.abs(h).toString(36)
+}
+
+// ─── Delay helper ────────────────────────────────────────────────────────────
+function randomDelayMs(minMin: number, maxMin: number): number {
+  return (minMin + Math.random() * (maxMin - minMin)) * 60 * 1000
+}
+
+// ─── POST /api/contact ───────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, message } = body
 
-    // Validate required fields
-    if (!name || !email || !message) {
+    // Build typed payload (accept both legacy {name,email,message} and new format)
+    const payload: ContactPayload = {
+      source:           body.source         ?? 'contact_section',
+      customer_name:    body.customer_name  ?? body.name    ?? '',
+      customer_email:   body.customer_email ?? body.email   ?? '',
+      message:          body.message        ?? '',
+      created_at:       body.created_at     ?? new Date().toISOString(),
+      page_url:         body.page_url       ?? req.headers.get('referer') ?? '',
+      user_agent:       body.user_agent     ?? req.headers.get('user-agent') ?? '',
+      company_website:  body.company_website,
+    }
+
+    // ── Validation ─────────────────────────────────────────────────────────
+    const validation = validateContactPayload(payload)
+    if (!validation.ok) {
+      // Honeypot failures look like success to avoid bot feedback loops
+      if (validation.code === 'BOT_DETECTED') {
+        return NextResponse.json(
+          { success: true, status: 'received', message: 'Mensagem recebida com sucesso.' },
+          { status: 201 },
+        )
+      }
       return NextResponse.json(
-        { error: 'Campos obrigatórios: name, email, message' },
+        { success: false, code: validation.code, message: validation.message },
         { status: 400 },
       )
     }
 
-    // Basic email format check
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: 'Email inválido' }, { status: 400 })
-    }
+    // ── Rate limiting ──────────────────────────────────────────────────────
+    const ip     = getIp(req)
+    const ipHash = hashIp(ip)
 
-    // Sanitize — trim and limit length
-    const lead = {
-      name:       String(name).trim().slice(0, 100),
-      email:      String(email).trim().toLowerCase().slice(0, 254),
-      message:    String(message).trim().slice(0, 2000),
-      source:     'contact-form',
-      lang:       'pt',
-      ip_hash:    hashIp(
-        req.headers.get('cf-connecting-ip') ??
-        req.headers.get('x-forwarded-for') ??
-        'unknown',
-      ),
-    }
-
-    // 1. Save to Supabase (public.portfolio_leads — already exposed via REST API)
-    if (supabaseUrl && supabaseAnonKey) {
-      const supabase = createClient(supabaseUrl, supabaseAnonKey)
-      const { error: dbError } = await supabase
-        .from('portfolio_leads')
-        .insert(lead)
-
-      if (dbError) {
-        console.error('[contact] Supabase insert error:', dbError.message)
-        // Don't block the response — lead will be retried via n8n webhook
-      }
-    } else {
-      console.warn('[contact] Supabase env vars not set — skipping DB insert')
-    }
-
-    // 2. Fire n8n webhook (non-blocking — notification even if DB insert failed)
-    if (n8nWebhookUrl) {
-      fetch(n8nWebhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: lead.name, email: lead.email, message: lead.message }),
-      }).catch((err) =>
-        console.warn('[contact] n8n webhook fire failed (non-fatal):', err.message),
+    if (isRateLimited(ip) || isRateLimited(payload.customer_email.toLowerCase())) {
+      return NextResponse.json(
+        {
+          success: false,
+          code:    'RATE_LIMITED',
+          message: 'Muitas mensagens enviadas. Aguarde alguns minutos antes de tentar novamente.',
+        },
+        { status: 429 },
       )
     }
 
-    return NextResponse.json({ success: true }, { status: 201 })
+    // ── Respond immediately (background processing begins below) ──────────
+    const responsePayload = {
+      success: true,
+      status:  'received',
+      message: 'Mensagem recebida! Entrarei em contato em breve.',
+    }
+
+    // ── Background: classify → save → notify (with 3-5 min delay) ─────────
+    // Fire-and-forget — errors never reach the user
+    Promise.resolve().then(async () => {
+      try {
+        const classification = await classifyLead(
+          payload.customer_name,
+          payload.customer_email,
+          payload.message,
+        )
+
+        await saveLead(payload, classification, ipHash)
+
+        // Only notify for non-spam leads
+        if (!classification.is_spam && classification.lead_quality !== 'invalid') {
+          const delay = randomDelayMs(3, 5)
+          await new Promise((resolve) => setTimeout(resolve, delay))
+          await notifyLead(payload, classification)
+        }
+      } catch (err) {
+        console.error('[contact] Background processing error (non-fatal):', err)
+      }
+    })
+
+    return NextResponse.json(responsePayload, { status: 201 })
   } catch (err) {
     console.error('[contact] Unexpected error:', err)
-    return NextResponse.json({ error: 'Erro inesperado' }, { status: 500 })
+    return NextResponse.json(
+      { success: false, code: 'INTERNAL_ERROR', message: 'Erro inesperado. Tente novamente.' },
+      { status: 500 },
+    )
   }
 }
 
-// Reject all other methods
 export async function GET() {
   return NextResponse.json({ error: 'Method not allowed' }, { status: 405 })
 }

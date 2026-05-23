@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
-import { ContactForm } from "../ui/ContactForm";
+import { ContactForm } from "../contact/ContactForm";
 
 export const ContactSection: React.FC = () => {
   const t = useCopy();
@@ -29,7 +29,7 @@ export const ContactSection: React.FC = () => {
           ))}
         </div>
 
-        <ContactForm />
+        <ContactForm source="contact_section" />
       </div>
     </section>
   );
