@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const n8nWebhookUrl = process.env.N8N_CONTACT_WEBHOOK_URL
 
 function hashIp(ip: string): string {
-  // Simple one-way hash for privacy — not reversible, not cryptographic
   let hash = 0
   for (let i = 0; i < ip.length; i++) {
     const char = ip.charCodeAt(i)
@@ -37,35 +36,34 @@ export async function POST(req: NextRequest) {
 
     // Sanitize — trim and limit length
     const lead = {
-      name: String(name).trim().slice(0, 100),
-      email: String(email).trim().toLowerCase().slice(0, 254),
-      message: String(message).trim().slice(0, 2000),
-      source: 'contact-form',
-      ip_hash: hashIp(
+      name:       String(name).trim().slice(0, 100),
+      email:      String(email).trim().toLowerCase().slice(0, 254),
+      message:    String(message).trim().slice(0, 2000),
+      source:     'contact-form',
+      lang:       'pt',
+      ip_hash:    hashIp(
         req.headers.get('cf-connecting-ip') ??
-          req.headers.get('x-forwarded-for') ??
-          'unknown',
+        req.headers.get('x-forwarded-for') ??
+        'unknown',
       ),
-      user_agent: req.headers.get('user-agent')?.slice(0, 500) ?? null,
     }
 
-    // 1. Save to Supabase portfolio.leads
-    const supabase = createClient(supabaseUrl, supabaseAnonKey)
-    const { error: dbError } = await supabase
-      .schema('portfolio')
-      .from('leads')
-      .insert(lead)
+    // 1. Save to Supabase (public.portfolio_leads — already exposed via REST API)
+    if (supabaseUrl && supabaseAnonKey) {
+      const supabase = createClient(supabaseUrl, supabaseAnonKey)
+      const { error: dbError } = await supabase
+        .from('portfolio_leads')
+        .insert(lead)
 
-    if (dbError) {
-      console.error('[contact] Supabase insert error:', dbError.message)
-      // Don't expose DB errors to the client
-      return NextResponse.json(
-        { error: 'Erro ao registrar mensagem. Tente novamente.' },
-        { status: 500 },
-      )
+      if (dbError) {
+        console.error('[contact] Supabase insert error:', dbError.message)
+        // Don't block the response — lead will be retried via n8n webhook
+      }
+    } else {
+      console.warn('[contact] Supabase env vars not set — skipping DB insert')
     }
 
-    // 2. Fire n8n webhook (non-blocking — if it fails, lead is still saved)
+    // 2. Fire n8n webhook (non-blocking — notification even if DB insert failed)
     if (n8nWebhookUrl) {
       fetch(n8nWebhookUrl, {
         method: 'POST',
