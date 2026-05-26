@@ -23,6 +23,9 @@ README.md
 build-error.log
 *.log
 
+# Backend service (has its own Dockerfile + build context)
+backend/
+
 # Local infra files (not needed inside the container)
 nginx.conf
 compose.yaml
