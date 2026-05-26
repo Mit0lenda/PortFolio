@@ -13,7 +13,7 @@
 | 2026-05-22 | D-05 | next/font replaces @import Google Fonts | Only CSS change allowed — eliminates render-blocking import, zero visual change |
 | 2026-05-22 | D-06 | Qdrant binds to 127.0.0.1 only | Vector DB must never be publicly accessible |
 | 2026-05-22 | D-07 | ISR home page revalidate: 3600 | Balances freshness with SEO caching at Cloudflare edge |
-| 2026-05-22 | D-08 | portfolio.leads in Supabase nexus project (schema: portfolio) | Isolated from construction management tables; anon INSERT via RLS; service_role reads via n8n |
+| 2026-05-22 | D-08 | portfolio.leads in Supabase **aplicativos** project (id: ttzvattidtrqiujepohy, schema: portfolio) | Dedicated project, isolated from nexus (construction management). Anon INSERT via RLS; n8n workflow fYAutok5of2d0mZI reads via service_role |
 | 2026-05-22 | D-09 | n8n webhook fires non-blocking from API route | Lead is saved to Supabase first; n8n notification is best-effort (catch swallowed) — resilient |
 | 2026-05-22 | D-10 | Cloudflare Web Analytics over Vercel Analytics | Free, cookieless, no GDPR consent needed; token-gated by env var |
 

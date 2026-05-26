@@ -7,7 +7,7 @@
 | M1 | Cloudflare Hardened | CF-01 → CF-05 | ✅ Done 2026-05-22 — CF-01..04 via API; CF-05 merged into M3 |
 | M2 | Backend Secured | BE-01 → BE-05 | 🔴 Pending (NestJS repo — next session) |
 | M3 | Next.js Live | MIG-01 → MIG-10 | ✅ **Done 2026-05-22** — build clean, 9 routes |
-| M4 | SEO Complete | SEO-01 → SEO-06 | 🟡 SEO-01..05 ✅ done 2026-05-22; SEO-06 pending deploy |
+| M4 | SEO Complete | SEO-01 → SEO-06 | 🟡 SEO-01..05 ✅ done; SEO-02 OG PNG ✅; SEO-06 pending deploy |
 | M5 | Continuous Optimization | OPT-01 → OPT-04 | ✅ Done 2026-05-22 — CI yml + analyzer + web-vitals + CF Analytics |
 
 ## Feature List
@@ -52,7 +52,7 @@
 | ID | Feature | Priority | Milestone | Status |
 |---|---|---|---|---|
 | SEO-01 | metadata API in layout.tsx (title, description, OG, twitter) | P1 | M4 | ✅ Done 2026-05-22 — full OG + twitter + robots + keywords |
-| SEO-02 | OG image PNG 1200×630 (convert from SVG) | P1 | M4 | 🔴 Pending — convert public/og/og-default.svg manually |
+| SEO-02 | OG image PNG 1200×630 (convert from SVG) | P1 | M4 | ✅ Done 2026-05-22 — public/og/og-default.png committed to repo |
 | SEO-03 | JSON-LD Person + WebSite schemas | P1 | M4 | ✅ Done 2026-05-22 — inline in layout.tsx body |
 | SEO-04 | app/sitemap.ts (dynamic, with lastModified) | P1 | M4 | ✅ Done 2026-05-22 — 12 URLs, /sitemap.xml route |
 | SEO-05 | app/robots.ts (replace static public/robots.txt) | P1 | M4 | ✅ Done 2026-05-22 — disallows /api/, /_next/ |
