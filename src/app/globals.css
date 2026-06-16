@@ -2210,3 +2210,116 @@ footer {
     to   { opacity: 1; transform: translateY(0); }
   }
 }
+
+/* certificates */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.cert-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--gray-line);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4285F4 25%, #EA4335 25% 50%, #FBBC04 50% 75%, #34A853 75%);
+}
+
+.cert-card:hover {
+  border-color: var(--gray-support);
+  transform: translateY(-2px);
+}
+
+.cert-header {
+  padding: 28px 28px 0;
+}
+
+.cert-provider-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  background: rgba(0, 174, 239, 0.12);
+  border: 1px solid rgba(0, 174, 239, 0.25);
+  color: var(--blue-tech);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--paper);
+  margin: 16px 28px 0;
+}
+
+.cert-issuer {
+  font-size: 13px;
+  color: var(--gray-support);
+  margin: 10px 28px 0;
+  line-height: 1.4;
+}
+
+.cert-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--paper-dim);
+  margin: 16px 28px 0;
+}
+
+.cert-dot {
+  color: var(--orange-impact);
+}
+
+.cert-id-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 28px 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-line-soft);
+}
+
+.cert-id-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--orange-impact);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cert-id-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gray-support);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}

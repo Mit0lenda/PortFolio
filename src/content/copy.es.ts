@@ -71,8 +71,23 @@ export const copyEs: Copy = {
     a2h1: "Startup", a2h2: "incubada", a2d: "CEI-UFRGS",
     a3h1: "Pericia", a3h2: "digital", a3d: "Policía Federal",
   },
+  certificates: {
+    eyebrow: "// 08 — certificados",
+    h2a: "Aprendiendo", h2b: "siempre.",
+    desc: "Certificaciones técnicas de cursos y plataformas reconocidas.",
+    list: [
+      {
+        provider: "Google Cloud",
+        title: "Google SecOps Foundation",
+        issuer: "ARKI1 · Latin America Training Partner of the Year",
+        date: "9 jun 2026",
+        duration: "3h",
+        id: "P-SF+V+2026-06-09_8694088B",
+      },
+    ],
+  },
   faq: {
-    eyebrow: "// 08 — preguntas frecuentes",
+    eyebrow: "// 09 — preguntas frecuentes",
     h2a: "Antes de", h2b: "la llamada.",
     list: [
       { q: "¿Cuál es el plazo medio para un sitio?",                  a: "Landing page: 3–10 días. Sitio institucional: 7–21 días. Sistema custom: a partir de 20 días. Te envío cronograma con hitos antes de empezar." },
@@ -92,7 +107,7 @@ export const copyEs: Copy = {
     ig: 'DM con la palabra "PROYECTO"',
   },
   contact: {
-    eyebrow: "// 09 — contacto",
+    eyebrow: "// 10 — contacto",
     h2a: "Vamos a", h2b: "conversar.",
     desc: "Elige el canal que más usas. En general respondo en 24h, días hábiles.",
     cards: [

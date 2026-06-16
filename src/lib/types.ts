@@ -36,6 +36,15 @@ export type FaqItem = {
   a: string;
 };
 
+export type CertificateItem = {
+  provider: string;
+  title: string;
+  issuer: string;
+  date: string;
+  duration: string;
+  id: string;
+};
+
 export type Copy = {
   nav: {
     servicos: string;
@@ -120,6 +129,13 @@ export type Copy = {
     a3h1: string;
     a3h2: string;
     a3d: string;
+  };
+  certificates: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    desc: string;
+    list: CertificateItem[];
   };
   faq: {
     eyebrow: string;
