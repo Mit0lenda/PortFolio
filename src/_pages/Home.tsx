@@ -8,6 +8,7 @@ import { VenturesSection } from "../components/sections/VenturesSection";
 import { SitesSection } from "../components/sections/SitesSection";
 import { TechStackSection } from "../components/sections/TechStackSection";
 import { AboutSection } from "../components/sections/AboutSection";
+import { CertificatesSection } from "../components/sections/CertificatesSection";
 import { FAQSection } from "../components/sections/FAQSection";
 import { FinalCTASection } from "../components/sections/FinalCTASection";
 import { ContactSection } from "../components/sections/ContactSection";
@@ -23,6 +24,7 @@ export const HomePage: React.FC = () => (
     <SitesSection />
     <TechStackSection />
     <AboutSection />
+    <CertificatesSection />
     <FAQSection />
     <FinalCTASection />
     <ContactSection />

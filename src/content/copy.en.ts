@@ -71,8 +71,24 @@ export const copyEn: Copy = {
     a2h1: "Incubated", a2h2: "startup", a2d: "CEI-UFRGS",
     a3h1: "Digital", a3h2: "forensics", a3d: "Internship · Federal Police",
   },
+  certificates: {
+    eyebrow: "// 08 — certificates",
+    h2a: "Always", h2b: "learning.",
+    desc: "Technical certifications from recognized courses and platforms.",
+    kBadge: "Certified", kDate: "Completed", kDuration: "Duration", kId: "ID",
+    list: [
+      {
+        provider: "Google Cloud",
+        title: "Google SecOps Foundation",
+        issuer: "ARKI1 · Latin America Training Partner of the Year",
+        date: "Jun 9, 2026",
+        duration: "3h",
+        id: "P-SF+V+2026-06-09_8694088B",
+      },
+    ],
+  },
   faq: {
-    eyebrow: "// 08 — frequently asked questions",
+    eyebrow: "// 09 — frequently asked questions",
     h2a: "Before", h2b: "booking a call.",
     list: [
       { q: "What is the average timeline for a website?",         a: "Landing page: 3–10 days. Corporate site: 7–21 days. Custom system: 20+ days. I send a milestone schedule before starting." },
@@ -92,7 +108,7 @@ export const copyEn: Copy = {
     ig: 'DM with the word "PROJECT"',
   },
   contact: {
-    eyebrow: "// 09 — contact",
+    eyebrow: "// 10 — contact",
     h2a: "Let's", h2b: "talk.",
     desc: "Pick the channel you use most. I usually reply within 24h on weekdays.",
     cards: [
