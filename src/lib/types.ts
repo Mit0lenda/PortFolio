@@ -135,6 +135,10 @@ export type Copy = {
     h2a: string;
     h2b: string;
     desc: string;
+    kBadge: string;
+    kDate: string;
+    kDuration: string;
+    kId: string;
     list: CertificateItem[];
   };
   faq: {

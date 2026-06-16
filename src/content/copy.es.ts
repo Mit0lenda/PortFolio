@@ -75,6 +75,7 @@ export const copyEs: Copy = {
     eyebrow: "// 08 — certificados",
     h2a: "Aprendiendo", h2b: "siempre.",
     desc: "Certificaciones técnicas de cursos y plataformas reconocidas.",
+    kBadge: "Certificado", kDate: "Concluido", kDuration: "Duración", kId: "ID",
     list: [
       {
         provider: "Google Cloud",

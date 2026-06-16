@@ -21,23 +21,29 @@ export const CertificatesSection: React.FC = () => {
         <div className="cert-grid">
           {c.list.map((cert, i) => (
             <div key={i} className="cert-card">
-              <div className="cert-header">
-                <span className="cert-provider-badge">{cert.provider}</span>
-              </div>
+              <span className="cert-num">// {cert.provider}</span>
 
-              <h3 className="cert-title">{cert.title}</h3>
+              <span className="cert-cred">✓ {c.kBadge}</span>
 
-              <p className="cert-issuer">{cert.issuer}</p>
+              <h3 className="cert-name">
+                {cert.title}<span className="impact">.</span>
+              </h3>
 
-              <div className="cert-meta">
-                <span>{cert.date}</span>
-                <span className="cert-dot">·</span>
-                <span>{cert.duration}</span>
-              </div>
+              <p className="cert-desc">{cert.issuer}</p>
 
-              <div className="cert-id-row">
-                <span className="cert-id-label">ID</span>
-                <span className="cert-id-value">{cert.id}</span>
+              <div className="cert-info">
+                <div className="cert-row">
+                  <span className="k">{c.kDate}</span>
+                  <span className="v">{cert.date}</span>
+                </div>
+                <div className="cert-row">
+                  <span className="k">{c.kDuration}</span>
+                  <span className="v">{cert.duration}</span>
+                </div>
+                <div className="cert-row">
+                  <span className="k">{c.kId}</span>
+                  <span className="v cert-id-val">{cert.id}</span>
+                </div>
               </div>
             </div>
           ))}
