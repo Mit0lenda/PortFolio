@@ -31,12 +31,13 @@ export const copyEn: Copy = {
   projects: {
     eyebrow: "// 03 — featured projects",
     h2a: "Code that", h2b: "wins.",
-    desc: "Three projects. One national award. One incubated startup. One system in production.",
+    desc: "National award. Incubated startup. System in production. Automation running on its own.",
     labelProj: "PROJECT",
     list: [
       { name: "Haven Link", tag: "AI · Emergency logistics", trophy: "🥉 3RD PLACE NATIONAL · iTwin4Good BR", desc: "AI platform for emergency logistics — coordinates disaster rescue, connecting volunteers, NGOs and public agencies via real-time map. Awarded nationally." },
       { name: "Nexus",      tag: "Startup · CEI-UFRGS",      trophy: "🚀 INCUBATED · CEI-UFRGS",             desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Currently incubated at UFRGS Entrepreneurship Center." },
       { name: "Atlas",      tag: "FGTS financial system",    trophy: "// IN PRODUCTION · FREELANCE",         desc: "Complete FGTS financial management system for a sales team. CRM for proposals, calendar, bulk queries, report exports." },
+      { name: "Autonomous CRM", tag: "Automation · Lead generation", trophy: "// IN PRODUCTION · OWN SYSTEM", desc: "Prospecting engine that scans the map by category and city, identifies businesses without a website, and creates the deal + follow-up task straight in the CRM — zero manual clicks, zero API cost." },
     ],
   },
   sites: {

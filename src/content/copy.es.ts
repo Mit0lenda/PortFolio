@@ -31,12 +31,13 @@ export const copyEs: Copy = {
   projects: {
     eyebrow: "// 03 — proyectos destacados",
     h2a: "Código que", h2b: "gana.",
-    desc: "Tres proyectos. Un premio nacional. Una startup incubada. Un sistema en producción.",
+    desc: "Premio nacional. Startup incubada. Sistema en producción. Automatización funcionando sola.",
     labelProj: "PROYECTO",
     list: [
       { name: "Haven Link", tag: "IA · Logística de emergencia", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR", desc: "Plataforma de IA para logística de emergencia — coordina rescate en desastres, conectando voluntarios, ONGs y organismos públicos vía mapa en tiempo real. Premiada nacionalmente." },
       { name: "Nexus",      tag: "Startup · CEI-UFRGS",          trophy: "🚀 INCUBADA · CEI-UFRGS",            desc: "Plataforma de monitoreo de obras con IA aplicada. Mapa por construcción, control de stock por punto y detección visual en el sitio. Hoy incubada en el Centro de Emprendedurismo de la UFRGS." },
       { name: "Atlas",      tag: "Sistema financiero FGTS",      trophy: "// EN PRODUCCIÓN · FREELANCE",       desc: "Sistema financiero FGTS completo para un equipo comercial. CRM de propuestas, agenda, consultas masivas, exportación de reportes." },
+      { name: "CRM Autónomo", tag: "Automatización · Captación de leads", trophy: "// EN PRODUCCIÓN · SISTEMA PROPIO", desc: "Motor de prospección que recorre el mapa por categoría y ciudad, identifica negocios sin sitio web y crea la oportunidad + tarea de seguimiento directo en el CRM — sin clics manuales, costo de API cero." },
     ],
   },
   sites: {
