@@ -38,6 +38,11 @@ export function ChatwootWidget() {
     script.src = `${BASE_URL}/packs/js/sdk.js`;
     script.async = true;
     
+    script.onerror = () => {
+      window.chatwootInitialized = false;
+      console.warn('[DEV_MITOLENDA] Chatwoot SDK failed to load.');
+    };
+
     script.onload = () => {
       if (window.chatwootSDK) {
         // Inicialização do Chatwoot SDK (O websiteToken é público)
