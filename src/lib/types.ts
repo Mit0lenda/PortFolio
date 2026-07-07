@@ -8,6 +8,7 @@ export type ServiceItem = {
 };
 
 export type ProjectItem = {
+  id: string;
   name: string;
   tag: string;
   trophy: string;
