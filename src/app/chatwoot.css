@@ -6,9 +6,12 @@
 }
 
 /* Estado padrão do botão e estado de fechar */
+/* NAO sobrescrever `position` aqui: o Chatwoot define `position: fixed` no
+   .woot-widget-bubble via CSS proprio (injetado em runtime, sem !important).
+   Um `position: relative !important` aqui derruba esse fixed e faz o botao
+   cair no fluxo normal do documento em vez de flutuar no canto da tela. */
 .woot-widget-bubble,
 .woot-widget-bubble.woot-widget-bubble--close {
-  position: relative !important;
   background: #181818 !important;
   border: 1px solid #F24A00 !important;
   border-radius: 10px !important;
