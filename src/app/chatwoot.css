@@ -109,3 +109,20 @@
     bottom: 20px !important;
   }
 }
+
+/* Botao de fechar (X, painel aberto): menor e um pouco mais acima do que o
+   launcher padrao, pra nao encostar no toolbar de anexo/emoji do input.
+   Classe real do estado fechado no Chatwoot e `.woot--close` (nao
+   `.woot-widget-bubble--close`, que nao existe no DOM real). */
+.woot-widget-bubble.woot--close {
+  width: 44px !important;
+  height: 44px !important;
+  bottom: 32px !important;
+}
+
+.woot-widget-bubble.woot--close::before,
+.woot-widget-bubble.woot--close::after {
+  left: 22px !important;
+  top: 12px !important;
+  height: 20px !important;
+}
