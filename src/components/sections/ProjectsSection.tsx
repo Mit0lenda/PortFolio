@@ -8,12 +8,14 @@ const IMGS = [
   "/assets/photo-trofeu.png",
   "/assets/site-nexium.png",
   "/assets/work-atlas-dashboard.png",
+  "/assets/work-propostas.png",
 ];
 
 const STACKS = [
   ["React", "Node.js", "IA", "iTwin", "Mapas"],
   ["React", "Leaflet", "Python", "CV", "Bentley"],
   ["React", "Node.js", "JWT", "MySQL", "Azure"],
+  ["Node.js", "Scraping", "Automation", "CRM", "API"],
 ];
 
 export const ProjectsSection: React.FC = () => {
@@ -31,40 +33,45 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         <div className="feat-grid">
-          {t.projects.list.map((p, i) => (
-            <article className="feat" key={i}>
-              <div className="feat-shot" style={{ position: "relative" }}>
-                <Image
-                  src={IMGS[i]}
-                  alt={p.name}
-                  fill
-                  className={IMGS[i].includes("trofeu") ? "trophy" : ""}
-                  style={{ objectFit: IMGS[i].includes("trofeu") ? "contain" : "cover" }}
-                />
-              </div>
-              <div className="feat-body">
-                <div className="feat-eyebrow">
-                  <span className="num">
-                    // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>{p.tag}</span>
+          {t.projects.list.map((p, i) => {
+            const img = IMGS[i] || "/assets/photo-trofeu.png";
+            const stack = STACKS[i] || [];
+            const isTrophy = img.includes("trofeu");
+            return (
+              <article className="feat" key={i}>
+                <div className="feat-shot" style={{ position: "relative" }}>
+                  <Image
+                    src={img}
+                    alt={p.name}
+                    fill
+                    className={isTrophy ? "trophy" : ""}
+                    style={{ objectFit: isTrophy ? "contain" : "cover" }}
+                  />
                 </div>
-                <span className="feat-trophy">{p.trophy}</span>
-                <h3 className="feat-name">
-                  {p.name}
-                  <span className="impact">.</span>
-                </h3>
-                <p className="feat-desc">{p.desc}</p>
-                <div className="feat-stack">
-                  {STACKS[i].map((s) => (
-                    <span className="chip" key={s}>
-                      {s}
+                <div className="feat-body">
+                  <div className="feat-eyebrow">
+                    <span className="num">
+                      // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
                     </span>
-                  ))}
+                    <span>{p.tag}</span>
+                  </div>
+                  <span className="feat-trophy">{p.trophy}</span>
+                  <h3 className="feat-name">
+                    {p.name}
+                    <span className="impact">.</span>
+                  </h3>
+                  <p className="feat-desc">{p.desc}</p>
+                  <div className="feat-stack">
+                    {stack.map((s) => (
+                      <span className="chip" key={s}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
