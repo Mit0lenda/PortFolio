@@ -5,6 +5,7 @@ import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { Providers } from './providers'
 import './globals.css'
+import './chatwoot.css'
 
 const BASE_URL = 'https://mitolenda.dev'
 

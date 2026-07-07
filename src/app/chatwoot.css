@@ -1,0 +1,71 @@
+/* Customizações visuais do Chatwoot para DEV_MITOLENDA */
+
+/* ── Ajustes do Container (Holder) ────────────────────────── */
+.woot-widget-holder {
+  border: 1px solid #2b2b2b !important;
+  border-radius: 12px !important;
+  box-shadow: none !important; /* Sem sombras chamativas */
+  overflow: hidden;
+  z-index: 999999 !important; /* Alto z-index, mas evita modais extremos */
+}
+
+/* ── Estética do botão do Launcher (Bubble) ────────────────── */
+.woot-widget-bubble {
+  background: #00F5A0 !important; /* CTA verde forte */
+  border: 1px solid #F24A00 !important; /* Borda laranja accent */
+  border-radius: 8px !important; /* Radius moderado (tech) */
+  box-shadow: none !important; /* Sem glass/sombras */
+  color: #080808 !important; /* Cor interna escura (contraste brutalista) */
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.woot-widget-bubble:hover,
+.woot-widget-bubble:focus-visible {
+  transform: translateY(-2px);
+  background: #080808 !important;
+  color: #00F5A0 !important;
+  outline: 2px solid #F24A00 !important;
+  outline-offset: 2px;
+}
+
+/* Remove a sombra do container do bubble */
+.woot--bubble-holder {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Modifica a cor do SVG/Ícone interno para bater com o contraste */
+.woot-widget-bubble svg {
+  fill: currentcolor !important;
+  stroke: currentcolor !important;
+}
+
+/* ── Responsividade e Posicionamento Mobile-First ──────────── */
+.woot-elements--right {
+  right: 16px !important;
+  bottom: 16px !important;
+}
+
+@media (min-width: 768px) {
+  .woot-elements--right {
+    right: 24px !important;
+    bottom: 24px !important;
+  }
+}
+
+/* Evitar sobreposição em mobile (ajuste dinâmico) */
+@media (max-width: 640px) {
+  .woot-widget-holder {
+    width: calc(100% - 32px) !important; /* largura responsiva */
+    max-height: calc(100% - 100px) !important;
+    bottom: 80px !important; /* eleva um pouco no mobile para não cobrir navegação/CTAs nativos */
+  }
+  .woot-elements--right {
+    bottom: 20px !important;
+  }
+}
+
+/* ── Ajustes adicionais de Acessibilidade ──────────────────── */
+.woot-widget-bubble:focus {
+  outline: 2px solid #00AEEF !important; /* Accent secundário para foco */
+}
