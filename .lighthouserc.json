@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "url": ["https://mitolenda.dev/", "https://mitolenda.dev/projects/ops-control-platform"],
+      "url": ["https://mitolenda.dev/", "https://mitolenda.dev/projects/crm-autonomo"],
       "numberOfRuns": 3,
       "settings": {
         "preset": "desktop",

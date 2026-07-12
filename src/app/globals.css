@@ -519,6 +519,21 @@ section {
   color: var(--green-cta);
 }
 
+.svc-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-cta);
+  text-decoration: none;
+}
+
+.svc-more:hover {
+  text-decoration: underline;
+}
+
 /* featured projects */
 .feat-grid {
   display: grid;

@@ -37,6 +37,15 @@ export const ServicesSection: React.FC = () => {
                   <span className="v">{s.prazo}</span>
                 </div>
               </div>
+              {s.slug && (
+                <a
+                  href={`/servicos/${s.slug}`}
+                  className="svc-more"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  saiba mais →
+                </a>
+              )}
             </div>
           ))}
         </div>

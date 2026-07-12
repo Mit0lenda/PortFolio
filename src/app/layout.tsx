@@ -4,6 +4,7 @@ import { interFont, spaceMonoFont } from '../lib/fonts'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { Providers } from './providers'
+import { copyPt } from '../content/copy.pt'
 import './globals.css'
 import './chatwoot.css'
 
@@ -110,6 +111,40 @@ const websiteSchema = {
   },
 }
 
+const whatsappCard = copyPt.contact.cards.find((c) => c.k === 'WhatsApp')
+const emailCard = copyPt.contact.cards.find((c) => c.k === 'E-mail')
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Dev Mitolenda',
+  url: BASE_URL,
+  image: `${BASE_URL}/og/og-default.png`,
+  ...(whatsappCard && { telephone: whatsappCard.v }),
+  ...(emailCard && { email: emailCard.v }),
+  address: personSchema.address,
+  areaServed: ['BR', 'Brasil', 'Remoto'],
+  priceRange: 'R$ 500 – R$ 30.000+',
+  sameAs: personSchema.sameAs,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Serviços',
+    itemListElement: copyPt.services.list.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.t,
+        description: s.d,
+      },
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: s.price,
+        priceCurrency: 'BRL',
+      },
+    })),
+  },
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -130,6 +165,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
         />
         {/* Cloudflare Web Analytics — cookieless, privacy-first (OPT-04) */}
         {process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN && (

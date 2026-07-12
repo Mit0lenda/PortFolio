@@ -7,6 +7,16 @@ export const FAQSection: React.FC = () => {
   const t = useCopy();
   const [open, setOpen] = useState(0);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faq.list.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <section id="faq">
       <div className="container">
@@ -29,6 +39,10 @@ export const FAQSection: React.FC = () => {
           ))}
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </section>
   );
 };

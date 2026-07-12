@@ -11,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  const servicePageUrls: MetadataRoute.Sitemap = (copyPt.servicePages ?? []).map((s) => ({
+    url: `${BASE_URL}/servicos/${s.slug}`,
+    lastModified: new Date('2026-07-11'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
+
   return [
     {
       url: BASE_URL,
@@ -19,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     ...projectUrls,
+    ...servicePageUrls,
     {
       url: `${BASE_URL}/politica-de-privacidade`,
       lastModified: new Date('2026-05-05'),
