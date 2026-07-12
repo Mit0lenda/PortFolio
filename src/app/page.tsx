@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { HomePage } from '../_pages/Home'
+import { getLatestPosts } from '../lib/blog/posts'
 
 export const revalidate = 3600
 
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Page() {
-  return <HomePage />
+export default async function Page() {
+  // Nunca deixa uma falha do Supabase derrubar a home — degrada para lista
+  // vazia (a BlogSection simplesmente não renderiza nesse caso).
+  const posts = await getLatestPosts(3).catch((err) => {
+    console.error('[home] getLatestPosts failed:', err)
+    return []
+  })
+
+  return <HomePage posts={posts} />
 }

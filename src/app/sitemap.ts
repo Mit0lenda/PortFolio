@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
 import { copyPt } from '../content/copy.pt'
+import { getPublishedPosts } from '../lib/blog/posts'
 
 const BASE_URL = 'https://mitolenda.dev'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectUrls: MetadataRoute.Sitemap = copyPt.projects.list.map((p) => ({
     url: `${BASE_URL}/projects/${p.id}`,
     lastModified: new Date('2026-06-01'),
@@ -18,6 +19,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  // Nunca deixa uma falha do Supabase quebrar o sitemap inteiro — degrada
+  // para uma lista sem posts nesse caso.
+  const posts = await getPublishedPosts().catch((err) => {
+    console.error('[sitemap] getPublishedPosts failed:', err)
+    return []
+  })
+
+  const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.published_at),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
+
   return [
     {
       url: BASE_URL,
@@ -25,6 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    ...postUrls,
     ...projectUrls,
     ...servicePageUrls,
     {

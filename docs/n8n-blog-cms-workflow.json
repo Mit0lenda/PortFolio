@@ -1,0 +1,165 @@
+{
+  "name": "Portfolio — Blog CMS",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Novo post do blog — mitolenda.dev",
+        "formDescription": "Preencha para publicar um novo conteúdo no blog.",
+        "formFields": {
+          "values": [
+            { "fieldLabel": "Título", "requiredField": true },
+            { "fieldLabel": "Resumo", "requiredField": true },
+            { "fieldLabel": "Conteúdo (Markdown)", "fieldType": "textarea", "requiredField": true },
+            { "fieldLabel": "Categoria", "requiredField": true },
+            { "fieldLabel": "Tags", "placeholder": "separadas por vírgula" },
+            { "fieldLabel": "Imagem de capa", "fieldType": "file" },
+            { "fieldLabel": "Texto alternativo da capa" },
+            {
+              "fieldLabel": "Status",
+              "fieldType": "dropdown",
+              "fieldOptions": { "values": [{ "option": "draft" }, { "option": "scheduled" }, { "option": "published" }] },
+              "requiredField": true
+            },
+            { "fieldLabel": "Data de agendamento", "fieldType": "date" },
+            { "fieldLabel": "Destacar na home", "fieldType": "checkbox" },
+            { "fieldLabel": "Conteúdo para LinkedIn", "fieldType": "textarea" },
+            { "fieldLabel": "Publicar no LinkedIn", "fieldType": "checkbox" }
+          ]
+        }
+      },
+      "id": "form-trigger",
+      "name": "Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [-640, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/storage/v1/object/blog-images/{{ $json['Título'].toLowerCase().replace(/[^a-z0-9]+/g, '-') }}-{{ $now.toMillis() }}.webp",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth",
+        "sendBinaryData": true,
+        "binaryPropertyName": "Imagem_de_capa",
+        "options": {}
+      },
+      "id": "upload-cover-image",
+      "name": "Upload Cover Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-420, 0],
+      "credentials": {
+        "httpHeaderAuth": { "id": "PLACEHOLDER", "name": "Supabase Service Role" }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "name": "title", "value": "={{ $('Form Trigger').item.json['Título'] }}", "type": "string" },
+            { "name": "excerpt", "value": "={{ $('Form Trigger').item.json['Resumo'] }}", "type": "string" },
+            { "name": "content", "value": "={{ $('Form Trigger').item.json['Conteúdo (Markdown)'] }}", "type": "string" },
+            { "name": "category", "value": "={{ $('Form Trigger').item.json['Categoria'] }}", "type": "string" },
+            { "name": "tags", "value": "={{ ($('Form Trigger').item.json['Tags'] || '').split(',').map(t => t.trim()).filter(Boolean) }}", "type": "array" },
+            { "name": "coverImageUrl", "value": "={{ $json.publicUrl || undefined }}", "type": "string" },
+            { "name": "coverImageAlt", "value": "={{ $('Form Trigger').item.json['Texto alternativo da capa'] }}", "type": "string" },
+            { "name": "status", "value": "={{ $('Form Trigger').item.json['Status'] }}", "type": "string" },
+            { "name": "featured", "value": "={{ $('Form Trigger').item.json['Destacar na home'] }}", "type": "boolean" },
+            { "name": "publishedAt", "value": "={{ $('Form Trigger').item.json['Status'] === 'published' ? $now.toISO() : undefined }}", "type": "string" },
+            { "name": "scheduledAt", "value": "={{ $('Form Trigger').item.json['Status'] === 'scheduled' ? $('Form Trigger').item.json['Data de agendamento'] : undefined }}", "type": "string" },
+            { "name": "publishOnLinkedIn", "value": "={{ $('Form Trigger').item.json['Publicar no LinkedIn'] }}", "type": "boolean" },
+            { "name": "linkedinContent", "value": "={{ $('Form Trigger').item.json['Conteúdo para LinkedIn'] }}", "type": "string" }
+          ]
+        }
+      },
+      "id": "montar-payload",
+      "name": "Montar Payload do Post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://mitolenda.dev/api/blog/posts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Content-Type", "value": "application/json" }]
+        },
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "criar-post",
+      "name": "Criar Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [20, 0],
+      "credentials": {
+        "httpHeaderAuth": { "id": "PLACEHOLDER", "name": "Blog Webhook Secret" }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.success }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true" }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "if-sucesso",
+      "name": "IF sucesso?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseText": "=Post publicado! {{ $('Criar Post').item.json.url }}"
+      },
+      "id": "resposta-sucesso",
+      "name": "Resposta — Sucesso",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [460, -80]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseText": "=Não foi possível publicar: {{ $('Criar Post').item.json.message }}"
+      },
+      "id": "resposta-erro",
+      "name": "Resposta — Erro",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [460, 80]
+    }
+  ],
+  "connections": {
+    "Form Trigger": { "main": [[{ "node": "Upload Cover Image", "type": "main", "index": 0 }]] },
+    "Upload Cover Image": { "main": [[{ "node": "Montar Payload do Post", "type": "main", "index": 0 }]] },
+    "Montar Payload do Post": { "main": [[{ "node": "Criar Post", "type": "main", "index": 0 }]] },
+    "Criar Post": { "main": [[{ "node": "IF sucesso?", "type": "main", "index": 0 }]] },
+    "IF sucesso?": {
+      "main": [
+        [{ "node": "Resposta — Sucesso", "type": "main", "index": 0 }],
+        [{ "node": "Resposta — Erro", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "PLACEHOLDER",
+    "description": "Importe via n8n > Workflows > Import from File. Configure as Credentials 'Supabase Service Role' e 'Blog Webhook Secret' (Header Auth) antes de ativar. Nenhuma credencial real está incluída neste arquivo."
+  }
+}
