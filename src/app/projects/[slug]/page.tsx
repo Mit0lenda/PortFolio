@@ -6,13 +6,9 @@ export const revalidate = 7200
 
 const BASE_URL = 'https://mitolenda.dev'
 
-function toSlug(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')
-}
-
 export function generateStaticParams() {
   return copyPt.projects.list.map((p) => ({
-    slug: toSlug(p.name),
+    slug: p.id,
   }))
 }
 
@@ -22,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const project = copyPt.projects.list.find((p) => toSlug(p.name) === slug)
+  const project = copyPt.projects.list.find((p) => p.id === slug)
 
   if (!project) return {}
 
@@ -65,7 +61,7 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const project = copyPt.projects.list.find((p) => toSlug(p.name) === slug)
+  const project = copyPt.projects.list.find((p) => p.id === slug)
 
   if (!project) {
     notFound()

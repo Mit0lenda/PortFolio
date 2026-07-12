@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 
 // Mapeado por ID estável do projeto (não por posição no array nem pelo
@@ -57,38 +58,45 @@ export const ProjectsSection: React.FC = () => {
             const media = PROJECT_MEDIA[p.id] || FALLBACK_MEDIA;
             const isTrophy = !!media.contain;
             return (
-              <article className="feat" key={p.id}>
-                <div className="feat-shot" style={{ position: "relative" }}>
-                  <Image
-                    src={media.img}
-                    alt={p.name}
-                    fill
-                    className={isTrophy ? "trophy" : ""}
-                    style={{ objectFit: isTrophy ? "contain" : "cover" }}
-                  />
-                </div>
-                <div className="feat-body">
-                  <div className="feat-eyebrow">
-                    <span className="num">
-                      // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span>{p.tag}</span>
+              <Link
+                className="feat-link"
+                href={`/projects/${p.id}`}
+                key={p.id}
+                aria-label={`Ver projeto ${p.name}`}
+              >
+                <article className="feat">
+                  <div className="feat-shot" style={{ position: "relative" }}>
+                    <Image
+                      src={media.img}
+                      alt={p.name}
+                      fill
+                      className={isTrophy ? "trophy" : ""}
+                      style={{ objectFit: isTrophy ? "contain" : "cover" }}
+                    />
                   </div>
-                  <span className="feat-trophy">{p.trophy}</span>
-                  <h3 className="feat-name">
-                    {p.name}
-                    <span className="impact">.</span>
-                  </h3>
-                  <p className="feat-desc">{p.desc}</p>
-                  <div className="feat-stack">
-                    {media.stack.map((s) => (
-                      <span className="chip" key={s}>
-                        {s}
+                  <div className="feat-body">
+                    <div className="feat-eyebrow">
+                      <span className="num">
+                        // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
                       </span>
-                    ))}
+                      <span>{p.tag}</span>
+                    </div>
+                    <span className="feat-trophy">{p.trophy}</span>
+                    <h3 className="feat-name">
+                      {p.name}
+                      <span className="impact">.</span>
+                    </h3>
+                    <p className="feat-desc">{p.desc}</p>
+                    <div className="feat-stack">
+                      {media.stack.map((s) => (
+                        <span className="chip" key={s}>
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             );
           })}
         </div>

@@ -3,17 +3,9 @@ import { copyPt } from '../content/copy.pt'
 
 const BASE_URL = 'https://mitolenda.dev'
 
-// Slug generator must match the one used in projects/[slug]/page.tsx
-function toSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]/g, '')
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectUrls: MetadataRoute.Sitemap = copyPt.projects.list.map((p) => ({
-    url: `${BASE_URL}/projects/${toSlug(p.name)}`,
+    url: `${BASE_URL}/projects/${p.id}`,
     lastModified: new Date('2026-06-01'),
     changeFrequency: 'monthly',
     priority: 0.7,

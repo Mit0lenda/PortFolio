@@ -4,6 +4,15 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description: 'Como mitolenda.dev trata dados pessoais de visitantes, leads, clientes e parceiros.',
+  alternates: {
+    canonical: '/politica-de-privacidade',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/politica-de-privacidade',
+    title: 'Política de Privacidade | Dev Mitolenda',
+    description: 'Como mitolenda.dev trata dados pessoais de visitantes, leads, clientes e parceiros.',
+  },
 }
 
 export default function PrivacyPage() {

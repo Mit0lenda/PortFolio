@@ -527,6 +527,12 @@ section {
   border: 1px solid var(--gray-line);
 }
 
+.feat-link {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
 .feat {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -534,21 +540,21 @@ section {
   min-height: 340px;
 }
 
-.feat:last-child {
+.feat-link:last-child .feat {
   border-bottom: 0;
 }
 
-.feat:nth-child(even) {
+.feat-link:nth-child(even) .feat {
   grid-template-columns: 1.2fr 1fr;
 }
 
-.feat:nth-child(even) .feat-shot {
+.feat-link:nth-child(even) .feat-shot {
   order: 2;
   border-left: 1px solid var(--gray-line);
   border-right: 0;
 }
 
-.feat:nth-child(even) .feat-body {
+.feat-link:nth-child(even) .feat-body {
   order: 1;
 }
 

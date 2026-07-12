@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
         destination: '/termos',
         permanent: true,
       },
+      {
+        source: '/projects/crm-autnomo',
+        destination: '/projects/crm-autonomo',
+        permanent: true,
+      },
     ]
   },
 }

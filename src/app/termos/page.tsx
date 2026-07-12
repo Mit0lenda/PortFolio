@@ -4,6 +4,15 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Termos de Serviço',
   description: 'Termos que regulam o uso do site mitolenda.dev e dos canais profissionais vinculados à marca DEV_MITOLENDA.',
+  alternates: {
+    canonical: '/termos',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/termos',
+    title: 'Termos de Serviço | Dev Mitolenda',
+    description: 'Termos que regulam o uso do site mitolenda.dev e dos canais profissionais vinculados à marca DEV_MITOLENDA.',
+  },
 }
 
 export default function TermsPage() {
