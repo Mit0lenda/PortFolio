@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
         </nav>
         <div className="foot-legal">
           <Link href="/termos">Termos de Serviço</Link>
-          <Link href="/privacidade">Política de Privacidade</Link>
+          <Link href="/politica-de-privacidade">Política de Privacidade</Link>
         </div>
       </div>
     </footer>

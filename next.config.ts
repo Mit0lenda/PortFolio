@@ -26,6 +26,25 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/privacidade',
+        destination: '/politica-de-privacidade',
+        permanent: true,
+      },
+      {
+        source: '/privacy',
+        destination: '/politica-de-privacidade',
+        permanent: true,
+      },
+      {
+        source: '/terms',
+        destination: '/termos',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 // Bundle analyzer: run `ANALYZE=true npm run build` to open the bundle report
