@@ -63,6 +63,9 @@ export async function POST(req: NextRequest) {
       created_at:      body.created_at     ?? new Date().toISOString(),
       page_url:        body.page_url       ?? req.headers.get('referer') ?? '',
       user_agent:      body.user_agent     ?? req.headers.get('user-agent') ?? '',
+      utm_source:      body.utm_source     || undefined,
+      utm_medium:      body.utm_medium     || undefined,
+      utm_campaign:    body.utm_campaign   || undefined,
       company_website: body.company_website,
     }
 

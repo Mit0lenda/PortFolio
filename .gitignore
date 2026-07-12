@@ -13,6 +13,10 @@ dist-ssr
 *.local
 .next
 .claude/settings.local.json
+test-results
+playwright-report
+blob-report
+playwright/.cache
 
 # Editor directories and files
 .vscode/*

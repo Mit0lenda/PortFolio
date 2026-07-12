@@ -41,6 +41,8 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
     // Read honeypot (hidden field — filled only by bots)
     const honeypot = (e.currentTarget.elements.namedItem('company_website') as HTMLInputElement)?.value ?? ''
 
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+
     const payload: Omit<ContactPayload, 'created_at'> & { created_at: string } = {
       source,
       customer_name:  form.name.trim(),
@@ -49,6 +51,9 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
       created_at:     new Date().toISOString(),
       page_url:       typeof window !== 'undefined' ? window.location.href : '',
       user_agent:     typeof navigator !== 'undefined' ? navigator.userAgent : '',
+      utm_source:     params?.get('utm_source') ?? undefined,
+      utm_medium:     params?.get('utm_medium') ?? undefined,
+      utm_campaign:   params?.get('utm_campaign') ?? undefined,
       company_website: honeypot,
     }
 

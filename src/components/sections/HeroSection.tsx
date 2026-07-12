@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
+import { trackCtaClick } from "../../lib/analytics/trackEvent";
 
 
 
@@ -30,10 +31,22 @@ export const HeroSection: React.FC = () => {
       <p className="lead">{t.hero.lead}</p>
 
       <div className="hero-actions">
-        <button className="btn btn-cta" onClick={() => window.open(t.contact.cards[1].href, "_blank")}>
+        <button
+          className="btn btn-cta"
+          onClick={() => {
+            trackCtaClick("instagram", "hero");
+            window.open(t.contact.cards[1].href, "_blank");
+          }}
+        >
           {t.hero.cta1}
         </button>
-        <button className="btn btn-ghost" onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
+        <button
+          className="btn btn-ghost"
+          onClick={() => {
+            trackCtaClick("whatsapp", "hero");
+            window.open(t.contact.cards[0].href, "_blank");
+          }}
+        >
           {t.hero.cta2}
         </button>
       </div>

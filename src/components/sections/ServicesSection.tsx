@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
+import { trackCtaClick } from "../../lib/analytics/trackEvent";
 
 
 
@@ -23,7 +24,14 @@ export const ServicesSection: React.FC = () => {
 
         <div className="services3">
           {t.services.list.map((s, i) => (
-            <div className="svc" key={i} onClick={() => window.open(t.contact.cards[0].href, "_blank")}>
+            <div
+              className="svc"
+              key={i}
+              onClick={() => {
+                trackCtaClick("whatsapp", `services_card_${s.slug ?? i}`);
+                window.open(t.contact.cards[0].href, "_blank");
+              }}
+            >
               <span className="svc-num">// {String(i + 1).padStart(2, "0")}</span>
               <h3 className="svc-name">{s.t}</h3>
               <p className="svc-desc">{s.d}</p>
