@@ -19,26 +19,130 @@ export const copyPt: Copy = {
     desc: "Preço e prazo na mesa antes da reunião. Sem orçamento misterioso.",
     kInvest: "Investimento", kPrazo: "Prazo",
     list: [
-      { t: "Site Profissional",   d: "Institucional completo, performático, otimizado para SEO e conversão.",                 price: "R$ 2.500–8.000",   prazo: "7–21 dias" },
-      { t: "Landing Page",        d: "Página única focada em conversão. Copy, design e código sob medida.",                   price: "R$ 1.500–5.000",   prazo: "3–10 dias" },
-      { t: "Automação n8n",       d: "Tira gente de planilha. Conecta CRM, e-mail, planilhas e APIs num só fluxo.",           price: "R$ 2.000–12.000",  prazo: "5–20 dias" },
-      { t: "Chatbot / IA",        d: "Atendimento 24/7 com modelo de linguagem treinado no seu negócio.",                     price: "R$ 2.500–15.000",  prazo: "7–25 dias" },
-      { t: "Sistema Web Custom",  d: "CRM, ERP leve, dashboards, área de cliente. Auth + banco + API + UI.",                  price: "R$ 8.000–30.000+", prazo: "20–90 dias" },
+      { t: "Site Profissional",   d: "Institucional completo, performático, otimizado para SEO e conversão.",                 price: "R$ 2.500–8.000",   prazo: "7–21 dias",  slug: "criacao-de-sites" },
+      { t: "Landing Page",        d: "Página única focada em conversão. Copy, design e código sob medida.",                   price: "R$ 1.500–5.000",   prazo: "3–10 dias",  slug: "landing-pages" },
+      { t: "Automação n8n",       d: "Tira gente de planilha. Conecta CRM, e-mail, planilhas e APIs num só fluxo.",           price: "R$ 2.000–12.000",  prazo: "5–20 dias",  slug: "automacao-n8n" },
+      { t: "Chatbot / IA",        d: "Atendimento 24/7 com modelo de linguagem treinado no seu negócio.",                     price: "R$ 2.500–15.000",  prazo: "7–25 dias",  slug: "chatbot-ia" },
+      { t: "Sistema Web Custom",  d: "CRM, ERP leve, dashboards, área de cliente. Auth + banco + API + UI.",                  price: "R$ 8.000–30.000+", prazo: "20–90 dias", slug: "sistemas-web" },
       { t: "Integração de APIs",  d: "Conecta seus sistemas: ERP ↔ e-commerce, CRM ↔ marketing, banco ↔ relatório.",         price: "R$ 2.000–10.000",  prazo: "5–20 dias" },
       { t: "Consultoria Digital", d: "Sessão técnica para destravar projeto, escolher stack ou auditar código.",              price: "R$ 500–3.000",     prazo: "2–7 dias" },
     ],
   },
+  servicePages: [
+    {
+      slug: "criacao-de-sites",
+      serviceIndex: 0,
+      metaTitle: "Criação de Sites Profissionais em Porto Alegre | Dev Mitolenda",
+      metaDescription:
+        "Site institucional rápido, otimizado para SEO e conversão, com prazo de 7 a 21 dias. Atendimento em Porto Alegre e 100% remoto para todo o Brasil.",
+      h1: "Criação de Sites Profissionais",
+      intro:
+        "Site institucional completo, pensado para carregar rápido, aparecer no Google e converter visita em contato — não só existir no ar.",
+      body: [
+        "Desenvolvo em Next.js e React, com foco em performance (Core Web Vitals) e SEO técnico desde a primeira linha de código: metadados corretos, sitemap, dados estruturados e páginas rápidas o suficiente para o Google e para o visitante não desistir no carregamento.",
+        "O escopo típico inclui home, sobre, serviços, projetos/portfólio e contato — com formulário funcional ou integração com WhatsApp. Design responsivo, testado em mobile e desktop, com copy revisada para conversão, não só estética.",
+        "Processo: briefing com escopo e prazo fechados antes de começar, entregas semanais para acompanhamento, e handoff com domínio e hospedagem configurados no seu nome.",
+      ],
+    },
+    {
+      slug: "landing-pages",
+      serviceIndex: 1,
+      metaTitle: "Criação de Landing Pages de Alta Conversão | Dev Mitolenda",
+      metaDescription:
+        "Landing page focada em uma única conversão — lead, venda ou agendamento. Copy, design e código sob medida, entrega em 3 a 10 dias.",
+      h1: "Landing Pages",
+      intro:
+        "Uma página, um objetivo: fazer o visitante agendar, comprar ou deixar contato. Sem distração, sem menu levando embora.",
+      body: [
+        "Landing page é diferente de site institucional: existe para UMA conversão específica — campanha de tráfego pago, lançamento, captação de leads ou agendamento. Estrutura, copy e CTA são desenhados em torno desse único objetivo.",
+        "Trabalho a copy junto com o design: headline, prova social (quando existir), quebra de objeções e chamada para ação repetida nos pontos certos da rolagem. Código leve, carregamento rápido — decisivo para não perder tráfego pago por página lenta.",
+        "Ideal para campanhas de Google Ads, Meta Ads ou lançamento de produto/serviço específico, com prazo curto de entrega.",
+      ],
+    },
+    {
+      slug: "automacao-n8n",
+      serviceIndex: 2,
+      metaTitle: "Automação de Processos com n8n em Porto Alegre | Dev Mitolenda",
+      metaDescription:
+        "Automação de processos com n8n: conecta CRM, e-mail, planilhas, WhatsApp e APIs num fluxo único. Tira gente de tarefa repetitiva.",
+      h1: "Automação com n8n",
+      intro:
+        "Tira gente de planilha e de tarefa repetitiva. Conecto seus sistemas — CRM, e-mail, WhatsApp, planilhas e APIs — num fluxo único e automático.",
+      body: [
+        "n8n é uma ferramenta de automação de workflows: quando algo acontece num sistema (um formulário preenchido, um lead novo, um pagamento aprovado), o fluxo dispara ações automáticas em outro — cria registro no CRM, envia e-mail, atualiza planilha, notifica no WhatsApp.",
+        "Uso essa mesma ferramenta em produção nos meus próprios projetos (como o motor de prospecção do CRM Autônomo), então o desenho do fluxo já nasce pensando em execução real, tratamento de erro e custo de API controlado — não só um diagrama bonito.",
+        "Mapeio o processo atual com você, desenho o fluxo, testo com dados reais e entrego documentado, para seu time entender o que está automatizado e por quê.",
+      ],
+    },
+    {
+      slug: "chatbot-ia",
+      serviceIndex: 3,
+      metaTitle: "Chatbot com IA para Atendimento 24/7 | Dev Mitolenda",
+      metaDescription:
+        "Chatbot com modelo de linguagem treinado no seu negócio, atendimento 24/7 e handoff para humano quando necessário. Entrega em 7 a 25 dias.",
+      h1: "Chatbot / IA",
+      intro:
+        "Atendimento 24/7 com um modelo de linguagem treinado no contexto do seu negócio — não um chatbot de árvore de decisão engessada.",
+      body: [
+        "Construo agentes de IA que entendem linguagem natural, mantêm contexto da conversa e consultam sua base de produtos, serviços ou FAQ para responder com precisão — usando LangChain, memória vetorial (RAG) e a plataforma de mensagens que seu negócio já usa (WhatsApp, Instagram, site).",
+        "Sempre com a opção de handoff: a qualquer momento um humano do seu time pode assumir a conversa direto no inbox, sem o cliente perceber troca de canal.",
+        "Escopo definido junto com você: que perguntas o agente responde, que ações ele pode tomar (agendar, orçar, encaminhar) e onde ele para e chama um humano.",
+      ],
+    },
+    {
+      slug: "sistemas-web",
+      serviceIndex: 4,
+      metaTitle: "Desenvolvimento de Sistemas Web Sob Medida | Dev Mitolenda",
+      metaDescription:
+        "Sistemas web customizados: CRM, ERP leve, dashboards e área de cliente. Autenticação, banco de dados, API e interface sob medida para o seu processo.",
+      h1: "Sistema Web Custom",
+      intro:
+        "CRM, ERP leve, dashboard interno ou área de cliente — construído em torno do seu processo, não do processo genérico de uma ferramenta pronta.",
+      body: [
+        "Quando uma planilha ou uma ferramenta de prateleira já não dá conta do processo do seu negócio, construo um sistema web sob medida: autenticação, banco de dados, API e interface desenhados especificamente para o seu fluxo de trabalho.",
+        "Stack típica: Next.js/React no frontend, Node.js/NestJS no backend, PostgreSQL ou Supabase como banco. Projeto entregue em etapas (marcos), com cada módulo testável antes de avançar para o próximo.",
+        "Já entreguei sistemas desse porte em produção — CRM de propostas com agenda e relatórios, motor de prospecção automatizado — e sei que o risco maior nesse tipo de projeto é escopo mal definido, por isso o levantamento de requisitos é feito antes de qualquer linha de código.",
+      ],
+    },
+  ],
   projects: {
     eyebrow: "// 03 — projetos destacados",
     h2a: "Código que", h2b: "vence.",
     desc: "Prêmio nacional. Startup incubada. Sistema em produção. Automação rodando sozinha.",
     labelProj: "PROJETO",
     list: [
-      { id: "promocode", name: "PromoCode", tag: "Agente de IA · Consultor de compras no WhatsApp", trophy: "// MVP EM PRODUÇÃO · N8N + IA + SUPABASE", desc: "Consultor de compras via WhatsApp: entende orçamento, uso e urgência em linguagem natural, decide com um agente de IA (LangChain + ferramentas), lembra o histórico da conversa e aprende com cada recomendação via memória vetorial (RAG). Arquitetura: n8n orquestrando o agente, Chatwoot como inbox (dá pra assumir a conversa a qualquer momento), Supabase com pgvector para memória e Node.js para busca e ranking de produtos. Integração com marketplaces em andamento." },
-      { id: "haven-link", name: "Haven Link", tag: "IA · Logística emergencial", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR", desc: "Plataforma de IA para logística emergencial — coordena resgate em desastres, conectando voluntários, ONGs e órgãos públicos via mapa em tempo real. Premiada nacionalmente." },
-      { id: "nexus", name: "Nexus",      tag: "Startup · CEI-UFRGS",        trophy: "🚀 INCUBADA · CEI-UFRGS",            desc: "Plataforma de monitoramento de obras com IA aplicada. Mapa por construção, controle de estoque por ponto e detecção visual no canteiro. Hoje incubada no Centro de Empreendedorismo da UFRGS." },
-      { id: "atlas", name: "Atlas",      tag: "Sistema financeiro FGTS",    trophy: "// EM PRODUÇÃO · FREELANCE",         desc: "Sistema financeiro FGTS completo para uma equipe comercial. CRM de propostas, agenda, consultas em massa, exportação de relatórios." },
-      { id: "crm-autonomo", name: "CRM Autônomo", tag: "Automação · Captação de leads", trophy: "// EM PRODUÇÃO · SISTEMA PRÓPRIO", desc: "Motor de prospecção que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM — sem clique manual, custo de API zero." },
+      {
+        id: "promocode", name: "PromoCode", tag: "Agente de IA · Consultor de compras no WhatsApp", trophy: "// MVP EM PRODUÇÃO · N8N + IA + SUPABASE",
+        desc: "Consultor de compras via WhatsApp: entende orçamento, uso e urgência em linguagem natural, decide com um agente de IA (LangChain + ferramentas), lembra o histórico da conversa e aprende com cada recomendação via memória vetorial (RAG). Arquitetura: n8n orquestrando o agente, Chatwoot como inbox (dá pra assumir a conversa a qualquer momento), Supabase com pgvector para memória e Node.js para busca e ranking de produtos. Integração com marketplaces em andamento.",
+        problem: "Cliente precisava de um consultor de compras que entendesse orçamento, uso e urgência em linguagem natural, direto no WhatsApp — sem formulário nem filtro manual.",
+        solution: "Agente de IA (LangChain + ferramentas) que decide a recomendação, lembra o histórico da conversa e aprende com cada interação via memória vetorial (RAG). n8n orquestra o fluxo, Chatwoot funciona como inbox — dá pra assumir a conversa a qualquer momento — e Node.js cuida da busca e ranking de produtos. Integração com marketplaces em andamento.",
+        tech: ["n8n", "LangChain", "Chatwoot", "Supabase", "pgvector", "Node.js"],
+      },
+      {
+        id: "haven-link", name: "Haven Link", tag: "IA · Logística emergencial", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR",
+        desc: "Plataforma de IA para logística emergencial — coordena resgate em desastres, conectando voluntários, ONGs e órgãos públicos via mapa em tempo real. Premiada nacionalmente.",
+        problem: "Coordenar resgate em situações de desastre exige conectar voluntários, ONGs e órgãos públicos rapidamente, com visibilidade em tempo real de quem está onde e o que precisa.",
+        solution: "Plataforma de IA com mapa em tempo real que conecta voluntários, ONGs e órgãos públicos num único ponto de coordenação. Premiada nacionalmente (3º lugar, iTwin4Good BR).",
+      },
+      {
+        id: "nexus", name: "Nexus", tag: "Startup · CEI-UFRGS", trophy: "🚀 INCUBADA · CEI-UFRGS",
+        desc: "Plataforma de monitoramento de obras com IA aplicada. Mapa por construção, controle de estoque por ponto e detecção visual no canteiro. Hoje incubada no Centro de Empreendedorismo da UFRGS.",
+        problem: "Construtoras precisam monitorar múltiplas obras ao mesmo tempo — estoque por ponto e o que está acontecendo no canteiro — sem depender só de relatório manual.",
+        solution: "Plataforma com mapa por construção, controle de estoque por ponto e detecção visual no canteiro usando IA aplicada. Hoje incubada no Centro de Empreendedorismo da UFRGS.",
+        tech: ["IA aplicada", "Detecção visual"],
+      },
+      {
+        id: "atlas", name: "Atlas", tag: "Sistema financeiro FGTS", trophy: "// EM PRODUÇÃO · FREELANCE",
+        desc: "Sistema financeiro FGTS completo para uma equipe comercial. CRM de propostas, agenda, consultas em massa, exportação de relatórios.",
+        problem: "Equipe comercial de FGTS precisava de um sistema próprio para gerenciar propostas, agenda e consultas em massa, sem depender de planilha ou ferramenta genérica.",
+        solution: "Sistema financeiro completo: CRM de propostas, agenda integrada, consultas em massa e exportação de relatórios.",
+      },
+      {
+        id: "crm-autonomo", name: "CRM Autônomo", tag: "Automação · Captação de leads", trophy: "// EM PRODUÇÃO · SISTEMA PRÓPRIO",
+        desc: "Motor de prospecção que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM — sem clique manual, custo de API zero.",
+        problem: "Prospecção manual de leads — buscar negócios sem site por categoria e cidade — consome tempo do time comercial e não escala.",
+        solution: "Motor de prospecção automatizado que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM, sem clique manual e com custo de API zero.",
+      },
     ],
   },
   sites: {

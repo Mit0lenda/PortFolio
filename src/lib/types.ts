@@ -5,6 +5,17 @@ export type ServiceItem = {
   d: string;
   price: string;
   prazo: string;
+  slug?: string;
+};
+
+export type ServicePageItem = {
+  slug: string;
+  serviceIndex: number;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  intro: string;
+  body: string[];
 };
 
 export type ProjectItem = {
@@ -13,6 +24,9 @@ export type ProjectItem = {
   tag: string;
   trophy: string;
   desc: string;
+  problem?: string;
+  solution?: string;
+  tech?: string[];
 };
 
 export type VentureItem = {
@@ -80,6 +94,7 @@ export type Copy = {
     kPrazo: string;
     list: ServiceItem[];
   };
+  servicePages?: ServicePageItem[];
   projects: {
     eyebrow: string;
     h2a: string;
