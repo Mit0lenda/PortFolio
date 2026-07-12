@@ -106,12 +106,22 @@ export default function PrivacyPage() {
 
           <h2>8. Cookies e armazenamento local</h2>
           <p>
-            O site pode utilizar recursos técnicos como cookies estritamente necessários e <code>localStorage</code> para:
+            O site utiliza cookies estritamente necessários e <code>localStorage</code> para:
           </p>
           <ul>
             <li>lembrar preferências de idioma</li>
             <li>manter estabilidade, desempenho e funcionamento da navegação</li>
           </ul>
+          <p>
+            Quando habilitado, o site também pode usar o <strong>Facebook Pixel</strong> (Meta) para medir a
+            efetividade de campanhas e anúncios. Diferente dos cookies acima, esse recurso não é estritamente
+            necessário — ele registra cookies de publicidade/mensuração (ex.: <code>_fbp</code>) e pode ser usado pela
+            Meta para fins de segmentação de anúncios, conforme a{' '}
+            <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">
+              política de privacidade da Meta
+            </a>
+            .
+          </p>
           <p>
             Você pode gerenciar ou limpar esses dados diretamente no seu navegador, sabendo que certas preferências
             podem ser perdidas após a remoção.
