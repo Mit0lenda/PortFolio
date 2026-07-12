@@ -2415,3 +2415,313 @@ footer {
   text-transform: none;
   color: var(--gray-support);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Blog — grid de cards (home + /blog)
+   ───────────────────────────────────────────────────────────────────────── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--gray-line);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--gray-line);
+  border-bottom: 1px solid var(--gray-line);
+  background: var(--bg-1);
+  transition: background 180ms var(--ease-out);
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card:hover {
+  background: var(--bg-2);
+}
+
+.blog-card:nth-child(3n) {
+  border-right: 0;
+}
+
+.blog-card-cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-2);
+  overflow: hidden;
+  border-bottom: 1px solid var(--gray-line);
+}
+
+.blog-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.blog-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--blue-tech);
+  text-transform: uppercase;
+}
+
+.blog-card-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin: 0;
+}
+
+.blog-card-title .impact {
+  color: var(--orange-impact);
+}
+
+.blog-card-excerpt {
+  color: var(--paper-dim);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gray-support);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-line);
+}
+
+.blog-cta-row {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card:nth-child(3n) {
+    border-right: 1px solid var(--gray-line);
+  }
+
+  .blog-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+.blog-empty,
+.blog-error {
+  padding: 64px 24px;
+  text-align: center;
+  border: 1px solid var(--gray-line);
+  color: var(--paper-dim);
+  font-size: 16px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Blog — corpo do artigo (Markdown renderizado)
+   ───────────────────────────────────────────────────────────────────────── */
+.article {
+  margin-top: 48px;
+  font-family: var(--font-body);
+  color: var(--paper-dim);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.article-h1,
+.article-h2,
+.article-h3,
+.article-h4 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  line-height: 1.1;
+  margin: 48px 0 20px;
+}
+
+.article-h1 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.article-h2 {
+  font-size: clamp(24px, 3.4vw, 34px);
+}
+
+.article-h3 {
+  font-size: clamp(20px, 2.6vw, 26px);
+}
+
+.article-h4 {
+  font-size: 18px;
+}
+
+.article > .article-h1:first-child,
+.article > .article-h2:first-child,
+.article > .article-h3:first-child {
+  margin-top: 0;
+}
+
+.article-p {
+  margin: 0 0 20px;
+}
+
+.article-list {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.article-li {
+  margin-bottom: 8px;
+}
+
+.article-list-ordered {
+  list-style: decimal;
+}
+
+.article-quote {
+  margin: 32px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 3px solid var(--orange-impact);
+  color: var(--paper);
+  font-style: italic;
+}
+
+.article-link {
+  color: var(--blue-tech);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-link:hover {
+  color: var(--paper);
+}
+
+.article-inline-code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--bg-2);
+  border: 1px solid var(--gray-line);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.article-pre {
+  margin: 32px 0;
+  padding: 20px;
+  background: var(--bg-2);
+  border: 1px solid var(--gray-line);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.article-pre .article-code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.article-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto;
+  border: 1px solid var(--gray-line);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--gray-line);
+  margin: 48px 0;
+}
+
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+}
+
+.article th,
+.article td {
+  border: 1px solid var(--gray-line);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.article th {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Blog — compartilhamento
+   ───────────────────────────────────────────────────────────────────────── */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-support);
+  margin-right: 4px;
+}
+
+.share-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid var(--gray-line);
+  color: var(--paper);
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 180ms var(--ease-out),
+    border-color 180ms var(--ease-out);
+}
+
+.share-btn:hover {
+  background: var(--bg-2);
+  border-color: var(--paper-dim);
+}
