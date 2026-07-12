@@ -6,6 +6,9 @@ export interface ContactPayload {
   created_at: string
   page_url: string
   user_agent: string
+  utm_source?: string
+  utm_medium?: string
+  utm_campaign?: string
   company_website?: string // honeypot
 }
 

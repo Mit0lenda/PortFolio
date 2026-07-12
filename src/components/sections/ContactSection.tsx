@@ -3,6 +3,7 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
 import { ContactForm } from "../contact/ContactForm";
+import { trackCtaClick } from "../../lib/analytics/trackEvent";
 
 export const ContactSection: React.FC = () => {
   const t = useCopy();
@@ -20,7 +21,14 @@ export const ContactSection: React.FC = () => {
 
         <div className="contact-cards">
           {t.contact.cards.map((c) => (
-            <a className="cc" key={c.k} href={c.href} target="_blank" rel="noreferrer">
+            <a
+              className="cc"
+              key={c.k}
+              href={c.href}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackCtaClick(c.k.toLowerCase(), "contact_section")}
+            >
               <span className="k">{c.k}</span>
               <span className={`v${c.tech ? " tech" : ""}`}>{c.v}</span>
               <span className="sub">{c.sub}</span>

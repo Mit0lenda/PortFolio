@@ -13,12 +13,15 @@ export async function notifyLead(payload: ContactPayload): Promise<void> {
   }
 
   const body = {
-    name:       payload.customer_name,
-    email:      payload.customer_email,
-    message:    payload.message,
-    source:     payload.source,
-    page_url:   payload.page_url,
-    created_at: payload.created_at,
+    name:         payload.customer_name,
+    email:        payload.customer_email,
+    message:      payload.message,
+    source:       payload.source,
+    page_url:     payload.page_url,
+    created_at:   payload.created_at,
+    utm_source:   payload.utm_source,
+    utm_medium:   payload.utm_medium,
+    utm_campaign: payload.utm_campaign,
   }
 
   try {

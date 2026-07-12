@@ -14,13 +14,18 @@ export async function saveLead(
 
   try {
     const supabase = createClient(url, key)
-    const { error } = await supabase.from('portfolio_leads').insert({
-      name:     payload.customer_name.trim().slice(0, 100),
-      email:    payload.customer_email.trim().toLowerCase().slice(0, 254),
-      message:  payload.message.trim().slice(0, 2000),
-      source:   payload.source,
-      lang:     'pt',
-      ip_hash:  ipHash,
+    const { error } = await supabase.schema('portfolio').from('leads').insert({
+      name:          payload.customer_name.trim().slice(0, 100),
+      email:         payload.customer_email.trim().toLowerCase().slice(0, 254),
+      message:       payload.message.trim().slice(0, 2000),
+      source:        payload.source,
+      lang:          'pt',
+      ip_hash:       ipHash,
+      user_agent:    payload.user_agent || null,
+      page_url:      payload.page_url || null,
+      utm_source:    payload.utm_source ?? null,
+      utm_medium:    payload.utm_medium ?? null,
+      utm_campaign:  payload.utm_campaign ?? null,
     })
     if (error) console.error('[saveLead] Supabase error:', error.message)
     return !error

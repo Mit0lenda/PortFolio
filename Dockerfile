@@ -6,14 +6,7 @@
 # Tunnel:    cloudflared ingress → http://<service-name>:3000
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Stage 1 — Install production deps only (cached layer)
-FROM node:22-alpine AS deps
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
-
-# Stage 2 — Full install + build
+# Stage 1 — Full install + build
 FROM node:22-alpine AS builder
 WORKDIR /app
 
@@ -27,7 +20,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
-# Stage 3 — Minimal production image
+# Stage 2 — Minimal production image
 FROM node:22-alpine AS runner
 WORKDIR /app
 
@@ -48,6 +41,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static     ./.next/static
 USER nextjs
 
 EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD wget -qO- http://localhost:3000/ || exit 1
 
 # Next.js standalone entry point
 CMD ["node", "server.js"]
