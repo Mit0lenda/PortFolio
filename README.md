@@ -16,6 +16,20 @@ Site institucional/portfólio da Dev Mitolenda. Next.js 15 (App Router) + Supaba
 
 ---
 
+### // 00 — Sobre
+
+**Nicollas Freitas** · Porto Alegre/RS
+
+Estudante de Ciência da Computação na Unisinos + UERGS, dev fullstack e ex-estagiário da Polícia Federal na área de perícia digital. Hoje atende PMEs e negócios locais do Brasil inteiro como dev solo — foco em entregar coisa que entra em produção e gera dinheiro, não vitrine de portfólio.
+
+| | |
+|---|---|
+| 🥉 3º lugar nacional | iTwin4Good BR |
+| 🚀 Startup incubada | CEI-UFRGS |
+| 🔬 Perícia digital | Estágio · Polícia Federal |
+
+---
+
 ### // 01 — Stack
 
 | Camada | Tecnologia |
