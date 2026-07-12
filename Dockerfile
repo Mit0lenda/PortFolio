@@ -18,6 +18,23 @@ COPY . .
 # Disable telemetry during build
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Vars NEXT_PUBLIC_* precisam existir durante `next build` — Next.js as
+# congela no HTML/JS estático nesse momento, não em runtime. Sem declarar os
+# ARG aqui, qualquer --build-arg que a plataforma (Easypanel) passe é
+# silenciosamente ignorado pelo Docker.
+# ─────────────────────────────────────────────────────────────────────────────
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG NEXT_PUBLIC_CF_ANALYTICS_TOKEN
+ARG NEXT_PUBLIC_FB_PIXEL_ID
+ARG NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
+ENV NEXT_PUBLIC_CF_ANALYTICS_TOKEN=$NEXT_PUBLIC_CF_ANALYTICS_TOKEN
+ENV NEXT_PUBLIC_FB_PIXEL_ID=$NEXT_PUBLIC_FB_PIXEL_ID
+ENV NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 RUN npm run build
 
 # Stage 2 — Minimal production image
