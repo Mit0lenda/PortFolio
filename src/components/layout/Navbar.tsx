@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 import { useLanguage } from "../../_vite/LanguageProvider";
 import type { Language } from "../../lib/types";
@@ -96,6 +97,9 @@ export const Navbar: React.FC = () => {
                 {label}
               </a>
             ))}
+            <Link href="/blog" onClick={() => setOpen(false)}>
+              Conteúdos
+            </Link>
           </div>
 
           <div className="lang-switch">

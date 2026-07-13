@@ -23,6 +23,7 @@ export const Footer: React.FC = () => {
           <a onClick={() => go("#servicos")}>{t.footer.servicos}</a>
           <a onClick={() => go("#projetos")}>{t.footer.projetos}</a>
           <a onClick={() => go("#sobre")}>{t.footer.sobre}</a>
+          <Link href="/blog">Conteúdos</Link>
           <a onClick={() => go("#faq")}>{t.footer.faq}</a>
           <a onClick={() => go("#contato")}>{t.footer.contato}</a>
           <a href="https://instagram.com/dev_mitolenda" target="_blank" rel="noreferrer">
