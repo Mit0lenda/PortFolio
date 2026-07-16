@@ -6,10 +6,10 @@ import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
 
 const SITES = [
-  { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png" },
-  { n: "MultiParts Elevadores", url: "multipartselevadores.com.br", img: "/assets/site-multiparts.png" },
-  { n: "Engipro Elevadores",    url: "engipro.com.br",              img: "/assets/site-engipro.png" },
-  { n: "Wisebody",              url: "wisebody.com.br",             img: "/assets/site-wisebody.png" },
+  { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png",   context: "Barbearia (EUA) · site institucional" },
+  { n: "MultiParts Elevadores", url: "multipartselevadores.com.br", img: "/assets/site-multiparts.png",  context: "Peças para elevadores · catálogo institucional" },
+  { n: "Engipro Elevadores",    url: "engipro.com.br",              img: "/assets/site-engipro.png",     context: "Elevadores industriais · soluções + orçamento" },
+  { n: "Wisebody",              url: "wisebody.com.br",             img: "/assets/site-wisebody.png",    context: "Estética corporal · site institucional" },
 ];
 
 const SiteCard: React.FC<{ s: (typeof SITES)[number] }> = ({ s }) => {
@@ -31,6 +31,7 @@ const SiteCard: React.FC<{ s: (typeof SITES)[number] }> = ({ s }) => {
         <span className="n">{s.n}</span>
         <span className="ext">{s.url} ↗</span>
       </div>
+      <span className="site-context">{s.context}</span>
     </a>
   );
 };

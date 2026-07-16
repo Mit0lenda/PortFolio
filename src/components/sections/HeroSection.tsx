@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react";
+import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 import { trackCtaClick } from "../../lib/analytics/trackEvent";
 
@@ -8,18 +9,26 @@ import { trackCtaClick } from "../../lib/analytics/trackEvent";
 
 export const HeroSection: React.FC = () => {
   const t = useCopy();
+  const featured = t.projects.list.find((p) => p.id === "haven-link");
 
   return (
     <div className="container hero" id="home">
       <span className="hero-grid" aria-hidden="true" />
-      <div className="hero-floating-badge">
-        <span className="medal">🥉</span>
-        <span>
+      <Link
+        href="/projects/haven-link"
+        className="hero-floating-badge"
+        onClick={() => trackCtaClick("featured_case", "hero_badge")}
+      >
+        <span className="medal">N.03</span>
+        <span className="hero-floating-badge-body">
+          <span className="hero-floating-badge-kicker">Case em destaque</span>
           <span className="ev">{t.hero.badge1}</span>
           <br />
           {t.hero.badge2}
+          {featured && <span className="hero-floating-badge-tag">{featured.tag}</span>}
         </span>
-      </div>
+        <span className="hero-floating-badge-arrow" aria-hidden="true">→</span>
+      </Link>
 
       <span className="eyebrow">{t.hero.eyebrow}</span>
 

@@ -1,8 +1,8 @@
 'use client'
 
 import React from "react";
-import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
+import { MediaFrame } from "../media/MediaFrame";
 import profileImage from "../../assets/hero/nicollas-profile-2026.jpeg";
 
 export const AboutSection: React.FC = () => {
@@ -17,9 +17,16 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <div className="about">
-          <div className="photo" style={{ position: "relative" }}>
-            <Image src={profileImage} alt="Nicollas Freitas" fill style={{ objectFit: "cover" }} priority />
-          </div>
+          <MediaFrame
+            src={profileImage}
+            alt="Nicollas Freitas"
+            aspectRatio="portrait"
+            treatment="editorial"
+            priority
+            sizes="(max-width: 1024px) 100vw, 42vw"
+            caption={a.sub}
+            className="about-photo-frame"
+          />
 
           <div className="body">
             <span className="eyebrow">{a.sub}</span>
@@ -35,34 +42,6 @@ export const AboutSection: React.FC = () => {
               {a.bio1e}
             </p>
             <p className="about-bio">{a.bio2}</p>
-
-            <div className="achv-grid">
-              <div className="achv-cell">
-                <span className="icon">🥉</span>
-                <span className="h">
-                  <span className="impact">{a.a1h1}</span> {a.a1h2}
-                </span>
-                <span className="d">{a.a1d}</span>
-              </div>
-              <div className="achv-cell">
-                <span className="icon">🚀</span>
-                <span className="h">
-                  {a.a2h1}
-                  <br />
-                  {a.a2h2}
-                </span>
-                <span className="d">{a.a2d}</span>
-              </div>
-              <div className="achv-cell">
-                <span className="icon">🔬</span>
-                <span className="h">
-                  {a.a3h1}
-                  <br />
-                  {a.a3h2}
-                </span>
-                <span className="d">{a.a3d}</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

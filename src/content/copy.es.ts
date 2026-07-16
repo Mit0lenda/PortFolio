@@ -14,7 +14,7 @@ export const copyEs: Copy = {
     badge1: "3º LUGAR NACIONAL", badge2: "iTwin4Good BR",
   },
   services: {
-    eyebrow: "// 02 — servicios",
+    eyebrow: "// 04 — servicios",
     h2a: "Siete frentes.", h2b: "Cero", h2c: "vueltas.",
     desc: "Precio y plazo sobre la mesa antes de la reunión. Sin presupuestos misteriosos.",
     kInvest: "Inversión", kPrazo: "Plazo",
@@ -29,7 +29,7 @@ export const copyEs: Copy = {
     ],
   },
   projects: {
-    eyebrow: "// 03 — proyectos destacados",
+    eyebrow: "// 02 — proyectos destacados",
     h2a: "Código que", h2b: "gana.",
     desc: "Premio nacional. Startup incubada. Sistema en producción. Automatización funcionando sola.",
     labelProj: "PROYECTO",
@@ -42,7 +42,7 @@ export const copyEs: Copy = {
     ],
   },
   sites: {
-    eyebrow: "// 04 — sitios entregados",
+    eyebrow: "// 03 — sitios entregados",
     h2a: "En el aire.", h2b: "Vendiendo.",
     desc: "Clientes en diferentes sectores. El denominador común: sitio rápido, copy honesto, conversión medida.",
   },

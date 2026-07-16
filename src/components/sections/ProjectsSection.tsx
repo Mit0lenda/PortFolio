@@ -5,40 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
-
-// Mapeado por ID estável do projeto (não por posição no array nem pelo
-// `name` traduzido) — evita que a imagem/stack de um projeto "vaze" para
-// outro quando a ordem muda em src/content/copy.*.ts ou quando o `name`
-// é traduzido por idioma (ex.: "CRM Autônomo" vira "Autonomous CRM" em EN).
-type ProjectMedia = { img: string; stack: string[]; contain?: boolean };
-
-const PROJECT_MEDIA: Record<string, ProjectMedia> = {
-  "promocode": {
-    // TODO: trocar por print/GIF real de uma conversa no WhatsApp assim que
-    // a integração com marketplaces fechar (ver DEV-158 no Linear).
-    img: "/og/og-default.png",
-    stack: ["n8n", "LangChain", "Supabase", "Chatwoot", "RAG"],
-  },
-  "haven-link": {
-    img: "/assets/photo-trofeu.png",
-    stack: ["React", "Node.js", "IA", "iTwin", "Mapas"],
-    contain: true,
-  },
-  "nexus": {
-    img: "/assets/site-nexium.png",
-    stack: ["React", "Leaflet", "Python", "CV", "Bentley"],
-  },
-  "atlas": {
-    img: "/assets/work-atlas-dashboard.png",
-    stack: ["React", "Node.js", "JWT", "MySQL", "Azure"],
-  },
-  "crm-autonomo": {
-    img: "/assets/work-propostas.png",
-    stack: ["Node.js", "Scraping", "Automation", "CRM", "API"],
-  },
-};
-
-const FALLBACK_MEDIA: ProjectMedia = { img: "/og/og-default.png", stack: [] };
+import { PROJECT_ASSETS, FALLBACK_ASSETS } from "../../content/projectAssets";
+import { FlowDiagram } from "../media/FlowDiagram";
 
 type Project = {
   id: string;
@@ -53,8 +21,8 @@ const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
   i,
   labelProj,
 }) => {
-  const media = PROJECT_MEDIA[p.id] || FALLBACK_MEDIA;
-  const isTrophy = !!media.contain;
+  const media = PROJECT_ASSETS[p.id] || FALLBACK_ASSETS;
+  const isTrophy = media.cover?.type === "photo";
   const tiltRef = useTilt<HTMLElement>();
 
   return (
@@ -65,13 +33,17 @@ const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
     >
       <article className="feat tilt" ref={tiltRef}>
         <div className="feat-shot" style={{ position: "relative" }}>
-          <Image
-            src={media.img}
-            alt={p.name}
-            fill
-            className={isTrophy ? "trophy" : ""}
-            style={{ objectFit: isTrophy ? "contain" : "cover" }}
-          />
+          {media.cover ? (
+            <Image
+              src={media.cover.src}
+              alt={media.cover.alt}
+              fill
+              className={isTrophy ? "trophy" : ""}
+              style={{ objectFit: isTrophy ? "contain" : "cover" }}
+            />
+          ) : (
+            media.flow && <FlowDiagram steps={media.flow} labelPrefix={p.name} compact />
+          )}
         </div>
         <div className="feat-body">
           <div className="feat-eyebrow">
