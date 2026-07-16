@@ -65,6 +65,7 @@ export const copyEs: Copy = {
   },
   about: {
     eyebrow: "// 07 — sobre mí",
+    proofEyebrow: "// credenciales",
     sub: "NICOLLAS FREITAS · POA",
     h3a: "Ingeniero que", h3b: "programa.",
     bio1a: "Estudiante de Ciencias de la Computación en ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack, ex-becario de la ", bio1d: "Policía Federal en pericia digital", bio1e: ".",

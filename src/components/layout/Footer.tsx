@@ -29,6 +29,9 @@ export const Footer: React.FC = () => {
           <a href="https://instagram.com/dev_mitolenda" target="_blank" rel="noreferrer">
             @dev_mitolenda
           </a>
+          <a href="https://github.com/devmitolenda" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
         </nav>
         <div className="foot-legal">
           <Link href="/termos">Termos de Serviço</Link>

@@ -127,6 +127,7 @@ export type Copy = {
   };
   about: {
     eyebrow: string;
+    proofEyebrow: string;
     sub: string;
     h3a: string;
     h3b: string;
