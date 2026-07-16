@@ -2,6 +2,7 @@
 
 import React from "react";
 import { HeroSection } from "../components/sections/HeroSection";
+import { ProofBar } from "../components/sections/ProofBar";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { ProjectsSection } from "../components/sections/ProjectsSection";
 import { BlogSection } from "../components/sections/BlogSection";
@@ -24,6 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({ posts = [] }) => (
   <main className="page">
     <HeroSection />
     <StackStrip />
+    <ProofBar />
     <ServicesSection />
     <ProjectsSection />
     <BlogSection posts={posts} />

@@ -169,6 +169,7 @@ export const copyPt: Copy = {
   },
   about: {
     eyebrow: "// 07 — sobre",
+    proofEyebrow: "// credenciais",
     sub: "NICOLLAS FREITAS · POA",
     h3a: "Engenheiro que", h3b: "programa.",
     bio1a: "Estudante de Ciência da Computação na ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack e ex-estagiário da ", bio1d: "Polícia Federal na área de perícia digital", bio1e: ".",

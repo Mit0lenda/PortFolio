@@ -11,6 +11,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <div className="container hero" id="home">
+      <span className="hero-grid" aria-hidden="true" />
       <div className="hero-floating-badge">
         <span className="medal">🥉</span>
         <span>

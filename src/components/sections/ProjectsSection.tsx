@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
+import { useTilt } from "../../lib/useTilt";
 
 // Mapeado por ID estável do projeto (não por posição no array nem pelo
 // `name` traduzido) — evita que a imagem/stack de um projeto "vaze" para
@@ -39,6 +40,65 @@ const PROJECT_MEDIA: Record<string, ProjectMedia> = {
 
 const FALLBACK_MEDIA: ProjectMedia = { img: "/og/og-default.png", stack: [] };
 
+type Project = {
+  id: string;
+  name: string;
+  tag: string;
+  trophy: string;
+  desc: string;
+};
+
+const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
+  p,
+  i,
+  labelProj,
+}) => {
+  const media = PROJECT_MEDIA[p.id] || FALLBACK_MEDIA;
+  const isTrophy = !!media.contain;
+  const tiltRef = useTilt<HTMLElement>();
+
+  return (
+    <Link
+      className="feat-link"
+      href={`/projects/${p.id}`}
+      aria-label={`Ver projeto ${p.name}`}
+    >
+      <article className="feat tilt" ref={tiltRef}>
+        <div className="feat-shot" style={{ position: "relative" }}>
+          <Image
+            src={media.img}
+            alt={p.name}
+            fill
+            className={isTrophy ? "trophy" : ""}
+            style={{ objectFit: isTrophy ? "contain" : "cover" }}
+          />
+        </div>
+        <div className="feat-body">
+          <div className="feat-eyebrow">
+            <span className="num">
+              // {labelProj} {String(i + 1).padStart(2, "0")}
+            </span>
+            <span>{p.tag}</span>
+          </div>
+          <span className="feat-trophy">{p.trophy}</span>
+          <h3 className="feat-name">
+            {p.name}
+            <span className="impact">.</span>
+          </h3>
+          <p className="feat-desc">{p.desc}</p>
+          <div className="feat-stack">
+            {media.stack.map((s) => (
+              <span className="chip" key={s}>
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+};
+
 export const ProjectsSection: React.FC = () => {
   const t = useCopy();
 
@@ -54,51 +114,9 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         <div className="feat-grid">
-          {t.projects.list.map((p, i) => {
-            const media = PROJECT_MEDIA[p.id] || FALLBACK_MEDIA;
-            const isTrophy = !!media.contain;
-            return (
-              <Link
-                className="feat-link"
-                href={`/projects/${p.id}`}
-                key={p.id}
-                aria-label={`Ver projeto ${p.name}`}
-              >
-                <article className="feat">
-                  <div className="feat-shot" style={{ position: "relative" }}>
-                    <Image
-                      src={media.img}
-                      alt={p.name}
-                      fill
-                      className={isTrophy ? "trophy" : ""}
-                      style={{ objectFit: isTrophy ? "contain" : "cover" }}
-                    />
-                  </div>
-                  <div className="feat-body">
-                    <div className="feat-eyebrow">
-                      <span className="num">
-                        // {t.projects.labelProj} {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span>{p.tag}</span>
-                    </div>
-                    <span className="feat-trophy">{p.trophy}</span>
-                    <h3 className="feat-name">
-                      {p.name}
-                      <span className="impact">.</span>
-                    </h3>
-                    <p className="feat-desc">{p.desc}</p>
-                    <div className="feat-stack">
-                      {media.stack.map((s) => (
-                        <span className="chip" key={s}>
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            );
-          })}
+          {t.projects.list.map((p, i) => (
+            <ProjectCard p={p} i={i} labelProj={t.projects.labelProj} key={p.id} />
+          ))}
         </div>
       </div>
     </section>
