@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
+import { useTilt } from "../../lib/useTilt";
 
 const SITES = [
   { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png" },
@@ -10,6 +11,29 @@ const SITES = [
   { n: "Engipro Elevadores",    url: "engipro.com.br",              img: "/assets/site-engipro.png" },
   { n: "Wisebody",              url: "wisebody.com.br",             img: "/assets/site-wisebody.png" },
 ];
+
+const SiteCard: React.FC<{ s: (typeof SITES)[number] }> = ({ s }) => {
+  const tiltRef = useTilt<HTMLAnchorElement>();
+
+  return (
+    <a
+      className="site-card tilt"
+      ref={tiltRef}
+      href={`https://${s.url}`}
+      target="_blank"
+      rel="noreferrer"
+      style={{ textDecoration: "none", borderBottom: 0 }}
+    >
+      <div className="site-shot" style={{ position: "relative" }}>
+        <Image src={s.img} alt={s.n} fill style={{ objectFit: "cover" }} />
+      </div>
+      <div className="site-body">
+        <span className="n">{s.n}</span>
+        <span className="ext">{s.url} ↗</span>
+      </div>
+    </a>
+  );
+};
 
 export const SitesSection: React.FC = () => {
   const t = useCopy();
@@ -27,22 +51,7 @@ export const SitesSection: React.FC = () => {
 
         <div className="sites-grid">
           {SITES.map((s) => (
-            <a
-              className="site-card"
-              key={s.n}
-              href={`https://${s.url}`}
-              target="_blank"
-              rel="noreferrer"
-              style={{ textDecoration: "none", borderBottom: 0 }}
-            >
-              <div className="site-shot" style={{ position: "relative" }}>
-                <Image src={s.img} alt={s.n} fill style={{ objectFit: "cover" }} />
-              </div>
-              <div className="site-body">
-                <span className="n">{s.n}</span>
-                <span className="ext">{s.url} ↗</span>
-              </div>
-            </a>
+            <SiteCard s={s} key={s.n} />
           ))}
         </div>
       </div>
