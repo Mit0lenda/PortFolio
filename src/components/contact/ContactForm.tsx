@@ -153,7 +153,7 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
           value={form.message}
           onChange={handleChange}
           placeholder="Conte um pouco sobre seu projeto ou necessidade…"
-          className="cf-textarea"
+          className="cf-input cf-textarea"
           required
           minLength={20}
           maxLength={2000}
