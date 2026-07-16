@@ -4,6 +4,8 @@ import { getPublishedPosts } from '../lib/blog/posts'
 
 const BASE_URL = 'https://mitolenda.dev'
 
+export const revalidate = 3600
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectUrls: MetadataRoute.Sitemap = copyPt.projects.list.map((p) => ({
     url: `${BASE_URL}/projects/${p.id}`,
