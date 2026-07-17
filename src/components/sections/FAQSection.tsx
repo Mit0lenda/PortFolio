@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useCopy } from "../../lib/useCopy";
+import { Reveal, SplitHeading } from "../motion";
 
 export const FAQSection: React.FC = () => {
   const t = useCopy();
@@ -20,24 +21,23 @@ export const FAQSection: React.FC = () => {
   return (
     <section id="faq">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.faq.eyebrow}</span>
-          <h2>
-            {t.faq.h2a} <span className="impact">{t.faq.h2b}</span>
-          </h2>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.faq.eyebrow}
+          heading={<>{t.faq.h2a} <span className="impact">{t.faq.h2b}</span></>}
+        />
 
-        <div className="faq-list">
+        <Reveal as="div" className="faq-list" stagger staggerDelay={0.06}>
           {t.faq.list.map((f, i) => (
-            <div className={`faq-item${open === i ? " open" : ""}`} key={i}>
+            <Reveal.Item as="div" className={`faq-item${open === i ? " open" : ""}`} key={i}>
               <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
                 <span>{f.q}</span>
                 <span className="sign">+</span>
               </button>
               <div className="faq-a">{f.a}</div>
-            </div>
+            </Reveal.Item>
           ))}
-        </div>
+        </Reveal>
       </div>
       <script
         type="application/ld+json"

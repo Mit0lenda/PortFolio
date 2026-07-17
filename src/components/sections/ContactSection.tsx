@@ -4,6 +4,7 @@ import React from "react";
 import { useCopy } from "../../lib/useCopy";
 import { ContactForm } from "../contact/ContactForm";
 import { trackCtaClick } from "../../lib/analytics/trackEvent";
+import { Reveal, SplitHeading } from "../motion";
 
 export const ContactSection: React.FC = () => {
   const t = useCopy();
@@ -11,17 +12,18 @@ export const ContactSection: React.FC = () => {
   return (
     <section id="contato">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.contact.eyebrow}</span>
-          <h2>
-            {t.contact.h2a} <span className="impact">{t.contact.h2b}</span>
-          </h2>
-          <p className="desc">{t.contact.desc}</p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.contact.eyebrow}
+          heading={<>{t.contact.h2a} <span className="impact">{t.contact.h2b}</span></>}
+          desc={t.contact.desc}
+          descClassName="desc"
+        />
 
-        <div className="contact-cards">
+        <Reveal as="div" className="contact-cards" stagger staggerDelay={0.08}>
           {t.contact.cards.map((c) => (
-            <a
+            <Reveal.Item
+              as="a"
               className="cc"
               key={c.k}
               href={c.href}
@@ -33,9 +35,9 @@ export const ContactSection: React.FC = () => {
               <span className={`v${c.tech ? " tech" : ""}`}>{c.v}</span>
               <span className="sub">{c.sub}</span>
               <span className="arrow">{c.hint}</span>
-            </a>
+            </Reveal.Item>
           ))}
-        </div>
+        </Reveal>
 
         <ContactForm source="contact_section" />
       </div>

@@ -4,6 +4,7 @@ import React from "react";
 import { useCopy } from "../../lib/useCopy";
 import { trackCtaClick } from "../../lib/analytics/trackEvent";
 import { useTilt } from "../../lib/useTilt";
+import { Reveal, SplitHeading } from "../motion";
 
 type Service = {
   t: string;
@@ -23,7 +24,8 @@ const ServiceCard: React.FC<{
   const tiltRef = useTilt<HTMLDivElement>();
 
   return (
-    <div
+    <Reveal.Item
+      as="div"
       className="svc tilt"
       ref={tiltRef}
       onClick={() => {
@@ -53,7 +55,7 @@ const ServiceCard: React.FC<{
           saiba mais →
         </a>
       )}
-    </div>
+    </Reveal.Item>
   );
 };
 
@@ -63,17 +65,21 @@ export const ServicesSection: React.FC = () => {
   return (
     <section id="servicos">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.services.eyebrow}</span>
-          <h2>
-            {t.services.h2a}
-            <br />
-            {t.services.h2b} <span className="impact">{t.services.h2c}</span>
-          </h2>
-          <p className="desc">{t.services.desc}</p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.services.eyebrow}
+          heading={
+            <>
+              {t.services.h2a}
+              <br />
+              {t.services.h2b} <span className="impact">{t.services.h2c}</span>
+            </>
+          }
+          desc={t.services.desc}
+          descClassName="desc"
+        />
 
-        <div className="services3">
+        <Reveal as="div" className="services3" stagger staggerDelay={0.1}>
           {t.services.list.map((s, i) => (
             <ServiceCard
               s={s}
@@ -84,7 +90,7 @@ export const ServicesSection: React.FC = () => {
               key={i}
             />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

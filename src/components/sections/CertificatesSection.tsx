@@ -3,6 +3,7 @@
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
+import { Reveal, SplitHeading } from "../motion";
 
 type Cert = {
   provider: string;
@@ -23,7 +24,7 @@ const CertCard: React.FC<{
   const tiltRef = useTilt<HTMLDivElement>();
 
   return (
-    <div className="cert-card tilt" ref={tiltRef}>
+    <Reveal.Item as="div" className="cert-card tilt" ref={tiltRef}>
       <span className="cert-num">// {cert.provider}</span>
 
       <span className="cert-cred">✓ {kBadge}</span>
@@ -48,7 +49,7 @@ const CertCard: React.FC<{
           <span className="v cert-id-val">{cert.id}</span>
         </div>
       </div>
-    </div>
+    </Reveal.Item>
   );
 };
 
@@ -59,15 +60,15 @@ export const CertificatesSection: React.FC = () => {
   return (
     <section id="certificados">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{c.eyebrow}</span>
-          <h2>
-            {c.h2a} <span className="impact">{c.h2b}</span>
-          </h2>
-          <p className="desc">{c.desc}</p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={c.eyebrow}
+          heading={<>{c.h2a} <span className="impact">{c.h2b}</span></>}
+          desc={c.desc}
+          descClassName="desc"
+        />
 
-        <div className="cert-grid">
+        <Reveal as="div" className="cert-grid" stagger staggerDelay={0.1}>
           {c.list.map((cert, i) => (
             <CertCard
               cert={cert}
@@ -78,7 +79,7 @@ export const CertificatesSection: React.FC = () => {
               key={i}
             />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

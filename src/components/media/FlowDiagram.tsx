@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import type { ProjectFlowStep } from "../../lib/types";
+import { Reveal } from "../motion";
 
 /**
  * Diagrama de fluxo construído com o design system (bordas retas, mono,
@@ -22,14 +25,14 @@ export const FlowDiagram: React.FC<{
     return (
       <div className="flow-diagram flow-diagram--compact">
         <span className="flow-diagram-label">// {labelPrefix} · fluxo real</span>
-        <div className="flow-diagram-col">
+        <Reveal as="div" className="flow-diagram-col" stagger staggerDelay={0.1}>
           {steps.map((step) => (
-            <div className="flow-diagram-step" key={step.label}>
+            <Reveal.Item as="div" className="flow-diagram-step" key={step.label}>
               <span className="flow-diagram-stage">{step.stage}</span>
               <span className="flow-diagram-step-label">{step.label}</span>
-            </div>
+            </Reveal.Item>
           ))}
-        </div>
+        </Reveal>
       </div>
     );
   }
@@ -37,14 +40,14 @@ export const FlowDiagram: React.FC<{
   return (
     <div className="flow-diagram">
       <span className="flow-diagram-label">// {labelPrefix} — como o sistema funciona</span>
-      <div className="flow-diagram-row">
+      <Reveal as="div" className="flow-diagram-row" stagger staggerDelay={0.12}>
         {steps.map((step, i) => (
           <React.Fragment key={step.label}>
-            <div className="flow-diagram-step">
+            <Reveal.Item as="div" className="flow-diagram-step">
               <span className="flow-diagram-stage">{step.stage}</span>
               <span className="flow-diagram-step-label">{step.label}</span>
               {step.sub && <span className="flow-diagram-step-sub">{step.sub}</span>}
-            </div>
+            </Reveal.Item>
             {i < steps.length - 1 && (
               <span className="flow-diagram-arrow" aria-hidden="true">
                 →
@@ -52,7 +55,7 @@ export const FlowDiagram: React.FC<{
             )}
           </React.Fragment>
         ))}
-      </div>
+      </Reveal>
     </div>
   );
 };

@@ -40,18 +40,51 @@
   --my: 0;
   --tilt-x: 0deg;
   --tilt-y: 0deg;
+  --spot-x: 50%;
+  --spot-y: 50%;
 }
 
 /* ── 3D tilt utility — bounded pointer-relative rotation for cards ── */
 .tilt {
+  position: relative;
   transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
   transition: transform 150ms var(--ease-out), border-color 180ms var(--ease-out), background 180ms var(--ease-out);
   will-change: transform;
 }
 
+/* Cursor-following glow — a ::before overlay driven by the same pointer
+   listener as the tilt (see useTilt.ts). Only opacity is transitioned so the
+   radial-gradient repaint never touches layout. */
+.tilt::before,
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(247, 242, 232, 0.08), transparent 40%);
+  opacity: 0;
+  transition: opacity 220ms var(--ease-out);
+}
+
+.tilt:hover::before,
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Spotlight-only variant for elements that shouldn't rotate (buttons, photo frames). */
+.spotlight {
+  position: relative;
+}
+
 @media (hover: none), (pointer: coarse) {
   .tilt {
     transform: none;
+  }
+
+  .tilt::before,
+  .spotlight::before {
+    display: none;
   }
 }
 
@@ -455,6 +488,11 @@ section {
   max-width: 600px;
 }
 
+/* smaller section heading variant — e.g. "related posts" blocks */
+.section-head h2.clamp-heading {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
 /* stack strip */
 .strip {
   border-top: 1px solid var(--gray-line);
@@ -634,22 +672,308 @@ section {
   border-color: var(--orange-impact);
 }
 
-.feat-link:last-child .feat {
+/* .feat-link sits one level inside a <Reveal.Item> wrapper now (motion.js
+   stagger), so nth-child/last-child must key off that wrapper, not .feat-link
+   itself — it's always the lone child of its own wrapper div. */
+.feat-grid > div:last-child .feat {
   border-bottom: 0;
 }
 
-.feat-link:nth-child(even) .feat {
+.feat-grid > div:nth-child(even) .feat {
   grid-template-columns: 1.2fr 1fr;
 }
 
-.feat-link:nth-child(even) .feat-shot {
+.feat-grid > div:nth-child(even) .feat-shot {
   order: 2;
   border-left: 1px solid var(--gray-line);
   border-right: 0;
 }
 
-.feat-link:nth-child(even) .feat-body {
+.feat-grid > div:nth-child(even) .feat-body {
   order: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL PROJECTS (sp-*) — pinned scrollytelling sequence for the
+   3 flagship projects (Haven Link / Nexus / Atlas). Desktop-pin mode
+   is driven by GSAP inline styles; the CSS here only lays out the
+   "at rest" / mobile-light / reduced-motion states.
+═══════════════════════════════════════════════════════════════ */
+
+.sp-root { margin-bottom: 64px; }
+
+.sp-head { margin-bottom: 32px; max-width: 880px; }
+
+.sp-title {
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  font-weight: 900;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  margin: 18px 0 0;
+  color: var(--paper);
+}
+
+.sp-title .impact { color: var(--orange-impact); }
+
+.sp-stage { position: relative; }
+
+.sp-stage[data-mode="desktop-pin"] {
+  overflow: hidden;
+  border: 1px solid var(--gray-line);
+}
+
+/* stacked-card fallback (mobile-light + static/reduced-motion) */
+.sp-stage:not([data-mode="desktop-pin"]) {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sp-controls {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px var(--container-pad, 24px);
+  background: linear-gradient(to bottom, rgba(8,8,8,0.7), transparent);
+}
+
+.sp-index {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--accent, var(--orange-impact));
+  background: transparent;
+  border: 1px solid var(--gray-line);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.sp-index:hover { border-color: var(--paper); }
+
+.sp-progress-line {
+  flex: 1;
+  max-width: 200px;
+  height: 2px;
+  background: var(--gray-line);
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  background: var(--accent, var(--orange-impact));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: background 200ms var(--ease-out);
+}
+
+.sp-jump-nav {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.sp-jump-nav button {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: 1px solid var(--gray-line);
+  color: var(--paper-dim);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.sp-jump-nav button:hover { color: var(--paper); border-color: var(--paper); }
+
+.sp-wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--bg-1);
+  pointer-events: none;
+}
+
+.sp-project {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: 100%;
+}
+
+.sp-stage[data-mode="desktop-pin"] .sp-project {
+  position: absolute;
+  inset: 0;
+}
+
+.sp-project--right { grid-template-columns: 1fr 1.1fr; }
+.sp-project--right .sp-media { order: 2; }
+.sp-project--right .sp-copy { order: 1; }
+
+.sp-media {
+  position: relative;
+  background: var(--bg-2);
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* .sp-project fills the full 100vh pin, but the screenshots themselves are
+   landscape — stretching .sp-media to that full height and cropping with
+   object-fit:cover zooms into an unrepresentative sliver. Cap it to a sane
+   landscape ratio and center it in the column instead. */
+.sp-stage[data-mode="desktop-pin"] .sp-media {
+  aspect-ratio: 4 / 3;
+  max-height: min(72vh, 620px);
+  align-self: center;
+}
+
+.sp-media-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.sp-stage:not([data-mode="desktop-pin"]) .sp-media-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.sp-stage:not([data-mode="desktop-pin"]) .sp-media-frame[data-beat="1"],
+.sp-stage:not([data-mode="desktop-pin"]) .sp-media-frame[data-beat="2"] {
+  display: none; /* fallback shows only the imagem principal */
+}
+
+.sp-media-beat-label {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(8, 8, 8, 0.6);
+  padding: 5px 8px;
+  border-left: 2px solid var(--accent, var(--orange-impact));
+}
+
+.sp-copy {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  background: var(--bg-1);
+}
+
+.sp-stage:not([data-mode="desktop-pin"]) .sp-copy {
+  padding: 32px;
+}
+
+.sp-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-support);
+}
+
+.sp-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  font-size: clamp(26px, 3vw, 38px);
+  margin: 0 0 4px;
+  color: var(--paper);
+}
+
+.sp-name .impact { color: var(--accent, var(--orange-impact)); }
+
+.sp-field { display: flex; flex-direction: column; gap: 3px; }
+.sp-field .k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-support);
+}
+.sp-field .v { font-size: 14.5px; line-height: 1.55; color: var(--paper-dim); max-width: 46ch; }
+
+.sp-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.sp-stack .chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--gray-line);
+  padding: 4px 8px;
+  color: var(--paper);
+}
+
+.sp-result {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-line);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sp-result .k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-support);
+}
+.sp-result .v {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--green-cta);
+}
+
+.sp-cta {
+  margin-top: 10px;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paper);
+  border-bottom: 1px solid var(--gray-line);
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+.sp-cta:hover { border-color: var(--orange-impact); color: var(--orange-impact); }
+
+.sp-skip {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gray-support);
+  text-decoration: none;
+}
+.sp-skip:hover { color: var(--paper); }
+
+@media (max-width: 900px) {
+  .sp-project,
+  .sp-project--right { grid-template-columns: 1fr; }
+  .sp-project--right .sp-media,
+  .sp-project--right .sp-copy { order: initial; }
+  .sp-controls { position: static; background: none; flex-wrap: wrap; padding: 0 0 16px; }
+  .sp-copy { padding: 28px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-media-frame,
+  .sp-project { transition: none !important; }
 }
 
 .feat-shot {
@@ -860,7 +1184,6 @@ section {
   border: 1px solid var(--gray-line);
   padding: 5px 9px;
   text-transform: uppercase;
-  border-radius: 999px;
 }
 
 .venture-cta {
@@ -1156,6 +1479,7 @@ section {
 .cc {
   padding: 28px 22px;
   border-right: 1px solid var(--gray-line);
+  border-top: 2px solid transparent;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1169,6 +1493,11 @@ section {
 .cc:last-child {
   border-right: 0;
 }
+
+/* alternating accent instead of identical treatment on every card */
+.cc:nth-child(3n+1) { border-top-color: var(--orange-impact); }
+.cc:nth-child(3n+2) { border-top-color: var(--blue-tech); }
+.cc:nth-child(3n+3) { border-top-color: var(--green-cta); }
 
 .cc:hover {
   background: var(--bg-2);
@@ -1437,22 +1766,7 @@ footer {
   }
 }
 
-/* page transition */
-.page {
-  animation: fadeUp 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 8px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
+/* page transition now handled by <PageTransition> (Framer Motion, src/components/motion) */
 
 /* responsive */
 @media (max-width: 900px) {
@@ -1563,7 +1877,7 @@ footer {
   }
 
   .nav-menu {
-    display: none;
+    display: flex;
     position: absolute;
     top: 100%;
     left: 0;
@@ -1573,16 +1887,41 @@ footer {
     background: var(--bg-1, #080808);
     border-bottom: 1px solid var(--gray-line-soft);
     padding: 8px var(--container-pad, 20px) 16px;
+    opacity: 0;
+    transform: translateY(-8px);
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 0ms linear 220ms;
   }
 
   .nav-menu.open {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 0ms linear 0ms;
   }
 
   .nav-menu a {
     padding: 12px 0;
     border-bottom: 1px solid var(--gray-line-soft);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
   }
+
+  .nav-menu.open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-menu.open a:nth-child(1) { transition-delay: 0.03s; }
+  .nav-menu.open a:nth-child(2) { transition-delay: 0.06s; }
+  .nav-menu.open a:nth-child(3) { transition-delay: 0.09s; }
+  .nav-menu.open a:nth-child(4) { transition-delay: 0.12s; }
+  .nav-menu.open a:nth-child(5) { transition-delay: 0.15s; }
+  .nav-menu.open a:nth-child(6) { transition-delay: 0.18s; }
+  .nav-menu.open a:nth-child(7) { transition-delay: 0.21s; }
 
   .nav-menu a:last-child {
     border-bottom: 0;
@@ -1862,6 +2201,11 @@ footer {
   .tilt,
   .hero-grid {
     transform: none !important;
+  }
+
+  .tilt::before,
+  .spotlight::before {
+    display: none !important;
   }
 }
 
@@ -2242,9 +2586,33 @@ footer {
   animation: cm-card-in 0.28s var(--ease-out) both;
 }
 
+.cm-card::before,
+.cm-card::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--orange-impact);
+  pointer-events: none;
+}
+
+.cm-card::before {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.cm-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: 0;
+  border-top: 0;
+}
+
 @keyframes cm-card-in {
-  from { opacity: 0; transform: translateY(24px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0)   scale(1); }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .cm-header {
@@ -2469,7 +2837,10 @@ footer {
   background: var(--bg-2);
 }
 
-.blog-card:nth-child(3n) {
+/* .blog-card sits one level inside a <Reveal.Item> wrapper (motion.js
+   stagger), so nth-child/last-child must key off that wrapper — .blog-card
+   itself is always the lone child of its own wrapper div. */
+.blog-grid > div:nth-child(3n) .blog-card {
   border-right: 0;
 }
 
@@ -2553,11 +2924,11 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .blog-card:nth-child(3n) {
+  .blog-grid > div:nth-child(3n) .blog-card {
     border-right: 1px solid var(--gray-line);
   }
 
-  .blog-card:last-child {
+  .blog-grid > div:last-child .blog-card {
     border-bottom: 0;
   }
 }

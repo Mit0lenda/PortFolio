@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
+import { Reveal, SplitHeading } from "../motion";
 
 const IMGS = ["/assets/codaryn-hero.png", "/assets/site-nexium.png"];
 
@@ -24,7 +25,7 @@ const VentureCard: React.FC<{ v: Venture; img: string; labelRole: string; cta: s
   const tiltRef = useTilt<HTMLElement>();
 
   return (
-    <article className="venture tilt" ref={tiltRef}>
+    <Reveal.Item as="article" className="venture tilt" ref={tiltRef}>
       <div className="venture-shot" style={{ position: "relative" }}>
         <Image src={img} alt={v.n} fill style={{ objectFit: "cover" }} />
       </div>
@@ -47,7 +48,7 @@ const VentureCard: React.FC<{ v: Venture; img: string; labelRole: string; cta: s
           {v.url} · {cta}
         </a>
       </div>
-    </article>
+    </Reveal.Item>
   );
 };
 
@@ -57,15 +58,15 @@ export const VenturesSection: React.FC = () => {
   return (
     <section id="ventures" className="ventures-sec">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.ventures.eyebrow}</span>
-          <h2>
-            {t.ventures.h2a} <span className="impact">{t.ventures.h2b}</span>
-          </h2>
-          <p className="desc">{t.ventures.desc}</p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.ventures.eyebrow}
+          heading={<>{t.ventures.h2a} <span className="impact">{t.ventures.h2b}</span></>}
+          desc={t.ventures.desc}
+          descClassName="desc"
+        />
 
-        <div className="ventures-grid">
+        <Reveal as="div" className="ventures-grid" stagger staggerDelay={0.1}>
           {t.ventures.list.map((v, i) => (
             <VentureCard
               v={v}
@@ -75,7 +76,7 @@ export const VenturesSection: React.FC = () => {
               key={v.n}
             />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

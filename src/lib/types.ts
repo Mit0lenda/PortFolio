@@ -132,6 +132,9 @@ export type Copy = {
     desc: string;
     labelProj: string;
     list: ProjectItem[];
+    moreEyebrow: string;
+    moreH2a: string;
+    moreH2b: string;
   };
   sites: {
     eyebrow: string;

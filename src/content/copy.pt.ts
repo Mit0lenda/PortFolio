@@ -140,12 +140,12 @@ export const copyPt: Copy = {
         results: [{ label: "Estágio", value: "Incubada", context: "CEI-UFRGS" }],
       },
       {
-        id: "atlas", name: "Atlas", tag: "Sistema financeiro FGTS", trophy: "// EM PRODUÇÃO · FREELANCE",
+        id: "atlas", name: "Atlas", tag: "Sistema financeiro FGTS", trophy: "// DESCONTINUADO · FREELANCE",
         desc: "Sistema financeiro FGTS completo para uma equipe comercial. CRM de propostas, agenda, consultas em massa, exportação de relatórios.",
         problem: "Equipe comercial de FGTS precisava de um sistema próprio para gerenciar propostas, agenda e consultas em massa, sem depender de planilha ou ferramenta genérica.",
         solution: "Sistema financeiro completo: CRM de propostas, agenda integrada, consultas em massa e exportação de relatórios.",
         role: "Dev solo · full-stack",
-        results: [{ label: "Status", value: "Em produção", context: "uso diário da equipe comercial" }],
+        results: [{ label: "Status", value: "Descontinuado", context: "usado em produção pela equipe comercial" }],
       },
       {
         id: "crm-autonomo", name: "CRM Autônomo", tag: "Automação · Captação de leads", trophy: "// EM PRODUÇÃO · SISTEMA PRÓPRIO",
@@ -159,6 +159,9 @@ export const copyPt: Copy = {
         ],
       },
     ],
+    moreEyebrow: "// mais projetos",
+    moreH2a: "Automação sem tela,",
+    moreH2b: "resultado pra provar.",
   },
   sites: {
     eyebrow: "// 03 — sites entregues",

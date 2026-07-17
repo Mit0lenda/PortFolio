@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { BlogCard } from '../blog/BlogCard'
+import { Reveal, SplitHeading } from '../motion'
 import type { PublicPostSummary } from '../../lib/blog/types'
 
 export const BlogSection: React.FC<{ posts: PublicPostSummary[] }> = ({ posts }) => {
@@ -9,22 +10,21 @@ export const BlogSection: React.FC<{ posts: PublicPostSummary[] }> = ({ posts })
   return (
     <section id="conteudos">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">// Conteúdos</span>
-          <h2>
-            Ideias, projetos e <span className="impact">bastidores.</span>
-          </h2>
-          <p className="desc">
-            Conteúdos sobre desenvolvimento, automação, inteligência artificial e construção de
-            produtos.
-          </p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow="// Conteúdos"
+          heading={<>Ideias, projetos e <span className="impact">bastidores.</span></>}
+          desc="Conteúdos sobre desenvolvimento, automação, inteligência artificial e construção de produtos."
+          descClassName="desc"
+        />
 
-        <div className="blog-grid">
+        <Reveal as="div" className="blog-grid" stagger staggerDelay={0.1}>
           {posts.map((post) => (
-            <BlogCard post={post} key={post.id} />
+            <Reveal.Item as="div" key={post.id}>
+              <BlogCard post={post} />
+            </Reveal.Item>
           ))}
-        </div>
+        </Reveal>
 
         <div className="blog-cta-row">
           <Link href="/blog" className="btn btn-ghost">

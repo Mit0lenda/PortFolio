@@ -37,9 +37,12 @@ export const copyEn: Copy = {
       { id: "promocode", name: "PromoCode", tag: "AI Agent · WhatsApp shopping consultant", trophy: "// MVP IN PRODUCTION · N8N + AI + SUPABASE", desc: "WhatsApp shopping consultant: understands budget, use case and urgency in natural language, decides with an AI agent (LangChain + tools), remembers conversation history and learns from every recommendation via vector memory (RAG). Architecture: n8n orchestrating the agent, Chatwoot as the inbox (a human can take over any conversation at any time), Supabase with pgvector for memory, and Node.js for product search and ranking. Marketplace integration in progress." },
       { id: "haven-link", name: "Haven Link", tag: "AI · Emergency logistics", trophy: "🥉 3RD PLACE NATIONAL · iTwin4Good BR", desc: "AI platform for emergency logistics — coordinates disaster rescue, connecting volunteers, NGOs and public agencies via real-time map. Awarded nationally." },
       { id: "nexus", name: "Nexus",      tag: "Startup · CEI-UFRGS",      trophy: "🚀 INCUBATED · CEI-UFRGS",             desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Currently incubated at UFRGS Entrepreneurship Center." },
-      { id: "atlas", name: "Atlas",      tag: "FGTS financial system",    trophy: "// IN PRODUCTION · FREELANCE",         desc: "Complete FGTS financial management system for a sales team. CRM for proposals, calendar, bulk queries, report exports." },
+      { id: "atlas", name: "Atlas",      tag: "FGTS financial system",    trophy: "// DISCONTINUED · FREELANCE",         desc: "Complete FGTS financial management system for a sales team. CRM for proposals, calendar, bulk queries, report exports." },
       { id: "crm-autonomo", name: "Autonomous CRM", tag: "Automation · Lead generation", trophy: "// IN PRODUCTION · OWN SYSTEM", desc: "Prospecting engine that scans the map by category and city, identifies businesses without a website, and creates the deal + follow-up task straight in the CRM — zero manual clicks, zero API cost." },
     ],
+    moreEyebrow: "// more projects",
+    moreH2a: "No screen to show,",
+    moreH2b: "results to prove it.",
   },
   sites: {
     eyebrow: "// 03 — websites delivered",

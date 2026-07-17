@@ -4,9 +4,10 @@ import React from "react";
 import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
+import { Reveal, SplitHeading } from "../motion";
 
 const SITES = [
-  { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png",   context: "Barbearia (EUA) · site institucional" },
+  { n: "Daltro LLC",            url: "daltrollc.com",               img: "/assets/site-daltrollc.png",   context: "Estúdio de jogos (EUA) · site institucional" },
   { n: "MultiParts Elevadores", url: "multipartselevadores.com.br", img: "/assets/site-multiparts.png",  context: "Peças para elevadores · catálogo institucional" },
   { n: "Engipro Elevadores",    url: "engipro.com.br",              img: "/assets/site-engipro.png",     context: "Elevadores industriais · soluções + orçamento" },
   { n: "Wisebody",              url: "wisebody.com.br",             img: "/assets/site-wisebody.png",    context: "Estética corporal · site institucional" },
@@ -16,7 +17,8 @@ const SiteCard: React.FC<{ s: (typeof SITES)[number] }> = ({ s }) => {
   const tiltRef = useTilt<HTMLAnchorElement>();
 
   return (
-    <a
+    <Reveal.Item
+      as="a"
       className="site-card tilt"
       ref={tiltRef}
       href={`https://${s.url}`}
@@ -32,7 +34,7 @@ const SiteCard: React.FC<{ s: (typeof SITES)[number] }> = ({ s }) => {
         <span className="ext">{s.url} ↗</span>
       </div>
       <span className="site-context">{s.context}</span>
-    </a>
+    </Reveal.Item>
   );
 };
 
@@ -42,19 +44,19 @@ export const SitesSection: React.FC = () => {
   return (
     <section id="sites">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.sites.eyebrow}</span>
-          <h2>
-            {t.sites.h2a} <span className="impact">{t.sites.h2b}</span>
-          </h2>
-          <p className="desc">{t.sites.desc}</p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.sites.eyebrow}
+          heading={<>{t.sites.h2a} <span className="impact">{t.sites.h2b}</span></>}
+          desc={t.sites.desc}
+          descClassName="desc"
+        />
 
-        <div className="sites-grid">
+        <Reveal as="div" className="sites-grid" stagger staggerDelay={0.1}>
           {SITES.map((s) => (
             <SiteCard s={s} key={s.n} />
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
