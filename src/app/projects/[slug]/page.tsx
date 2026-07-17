@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { copyPt } from '../../../content/copy.pt'
 import { breadcrumbSchema } from '../../../lib/jsonld'
+import { PROJECT_ASSETS, FALLBACK_ASSETS } from '../../../content/projectAssets'
+import { ProjectGallery } from '../../../components/media/ProjectGallery'
+import { FlowDiagram } from '../../../components/media/FlowDiagram'
+import { MediaFrame } from '../../../components/media/MediaFrame'
 
 export const revalidate = 7200
 
@@ -26,6 +30,7 @@ export async function generateMetadata({
   const url = `${BASE_URL}/projects/${slug}`
   const title = `${project.name} — Dev Mitolenda`
   const description = project.desc.substring(0, 160)
+  const ogImage = `/og/og-${slug}.png`
 
   return {
     title: project.name,
@@ -40,7 +45,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: '/og/og-default.png',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -51,7 +56,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: ['/og/og-default.png'],
+      images: [ogImage],
     },
   }
 }
@@ -70,6 +75,7 @@ export default async function ProjectPage({
 
   const url = `${BASE_URL}/projects/${slug}`
   const whatsappHref = copyPt.contact.cards.find((c) => c.k === 'WhatsApp')?.href
+  const media = PROJECT_ASSETS[slug] || FALLBACK_ASSETS
 
   const breadcrumb = breadcrumbSchema([
     { name: 'Home', url: BASE_URL },
@@ -84,11 +90,40 @@ export default async function ProjectPage({
         <h1 className="feat-name" style={{ fontSize: 'clamp(56px, 8vw, 120px)', margin: '24px 0 0' }}>
           {project.name}
         </h1>
-        {project.trophy && (
-          <div className="feat-trophy" style={{ marginTop: 24 }}>
-            {project.trophy}
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center', marginTop: 24 }}>
+          {project.trophy && <div className="feat-trophy">{project.trophy}</div>}
+          {project.role && (
+            <span
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 12,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--gray-support)',
+              }}
+            >
+              // {project.role}
+            </span>
+          )}
+        </div>
+
+        {/* Prova visual logo de cara — o case se entende antes do texto */}
+        {media.cover && (
+          <div style={{ marginTop: 40 }}>
+            <MediaFrame
+              src={media.cover.src}
+              alt={media.cover.alt}
+              caption={media.cover.caption}
+              aspectRatio={media.cover.aspectRatio ?? 'wide'}
+              contain={media.cover.type === 'photo'}
+              priority
+              sizes="(max-width: 900px) 100vw, 900px"
+              className="case-cover"
+            />
           </div>
         )}
+
+        {media.flow && media.flow.length > 0 && <FlowDiagram steps={media.flow} labelPrefix={project.name} />}
 
         <div style={{ maxWidth: 720, marginTop: 48 }}>
           <h2 style={{ fontSize: 22 }}>O problema</h2>
@@ -105,6 +140,8 @@ export default async function ProjectPage({
             </p>
           </div>
         )}
+
+        {media.gallery && media.gallery.length > 0 && <ProjectGallery images={media.gallery} />}
 
         {project.tech && project.tech.length > 0 && (
           <div style={{ maxWidth: 720, marginTop: 40 }}>
@@ -127,6 +164,21 @@ export default async function ProjectPage({
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {project.results && project.results.length > 0 && (
+          <div className="case-results">
+            <span className="case-results-label">Resultado</span>
+            <div className="case-results-grid">
+              {project.results.map((r) => (
+                <div className="case-results-item" key={r.label}>
+                  <span className="k">{r.label}</span>
+                  <span className="v">{r.value}</span>
+                  {r.context && <span className="c">{r.context}</span>}
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

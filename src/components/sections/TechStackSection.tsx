@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useCopy } from "../../lib/useCopy";
+import { Reveal, SplitHeading } from "../motion";
 
 const STACK: [string, string][] = [
   ["React", "lg"],
@@ -29,24 +30,27 @@ export const TechStackSection: React.FC = () => {
   return (
     <section id="stack">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.stack.eyebrow}</span>
-          <h2>
-            {t.stack.h2a} <span className="impact">{t.stack.h2b}</span>
-          </h2>
-          <p className="desc">{t.stack.desc1}</p>
-          <p className="desc" style={{ marginTop: 8 }}>
-            {t.stack.desc2}
-          </p>
-        </div>
+        <SplitHeading
+          className="section-head"
+          eyebrow={t.stack.eyebrow}
+          heading={<>{t.stack.h2a} <span className="impact">{t.stack.h2b}</span></>}
+          desc={
+            <>
+              <p className="desc">{t.stack.desc1}</p>
+              <p className="desc" style={{ marginTop: 8 }}>
+                {t.stack.desc2}
+              </p>
+            </>
+          }
+        />
 
-        <div className="stack-cloud">
+        <Reveal as="div" className="stack-cloud" stagger staggerDelay={0.03}>
           {STACK.map(([name, cls]) => (
-            <span className={`badge ${cls}`} key={name}>
+            <Reveal.Item as="span" className={`badge ${cls}`} key={name}>
               {name}
-            </span>
+            </Reveal.Item>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

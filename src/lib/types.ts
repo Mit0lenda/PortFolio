@@ -18,6 +18,33 @@ export type ServicePageItem = {
   body: string[];
 };
 
+/** O que a imagem realmente é — define enquadramento e tom, não decoração. */
+export type ProjectMediaType = "interface" | "photo" | "diagram" | "document";
+export type ProjectAspectRatio = "landscape" | "portrait" | "square" | "wide";
+
+export type ProjectMedia = {
+  src: string;
+  alt: string;
+  caption?: string;
+  type?: ProjectMediaType;
+  aspectRatio?: ProjectAspectRatio;
+};
+
+/** Prova de resultado estruturada — só fatos verificáveis, nunca métrica inventada. */
+export type ProjectResult = {
+  label: string;
+  value: string;
+  context?: string;
+};
+
+export type ProjectFlowStep = {
+  /** Categoria do estágio no pipeline: entrada, processamento, integração, saída. */
+  stage: string;
+  /** Ação real do sistema nesse estágio — nunca genérica. */
+  label: string;
+  sub?: string;
+};
+
 export type ProjectItem = {
   id: string;
   name: string;
@@ -27,6 +54,9 @@ export type ProjectItem = {
   problem?: string;
   solution?: string;
   tech?: string[];
+  /** Papel real desempenhado — solo, ou em equipe (com contexto). */
+  role?: string;
+  results?: ProjectResult[];
 };
 
 export type VentureItem = {
@@ -102,6 +132,9 @@ export type Copy = {
     desc: string;
     labelProj: string;
     list: ProjectItem[];
+    moreEyebrow: string;
+    moreH2a: string;
+    moreH2b: string;
   };
   sites: {
     eyebrow: string;

@@ -1,27 +1,38 @@
 'use client'
 
 import React from "react";
-import Image from "next/image";
 import { useCopy } from "../../lib/useCopy";
+import { useTilt } from "../../lib/useTilt";
+import { MediaFrame } from "../media/MediaFrame";
+import { Reveal } from "../motion";
 import profileImage from "../../assets/hero/nicollas-profile-2026.jpeg";
 
 export const AboutSection: React.FC = () => {
   const t = useCopy();
   const a = t.about;
+  const photoRef = useTilt<HTMLDivElement>({ tilt: false });
 
   return (
     <section id="sobre">
       <div className="container">
-        <div className="section-head">
+        <Reveal as="div" className="section-head">
           <span className="eyebrow">{a.eyebrow}</span>
-        </div>
+        </Reveal>
 
-        <div className="about">
-          <div className="photo" style={{ position: "relative" }}>
-            <Image src={profileImage} alt="Nicollas Freitas" fill style={{ objectFit: "cover" }} priority />
-          </div>
+        <Reveal as="div" className="about" stagger staggerDelay={0.15}>
+          <Reveal.Item as="div" className="about-photo-frame spotlight" ref={photoRef}>
+            <MediaFrame
+              src={profileImage}
+              alt="Nicollas Freitas"
+              aspectRatio="portrait"
+              treatment="editorial"
+              priority
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              caption={a.sub}
+            />
+          </Reveal.Item>
 
-          <div className="body">
+          <Reveal.Item as="div" className="body">
             <span className="eyebrow">{a.sub}</span>
             <h3>
               {a.h3a} <span className="impact">{a.h3b}</span>
@@ -35,36 +46,8 @@ export const AboutSection: React.FC = () => {
               {a.bio1e}
             </p>
             <p className="about-bio">{a.bio2}</p>
-
-            <div className="achv-grid">
-              <div className="achv-cell">
-                <span className="icon">🥉</span>
-                <span className="h">
-                  <span className="impact">{a.a1h1}</span> {a.a1h2}
-                </span>
-                <span className="d">{a.a1d}</span>
-              </div>
-              <div className="achv-cell">
-                <span className="icon">🚀</span>
-                <span className="h">
-                  {a.a2h1}
-                  <br />
-                  {a.a2h2}
-                </span>
-                <span className="d">{a.a2d}</span>
-              </div>
-              <div className="achv-cell">
-                <span className="icon">🔬</span>
-                <span className="h">
-                  {a.a3h1}
-                  <br />
-                  {a.a3h2}
-                </span>
-                <span className="d">{a.a3d}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          </Reveal.Item>
+        </Reveal>
       </div>
     </section>
   );

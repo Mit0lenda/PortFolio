@@ -4,6 +4,7 @@ import { interFont, spaceMonoFont } from '../lib/fonts'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import { Providers } from './providers'
+import { PageTransition } from '../components/motion'
 import { copyPt } from '../content/copy.pt'
 import './globals.css'
 import './chatwoot.css'
@@ -155,7 +156,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          {children}
+          <PageTransition>{children}</PageTransition>
           <Footer />
         </Providers>
         <script

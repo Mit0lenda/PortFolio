@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArticleBody } from '../../../components/blog/ArticleBody'
 import { ShareButtons } from '../../../components/blog/ShareButtons'
-import { BlogCard } from '../../../components/blog/BlogCard'
+import { RelatedPosts } from '../../../components/blog/RelatedPosts'
 import { formatPostDate } from '../../../lib/blog/format'
 import { getPostBySlug, getPublishedPosts, getRelatedPosts } from '../../../lib/blog/posts'
 import { breadcrumbSchema, blogPostingSchema } from '../../../lib/jsonld'
@@ -193,19 +193,7 @@ export default async function BlogPostPage({
           </Link>
         </div>
 
-        {related.length > 0 && (
-          <div style={{ marginTop: 80 }}>
-            <div className="section-head">
-              <span className="eyebrow">// Relacionados</span>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}>Continue lendo</h2>
-            </div>
-            <div className="blog-grid">
-              {related.map((relatedPost) => (
-                <BlogCard post={relatedPost} key={relatedPost.id} />
-              ))}
-            </div>
-          </div>
-        )}
+        <RelatedPosts posts={related} />
       </div>
 
       <script

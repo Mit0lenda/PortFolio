@@ -5,40 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCopy } from "../../lib/useCopy";
 import { useTilt } from "../../lib/useTilt";
-
-// Mapeado por ID estável do projeto (não por posição no array nem pelo
-// `name` traduzido) — evita que a imagem/stack de um projeto "vaze" para
-// outro quando a ordem muda em src/content/copy.*.ts ou quando o `name`
-// é traduzido por idioma (ex.: "CRM Autônomo" vira "Autonomous CRM" em EN).
-type ProjectMedia = { img: string; stack: string[]; contain?: boolean };
-
-const PROJECT_MEDIA: Record<string, ProjectMedia> = {
-  "promocode": {
-    // TODO: trocar por print/GIF real de uma conversa no WhatsApp assim que
-    // a integração com marketplaces fechar (ver DEV-158 no Linear).
-    img: "/og/og-default.png",
-    stack: ["n8n", "LangChain", "Supabase", "Chatwoot", "RAG"],
-  },
-  "haven-link": {
-    img: "/assets/photo-trofeu.png",
-    stack: ["React", "Node.js", "IA", "iTwin", "Mapas"],
-    contain: true,
-  },
-  "nexus": {
-    img: "/assets/site-nexium.png",
-    stack: ["React", "Leaflet", "Python", "CV", "Bentley"],
-  },
-  "atlas": {
-    img: "/assets/work-atlas-dashboard.png",
-    stack: ["React", "Node.js", "JWT", "MySQL", "Azure"],
-  },
-  "crm-autonomo": {
-    img: "/assets/work-propostas.png",
-    stack: ["Node.js", "Scraping", "Automation", "CRM", "API"],
-  },
-};
-
-const FALLBACK_MEDIA: ProjectMedia = { img: "/og/og-default.png", stack: [] };
+import { PROJECT_ASSETS, FALLBACK_ASSETS } from "../../content/projectAssets";
+import { FlowDiagram } from "../media/FlowDiagram";
+import { Reveal, SplitHeading } from "../motion";
+import { ScrollProjects } from "./ScrollProjects/ScrollProjects";
+import { SCROLL_PROJECT_IDS } from "./ScrollProjects/data";
 
 type Project = {
   id: string;
@@ -53,25 +24,30 @@ const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
   i,
   labelProj,
 }) => {
-  const media = PROJECT_MEDIA[p.id] || FALLBACK_MEDIA;
-  const isTrophy = !!media.contain;
+  const media = PROJECT_ASSETS[p.id] || FALLBACK_ASSETS;
+  const isTrophy = media.cover?.type === "photo";
   const tiltRef = useTilt<HTMLElement>();
 
   return (
-    <Link
-      className="feat-link"
-      href={`/projects/${p.id}`}
-      aria-label={`Ver projeto ${p.name}`}
-    >
+    <Reveal.Item as="div">
+      <Link
+        className="feat-link"
+        href={`/projects/${p.id}`}
+        aria-label={`Ver projeto ${p.name}`}
+      >
       <article className="feat tilt" ref={tiltRef}>
         <div className="feat-shot" style={{ position: "relative" }}>
-          <Image
-            src={media.img}
-            alt={p.name}
-            fill
-            className={isTrophy ? "trophy" : ""}
-            style={{ objectFit: isTrophy ? "contain" : "cover" }}
-          />
+          {media.cover ? (
+            <Image
+              src={media.cover.src}
+              alt={media.cover.alt}
+              fill
+              className={isTrophy ? "trophy" : ""}
+              style={{ objectFit: isTrophy ? "contain" : "cover" }}
+            />
+          ) : (
+            media.flow && <FlowDiagram steps={media.flow} labelPrefix={p.name} compact />
+          )}
         </div>
         <div className="feat-body">
           <div className="feat-eyebrow">
@@ -95,28 +71,39 @@ const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
           </div>
         </div>
       </article>
-    </Link>
+      </Link>
+    </Reveal.Item>
   );
 };
 
 export const ProjectsSection: React.FC = () => {
   const t = useCopy();
+  const moreProjects = t.projects.list.filter(
+    (p) => !SCROLL_PROJECT_IDS.includes(p.id as (typeof SCROLL_PROJECT_IDS)[number])
+  );
 
   return (
     <section id="projetos">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{t.projects.eyebrow}</span>
-          <h2>
-            {t.projects.h2a} <span className="impact">{t.projects.h2b}</span>
-          </h2>
-          <p className="desc">{t.projects.desc}</p>
-        </div>
+        <ScrollProjects
+          projects={t.projects.list}
+          eyebrow={t.projects.eyebrow}
+          headingA={t.projects.h2a}
+          headingB={t.projects.h2b}
+        />
 
-        <div className="feat-grid">
-          {t.projects.list.map((p, i) => (
-            <ProjectCard p={p} i={i} labelProj={t.projects.labelProj} key={p.id} />
-          ))}
+        <div id="mais-projetos">
+          <SplitHeading
+            className="section-head"
+            eyebrow={t.projects.moreEyebrow}
+            heading={<>{t.projects.moreH2a} <span className="impact">{t.projects.moreH2b}</span></>}
+          />
+
+          <Reveal as="div" className="feat-grid" stagger staggerDelay={0.1}>
+            {moreProjects.map((p, i) => (
+              <ProjectCard p={p} i={i} labelProj={t.projects.labelProj} key={p.id} />
+            ))}
+          </Reveal>
         </div>
       </div>
     </section>

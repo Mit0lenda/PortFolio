@@ -16,9 +16,9 @@ export const Navbar: React.FC = () => {
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   const links: [string, string][] = [
-    ["#servicos", t.nav.servicos],
     ["#projetos", t.nav.projetos],
     ["#sites", t.nav.sites],
+    ["#servicos", t.nav.servicos],
     ["#stack", t.nav.stack],
     ["#sobre", t.nav.sobre],
     ["#faq", t.nav.faq],

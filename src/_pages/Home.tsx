@@ -24,15 +24,15 @@ type HomePageProps = {
 export const HomePage: React.FC<HomePageProps> = ({ posts = [] }) => (
   <main className="page">
     <HeroSection />
-    <StackStrip />
     <ProofBar />
-    <ServicesSection />
     <ProjectsSection />
-    <BlogSection posts={posts} />
-    <VenturesSection />
     <SitesSection />
+    <ServicesSection />
+    <VenturesSection />
+    <StackStrip />
     <TechStackSection />
     <AboutSection />
+    <BlogSection posts={posts} />
     <CertificatesSection />
     <FAQSection />
     <FinalCTASection />
