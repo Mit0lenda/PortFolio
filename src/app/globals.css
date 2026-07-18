@@ -17,6 +17,7 @@
   --gray-support:     #A1A1AA;
   --gray-line:        #2A2A2A;
   --gray-line-soft:   #1F1F1F;
+  --red-error:        #FF7B7B;
 
   /* Semantic aliases */
   --bg-1:             var(--bg-primary);
@@ -545,6 +546,7 @@ section {
 
 .services3 .svc {
   padding: 32px 28px;
+  border-top: 2px solid transparent;
   border-right: 1px solid var(--gray-line);
   border-bottom: 1px solid var(--gray-line);
   background: var(--bg-1);
@@ -553,6 +555,12 @@ section {
   flex-direction: column;
   cursor: pointer;
 }
+
+/* alternating accent instead of identical treatment on every card.
+   Orange/blue only (not green) — green stays reserved for CTA/Resultado
+   values, and every .svc already shows green on its own price (.v.cta). */
+.services3 .svc:nth-child(odd) { border-top-color: var(--orange-impact); }
+.services3 .svc:nth-child(even) { border-top-color: var(--blue-tech); }
 
 .services3 .svc:nth-child(3n) {
   border-right: 0;
@@ -1114,7 +1122,7 @@ section {
 .venture-shot {
   aspect-ratio: 16/9;
   overflow: hidden;
-  background: #000;
+  background: var(--bg-1);
   border-bottom: 1px solid var(--gray-line);
 }
 
@@ -1216,11 +1224,17 @@ section {
 .site-card {
   background: var(--bg-2);
   border: 1px solid var(--gray-line);
+  border-top: 2px solid var(--gray-line);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
+
+/* alternating accent instead of identical treatment on every card
+   (same idea as .services3 .svc / .contact-cards .cc) */
+.site-card:nth-child(odd) { border-top-color: var(--orange-impact); }
+.site-card:nth-child(even) { border-top-color: var(--blue-tech); }
 
 .site-card:hover {
   border-color: var(--paper);
@@ -2305,8 +2319,8 @@ footer {
   font-size: 13px;
   color: var(--blue-tech);
   background: var(--bg-2);
+  border: 1px solid var(--gray-line);
   padding: 2px 6px;
-  border-radius: 3px;
 }
 
 /* ── Footer legal links ───────────────────── */
@@ -2360,6 +2374,14 @@ footer {
   color: var(--gray-support);
 }
 
+.cf-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--gray-support);
+  margin: -.5rem 0 0;
+}
+
 .cf-input {
   width: 100%;
   background: var(--bg-2);
@@ -2393,7 +2415,10 @@ footer {
   width: 100%;
   padding: 1rem 1.5rem;
   background: var(--orange-impact);
-  color: var(--paper);
+  /* --bg-1 (not --paper) on orange-impact: paper text on this bg is ~3.3:1,
+     below WCAG AA's 4.5:1 for normal text. --bg-1 gives ~5.5:1 — same
+     dark-on-bright-accent pattern already used by .nav-cta/.btn-cta. */
+  color: var(--bg-1);
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 1rem;
@@ -2417,12 +2442,15 @@ footer {
 .cf-submit:disabled { opacity: .5; cursor: not-allowed; }
 
 /* Spinner */
+/* Sharp-cornered spinner (rotating square, not the generic circular
+   template spinner) — stays consistent with the brand's no-radius rule. */
 .cf-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(247,242,232,.3);
-  border-top-color: var(--paper);
-  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  /* dark-on-orange border (not --paper) — matches .cf-submit's text color,
+     which was switched for WCAG AA contrast (see .cf-submit below) */
+  border: 2px solid rgba(8,8,8,.3);
+  border-top-color: var(--bg-1);
   animation: cf-spin .7s linear infinite;
   flex-shrink: 0;
 }
@@ -2438,8 +2466,8 @@ footer {
 
 .cf-error {
   background: var(--bg-2);
-  border: 1px solid #ff7b7b;
-  color: #ff7b7b;
+  border: 1px solid var(--red-error);
+  color: var(--red-error);
   font-family: var(--font-mono);
 }
 
@@ -2493,7 +2521,9 @@ footer {
   gap: 10px;
 
   background: var(--orange-impact);
-  color: var(--paper);
+  /* --bg-1 (not --paper): paper-on-orange is ~3.3:1, fails WCAG AA (4.5:1)
+     for this 12px label. --bg-1 gives ~5.5:1 — matches .nav-cta/.btn-cta. */
+  color: var(--bg-1);
   border: 1px solid var(--orange-impact);
   padding: 14px 20px;
   cursor: pointer;
@@ -2678,7 +2708,7 @@ footer {
 /* Scrollbar in modal */
 .cm-card::-webkit-scrollbar        { width: 6px; }
 .cm-card::-webkit-scrollbar-track  { background: transparent; }
-.cm-card::-webkit-scrollbar-thumb  { background: var(--gray-line); border-radius: 3px; }
+.cm-card::-webkit-scrollbar-thumb  { background: var(--gray-line); }
 
 @media (max-width: 600px) {
   .cm-overlay { align-items: flex-end; padding: 0; }
@@ -3028,7 +3058,6 @@ footer {
   font-size: 0.88em;
   background: var(--bg-2);
   border: 1px solid var(--gray-line);
-  border-radius: 4px;
   padding: 2px 6px;
 }
 

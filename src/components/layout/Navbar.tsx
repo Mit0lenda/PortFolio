@@ -12,6 +12,7 @@ export const Navbar: React.FC = () => {
   const { language, setLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const navLinksRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -41,8 +42,15 @@ export const Navbar: React.FC = () => {
         toggleRef.current?.focus();
         return;
       }
-      if (e.key !== "Tab" || !menuRef.current) return;
-      const focusable = menuRef.current.querySelectorAll<HTMLElement>("a[href]");
+      if (e.key !== "Tab" || !navLinksRef.current) return;
+      // Trap covers the whole nav-links row, not just #nav-menu's <a> tags —
+      // .lang-switch and .nav-cta sit outside #nav-menu but stay visible
+      // (and focusable) while the mobile menu is open, so scoping the trap
+      // to #nav-menu alone made them unreachable by keyboard (Tab from the
+      // last link looped straight back to the first, with no way forward).
+      const focusable = navLinksRef.current.querySelectorAll<HTMLElement>(
+        "#nav-menu a[href], .lang-switch button, .nav-cta"
+      );
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -85,7 +93,7 @@ export const Navbar: React.FC = () => {
           <span className="nav-toggle-bar" />
         </button>
 
-        <nav className="nav-links">
+        <nav className="nav-links" ref={navLinksRef}>
           <div id="nav-menu" ref={menuRef} className={`nav-menu${open ? " open" : ""}`}>
             {links.map(([hash, label], i) => (
               <a

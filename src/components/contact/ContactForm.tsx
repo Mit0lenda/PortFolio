@@ -22,6 +22,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export function ContactForm({ source, onSuccess, className = '' }: ContactFormProps) {
   const formId = useId()
+  const errorId = `cf-error-${formId}`
 
   const [form, setForm]     = useState<FormState>({ name: '', email: '', message: '' })
   const [status, setStatus] = useState<Status>('idle')
@@ -108,6 +109,8 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
         style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
       />
 
+      <p className="cf-hint">Todos os campos são obrigatórios.</p>
+
       <div className="cf-row">
         <div className="cf-field">
           <label htmlFor={`cf-name-${formId}`} className="cf-label">Nome</label>
@@ -163,7 +166,7 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
       </div>
 
       {status === 'error' && (
-        <p className="cf-error" role="alert">{errorMsg}</p>
+        <p id={errorId} className="cf-error" role="alert">{errorMsg}</p>
       )}
 
       <button
@@ -171,6 +174,7 @@ export function ContactForm({ source, onSuccess, className = '' }: ContactFormPr
         className="cf-submit"
         disabled={status === 'loading'}
         aria-busy={status === 'loading'}
+        aria-describedby={status === 'error' ? errorId : undefined}
       >
         {status === 'loading' ? (
           <span className="cf-spinner" aria-label="Enviando…" />
