@@ -10,7 +10,7 @@ export const copyPt: Copy = {
     h1a: "TRANSFORMO", h1b: "CÓDIGO EM", h1c: "RESULTADO REAL.",
     lead: "Sites, sistemas e automações para empresas que querem crescer sem contratar mais gente.",
     cta1: 'Manda "projeto" no direct →', cta2: "Chamar no WhatsApp",
-    meta1: "DISPONÍVEL · MAIO 2026", meta2: "// PORTO ALEGRE — RS", meta3: "NICOLLAS FREITAS",
+    meta1: "DISPONÍVEL · MAIO 2026", meta2: "// PORTO ALEGRE · RS", meta3: "NICOLLAS FREITAS",
     badge1: "3º LUGAR NACIONAL", badge2: "iTwin4Good BR",
   },
   services: {
@@ -37,10 +37,10 @@ export const copyPt: Copy = {
         "Site institucional rápido, otimizado para SEO e conversão, com prazo de 7 a 21 dias. Atendimento em Porto Alegre e 100% remoto para todo o Brasil.",
       h1: "Criação de Sites Profissionais",
       intro:
-        "Site institucional completo, pensado para carregar rápido, aparecer no Google e converter visita em contato — não só existir no ar.",
+        "Site institucional completo, pensado para carregar rápido, aparecer no Google e converter visita em contato, não só existir no ar.",
       body: [
         "Desenvolvo em Next.js e React, com foco em performance (Core Web Vitals) e SEO técnico desde a primeira linha de código: metadados corretos, sitemap, dados estruturados e páginas rápidas o suficiente para o Google e para o visitante não desistir no carregamento.",
-        "O escopo típico inclui home, sobre, serviços, projetos/portfólio e contato — com formulário funcional ou integração com WhatsApp. Design responsivo, testado em mobile e desktop, com copy revisada para conversão, não só estética.",
+        "O escopo típico inclui home, sobre, serviços, projetos/portfólio e contato, com formulário funcional ou integração com WhatsApp. Design responsivo, testado em mobile e desktop, com copy revisada para conversão, não só estética.",
         "Processo: briefing com escopo e prazo fechados antes de começar, entregas semanais para acompanhamento, e handoff com domínio e hospedagem configurados no seu nome.",
       ],
     },
@@ -49,13 +49,13 @@ export const copyPt: Copy = {
       serviceIndex: 1,
       metaTitle: "Criação de Landing Pages de Alta Conversão | Dev Mitolenda",
       metaDescription:
-        "Landing page focada em uma única conversão — lead, venda ou agendamento. Copy, design e código sob medida, entrega em 3 a 10 dias.",
+        "Landing page focada em uma única conversão: lead, venda ou agendamento. Copy, design e código sob medida, entrega em 3 a 10 dias.",
       h1: "Landing Pages",
       intro:
         "Uma página, um objetivo: fazer o visitante agendar, comprar ou deixar contato. Sem distração, sem menu levando embora.",
       body: [
-        "Landing page é diferente de site institucional: existe para UMA conversão específica — campanha de tráfego pago, lançamento, captação de leads ou agendamento. Estrutura, copy e CTA são desenhados em torno desse único objetivo.",
-        "Trabalho a copy junto com o design: headline, prova social (quando existir), quebra de objeções e chamada para ação repetida nos pontos certos da rolagem. Código leve, carregamento rápido — decisivo para não perder tráfego pago por página lenta.",
+        "Landing page é diferente de site institucional: existe para UMA conversão específica, seja campanha de tráfego pago, lançamento, captação de leads ou agendamento. Estrutura, copy e CTA são desenhados em torno desse único objetivo.",
+        "Trabalho a copy junto com o design: headline, prova social (quando existir), quebra de objeções e chamada para ação repetida nos pontos certos da rolagem. Código leve, carregamento rápido: decisivo pra não perder tráfego pago por página lenta.",
         "Ideal para campanhas de Google Ads, Meta Ads ou lançamento de produto/serviço específico, com prazo curto de entrega.",
       ],
     },
@@ -67,10 +67,10 @@ export const copyPt: Copy = {
         "Automação de processos com n8n: conecta CRM, e-mail, planilhas, WhatsApp e APIs num fluxo único. Tira gente de tarefa repetitiva.",
       h1: "Automação com n8n",
       intro:
-        "Tira gente de planilha e de tarefa repetitiva. Conecto seus sistemas — CRM, e-mail, WhatsApp, planilhas e APIs — num fluxo único e automático.",
+        "Tira gente de planilha e de tarefa repetitiva. Conecto seus sistemas (CRM, e-mail, WhatsApp, planilhas e APIs) num fluxo único e automático.",
       body: [
-        "n8n é uma ferramenta de automação de workflows: quando algo acontece num sistema (um formulário preenchido, um lead novo, um pagamento aprovado), o fluxo dispara ações automáticas em outro — cria registro no CRM, envia e-mail, atualiza planilha, notifica no WhatsApp.",
-        "Uso essa mesma ferramenta em produção nos meus próprios projetos (como o motor de prospecção do CRM Autônomo), então o desenho do fluxo já nasce pensando em execução real, tratamento de erro e custo de API controlado — não só um diagrama bonito.",
+        "n8n é uma ferramenta de automação de workflows: quando algo acontece num sistema (um formulário preenchido, um lead novo, um pagamento aprovado), o fluxo dispara ações automáticas em outro. Cria registro no CRM, envia e-mail, atualiza planilha, notifica no WhatsApp.",
+        "Uso essa mesma ferramenta em produção nos meus próprios projetos (como o motor de prospecção do CRM Autônomo), então o desenho do fluxo já nasce pensando em execução real, tratamento de erro e custo de API controlado. Não só um diagrama bonito.",
         "Mapeio o processo atual com você, desenho o fluxo, testo com dados reais e entrego documentado, para seu time entender o que está automatizado e por quê.",
       ],
     },
@@ -82,9 +82,9 @@ export const copyPt: Copy = {
         "Chatbot com modelo de linguagem treinado no seu negócio, atendimento 24/7 e handoff para humano quando necessário. Entrega em 7 a 25 dias.",
       h1: "Chatbot / IA",
       intro:
-        "Atendimento 24/7 com um modelo de linguagem treinado no contexto do seu negócio — não um chatbot de árvore de decisão engessada.",
+        "Atendimento 24/7 com um modelo de linguagem treinado no contexto do seu negócio, não um chatbot de árvore de decisão engessada.",
       body: [
-        "Construo agentes de IA que entendem linguagem natural, mantêm contexto da conversa e consultam sua base de produtos, serviços ou FAQ para responder com precisão — usando LangChain, memória vetorial (RAG) e a plataforma de mensagens que seu negócio já usa (WhatsApp, Instagram, site).",
+        "Construo agentes de IA que entendem linguagem natural, mantêm contexto da conversa e consultam sua base de produtos, serviços ou FAQ para responder com precisão, usando LangChain, memória vetorial (RAG) e a plataforma de mensagens que seu negócio já usa (WhatsApp, Instagram, site).",
         "Sempre com a opção de handoff: a qualquer momento um humano do seu time pode assumir a conversa direto no inbox, sem o cliente perceber troca de canal.",
         "Escopo definido junto com você: que perguntas o agente responde, que ações ele pode tomar (agendar, orçar, encaminhar) e onde ele para e chama um humano.",
       ],
@@ -97,11 +97,11 @@ export const copyPt: Copy = {
         "Sistemas web customizados: CRM, ERP leve, dashboards e área de cliente. Autenticação, banco de dados, API e interface sob medida para o seu processo.",
       h1: "Sistema Web Custom",
       intro:
-        "CRM, ERP leve, dashboard interno ou área de cliente — construído em torno do seu processo, não do processo genérico de uma ferramenta pronta.",
+        "CRM, ERP leve, dashboard interno ou área de cliente: construído em torno do seu processo, não do processo genérico de uma ferramenta pronta.",
       body: [
         "Quando uma planilha ou uma ferramenta de prateleira já não dá conta do processo do seu negócio, construo um sistema web sob medida: autenticação, banco de dados, API e interface desenhados especificamente para o seu fluxo de trabalho.",
         "Stack típica: Next.js/React no frontend, Node.js/NestJS no backend, PostgreSQL ou Supabase como banco. Projeto entregue em etapas (marcos), com cada módulo testável antes de avançar para o próximo.",
-        "Já entreguei sistemas desse porte em produção — CRM de propostas com agenda e relatórios, motor de prospecção automatizado — e sei que o risco maior nesse tipo de projeto é escopo mal definido, por isso o levantamento de requisitos é feito antes de qualquer linha de código.",
+        "Já entreguei sistemas desse porte em produção (CRM de propostas com agenda e relatórios, motor de prospecção automatizado) e sei que o risco maior nesse tipo de projeto é escopo mal definido, por isso o levantamento de requisitos é feito antes de qualquer linha de código.",
       ],
     },
   ],
@@ -114,8 +114,8 @@ export const copyPt: Copy = {
       {
         id: "promocode", name: "PromoCode", tag: "Agente de IA · Consultor de compras no WhatsApp", trophy: "// MVP EM PRODUÇÃO · N8N + IA + SUPABASE",
         desc: "Consultor de compras via WhatsApp: entende orçamento, uso e urgência em linguagem natural, decide com um agente de IA (LangChain + ferramentas), lembra o histórico da conversa e aprende com cada recomendação via memória vetorial (RAG). Arquitetura: n8n orquestrando o agente, Chatwoot como inbox (dá pra assumir a conversa a qualquer momento), Supabase com pgvector para memória e Node.js para busca e ranking de produtos. Integração com marketplaces em andamento.",
-        problem: "Cliente precisava de um consultor de compras que entendesse orçamento, uso e urgência em linguagem natural, direto no WhatsApp — sem formulário nem filtro manual.",
-        solution: "Agente de IA (LangChain + ferramentas) que decide a recomendação, lembra o histórico da conversa e aprende com cada interação via memória vetorial (RAG). n8n orquestra o fluxo, Chatwoot funciona como inbox — dá pra assumir a conversa a qualquer momento — e Node.js cuida da busca e ranking de produtos. Integração com marketplaces em andamento.",
+        problem: "Cliente precisava de um consultor de compras que entendesse orçamento, uso e urgência em linguagem natural, direto no WhatsApp, sem formulário nem filtro manual.",
+        solution: "Agente de IA (LangChain + ferramentas) que decide a recomendação, lembra o histórico da conversa e aprende com cada interação via memória vetorial (RAG). n8n orquestra o fluxo, Chatwoot funciona como inbox (dá pra assumir a conversa a qualquer momento) e Node.js cuida da busca e ranking de produtos. Integração com marketplaces em andamento.",
         tech: ["n8n", "LangChain", "Chatwoot", "Supabase", "pgvector", "Node.js"],
         role: "Dev solo · full-stack + IA",
         results: [
@@ -125,7 +125,7 @@ export const copyPt: Copy = {
       },
       {
         id: "haven-link", name: "Haven Link", tag: "IA · Logística emergencial", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR",
-        desc: "Plataforma de IA para logística emergencial — coordena resgate em desastres, conectando voluntários, ONGs e órgãos públicos via mapa em tempo real. Premiada nacionalmente.",
+        desc: "Plataforma de IA para logística emergencial: coordena resgate em desastres, conectando voluntários, ONGs e órgãos públicos via mapa em tempo real. Premiada nacionalmente.",
         problem: "Coordenar resgate em situações de desastre exige conectar voluntários, ONGs e órgãos públicos rapidamente, com visibilidade em tempo real de quem está onde e o que precisa.",
         solution: "Plataforma de IA com mapa em tempo real que conecta voluntários, ONGs e órgãos públicos num único ponto de coordenação. Premiada nacionalmente (3º lugar, iTwin4Good BR).",
         results: [{ label: "Colocação", value: "3º lugar nacional", context: "iTwin4Good BR" }],
@@ -133,7 +133,7 @@ export const copyPt: Copy = {
       {
         id: "nexus", name: "Nexus", tag: "Startup · CEI-UFRGS", trophy: "🚀 INCUBADA · CEI-UFRGS",
         desc: "Plataforma de monitoramento de obras com IA aplicada. Mapa por construção, controle de estoque por ponto e detecção visual no canteiro. Hoje incubada no Centro de Empreendedorismo da UFRGS.",
-        problem: "Construtoras precisam monitorar múltiplas obras ao mesmo tempo — estoque por ponto e o que está acontecendo no canteiro — sem depender só de relatório manual.",
+        problem: "Construtoras precisam monitorar múltiplas obras ao mesmo tempo (estoque por ponto e o que está acontecendo no canteiro) sem depender só de relatório manual.",
         solution: "Plataforma com mapa por construção, controle de estoque por ponto e detecção visual no canteiro usando IA aplicada. Hoje incubada no Centro de Empreendedorismo da UFRGS.",
         tech: ["IA aplicada", "Detecção visual"],
         role: "Fullstack + IA · equipe de 4 (CEI-UFRGS)",
@@ -149,8 +149,8 @@ export const copyPt: Copy = {
       },
       {
         id: "crm-autonomo", name: "CRM Autônomo", tag: "Automação · Captação de leads", trophy: "// EM PRODUÇÃO · SISTEMA PRÓPRIO",
-        desc: "Motor de prospecção que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM — sem clique manual, custo de API zero.",
-        problem: "Prospecção manual de leads — buscar negócios sem site por categoria e cidade — consome tempo do time comercial e não escala.",
+        desc: "Motor de prospecção que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM, sem clique manual, custo de API zero.",
+        problem: "Prospecção manual de leads (buscar negócios sem site por categoria e cidade) consome tempo do time comercial e não escala.",
         solution: "Motor de prospecção automatizado que varre o mapa por categoria e cidade, identifica negócios sem site e cria oportunidade + tarefa de follow-up direto no CRM, sem clique manual e com custo de API zero.",
         role: "Dev solo · automação + scraping",
         results: [
@@ -175,7 +175,7 @@ export const copyPt: Copy = {
     labelRole: "CEO & CO-FUNDADOR",
     cta: "visitar site →",
     list: [
-      { n: "Codaryn", tag: "Soluções digitais", url: "codaryn.com.br", desc: "Empresa de soluções digitais para o seu negócio. Aplicamos tecnologias que simplificam desafios e potencializam resultados — equipe completa de programadores, suporte e administração.", tags: ["Equipe completa", "Suporte", "Tecnologia aplicada"] },
+      { n: "Codaryn", tag: "Soluções digitais", url: "codaryn.com.br", desc: "Empresa de soluções digitais para o seu negócio. Aplicamos tecnologias que simplificam desafios e potencializam resultados. Equipe completa de programadores, suporte e administração.", tags: ["Equipe completa", "Suporte", "Tecnologia aplicada"] },
       { n: "Nexium",  tag: "Monitoramento de obras com IA", url: "nexusbrtech.com", desc: "Plataforma de monitoramento de obras com IA aplicada. Mapa por construção, controle de estoque por ponto e detecção visual no canteiro. Incubada no CEI-UFRGS.", tags: ["IA aplicada", "Incubada CEI-UFRGS", "Mapa em tempo real"] },
     ],
   },
@@ -191,7 +191,7 @@ export const copyPt: Copy = {
     sub: "NICOLLAS FREITAS · POA",
     h3a: "Engenheiro que", h3b: "programa.",
     bio1a: "Estudante de Ciência da Computação na ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack e ex-estagiário da ", bio1d: "Polícia Federal na área de perícia digital", bio1e: ".",
-    bio2: "Hoje atendo PMEs e negócios locais do Brasil inteiro como dev solo. Foco em entregar coisa que entra em produção e gera dinheiro — não vitrine de portfólio.",
+    bio2: "Hoje atendo PMEs e negócios locais do Brasil inteiro como dev solo. Foco em entregar coisa que entra em produção e gera dinheiro, não vitrine de portfólio.",
     a1h1: "3º", a1h2: "nacional", a1d: "iTwin4Good BR",
     a2h1: "Startup", a2h2: "incubada", a2d: "CEI-UFRGS",
     a3h1: "Perícia", a3h2: "digital", a3d: "Estágio · Polícia Federal",
@@ -218,7 +218,7 @@ export const copyPt: Copy = {
     list: [
       { q: "Qual o prazo médio para um site?",                   a: "Landing page: 3–10 dias. Site institucional: 7–21 dias. Sistema custom: a partir de 20 dias. Te mando cronograma com marcos antes de começar." },
       { q: "Você faz manutenção após a entrega?",                a: "Sim. Cobro mensal por SLA (correções, pequenas evoluções, monitoramento) ou por hora avulsa. Você escolhe." },
-      { q: "Preciso ter domínio e hospedagem?",                  a: "Não precisa ter — eu cuido da configuração. Se já tiver, ótimo, migramos. Se não tiver, te ajudo a comprar com nota fiscal e tudo." },
+      { q: "Preciso ter domínio e hospedagem?",                  a: "Não precisa ter, eu cuido da configuração. Se já tiver, ótimo, migramos. Se não tiver, te ajudo a comprar com nota fiscal e tudo." },
       { q: "Atende fora do RS?",                                 a: "Sim. Trabalho com clientes do Brasil inteiro 100% remoto. Reuniões por Meet/Zoom e entregas semanais." },
       { q: "Como funciona o pagamento?",                         a: "50% no início + 50% na entrega para projetos curtos. Em projetos longos, divido em marcos. PIX, boleto ou cartão (com taxa)." },
       { q: "O que é automação n8n?",                             a: "n8n é uma ferramenta que conecta seus sistemas (CRM, e-mail, planilha, WhatsApp, ERP) num fluxo único. Ex.: cliente preenche formulário → entra no CRM → dispara e-mail → cria proposta. Tira gente de tarefa repetitiva." },

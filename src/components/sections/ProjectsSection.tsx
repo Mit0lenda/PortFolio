@@ -57,10 +57,7 @@ const ProjectCard: React.FC<{ p: Project; i: number; labelProj: string }> = ({
             <span>{p.tag}</span>
           </div>
           <span className="feat-trophy">{p.trophy}</span>
-          <h3 className="feat-name">
-            {p.name}
-            <span className="impact">.</span>
-          </h3>
+          <h3 className="feat-name">{p.name}</h3>
           <p className="feat-desc">{p.desc}</p>
           <div className="feat-stack">
             {media.stack.map((s) => (

@@ -115,7 +115,7 @@ export default function PrivacyPage() {
           <p>
             Quando habilitado, o site também pode usar o <strong>Facebook Pixel</strong> (Meta) para medir a
             efetividade de campanhas e anúncios. Diferente dos cookies acima, esse recurso não é estritamente
-            necessário — ele registra cookies de publicidade/mensuração (ex.: <code>_fbp</code>) e pode ser usado pela
+            necessário: ele registra cookies de publicidade/mensuração (ex.: <code>_fbp</code>) e pode ser usado pela
             Meta para fins de segmentação de anúncios, conforme a{' '}
             <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">
               política de privacidade da Meta
