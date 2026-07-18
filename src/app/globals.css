@@ -545,6 +545,7 @@ section {
 
 .services3 .svc {
   padding: 32px 28px;
+  border-top: 2px solid transparent;
   border-right: 1px solid var(--gray-line);
   border-bottom: 1px solid var(--gray-line);
   background: var(--bg-1);
@@ -553,6 +554,12 @@ section {
   flex-direction: column;
   cursor: pointer;
 }
+
+/* alternating accent instead of identical treatment on every card.
+   Orange/blue only (not green) — green stays reserved for CTA/Resultado
+   values, and every .svc already shows green on its own price (.v.cta). */
+.services3 .svc:nth-child(odd) { border-top-color: var(--orange-impact); }
+.services3 .svc:nth-child(even) { border-top-color: var(--blue-tech); }
 
 .services3 .svc:nth-child(3n) {
   border-right: 0;
@@ -1216,11 +1223,17 @@ section {
 .site-card {
   background: var(--bg-2);
   border: 1px solid var(--gray-line);
+  border-top: 2px solid var(--gray-line);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
+
+/* alternating accent instead of identical treatment on every card
+   (same idea as .services3 .svc / .contact-cards .cc) */
+.site-card:nth-child(odd) { border-top-color: var(--orange-impact); }
+.site-card:nth-child(even) { border-top-color: var(--blue-tech); }
 
 .site-card:hover {
   border-color: var(--paper);
@@ -2305,8 +2318,8 @@ footer {
   font-size: 13px;
   color: var(--blue-tech);
   background: var(--bg-2);
+  border: 1px solid var(--gray-line);
   padding: 2px 6px;
-  border-radius: 3px;
 }
 
 /* ── Footer legal links ───────────────────── */
@@ -2417,12 +2430,13 @@ footer {
 .cf-submit:disabled { opacity: .5; cursor: not-allowed; }
 
 /* Spinner */
+/* Sharp-cornered spinner (rotating square, not the generic circular
+   template spinner) — stays consistent with the brand's no-radius rule. */
 .cf-spinner {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border: 2px solid rgba(247,242,232,.3);
   border-top-color: var(--paper);
-  border-radius: 50%;
   animation: cf-spin .7s linear infinite;
   flex-shrink: 0;
 }
@@ -2678,7 +2692,7 @@ footer {
 /* Scrollbar in modal */
 .cm-card::-webkit-scrollbar        { width: 6px; }
 .cm-card::-webkit-scrollbar-track  { background: transparent; }
-.cm-card::-webkit-scrollbar-thumb  { background: var(--gray-line); border-radius: 3px; }
+.cm-card::-webkit-scrollbar-thumb  { background: var(--gray-line); }
 
 @media (max-width: 600px) {
   .cm-overlay { align-items: flex-end; padding: 0; }
@@ -3028,7 +3042,6 @@ footer {
   font-size: 0.88em;
   background: var(--bg-2);
   border: 1px solid var(--gray-line);
-  border-radius: 4px;
   padding: 2px 6px;
 }
 
