@@ -98,21 +98,21 @@ export default async function ServicePage({
     <main className="page">
       <div className="container" style={{ padding: '96px 0' }}>
         <span className="eyebrow">// serviço</span>
-        <h1 className="feat-name" style={{ fontSize: 'clamp(40px, 6vw, 80px)', margin: '24px 0 0' }}>
+        <h1 className="feat-name" style={{ fontSize: 'clamp(56px, 8vw, 120px)', margin: '24px 0 0' }}>
           {page.h1}
         </h1>
         <p style={{ color: 'var(--paper-dim)', fontSize: 18, lineHeight: 1.6, maxWidth: 720, marginTop: 32 }}>
           {page.intro}
         </p>
 
-        <div style={{ display: 'flex', gap: 32, marginTop: 32, flexWrap: 'wrap' }}>
-          <div>
-            <div style={{ fontSize: 13, opacity: 0.6 }}>Investimento</div>
-            <div style={{ fontSize: 20 }}>{service.price}</div>
+        <div className="svc-meta" style={{ marginTop: 32, maxWidth: 320 }}>
+          <div className="row">
+            <span className="k">Investimento</span>
+            <span className="v cta">{service.price}</span>
           </div>
-          <div>
-            <div style={{ fontSize: 13, opacity: 0.6 }}>Prazo</div>
-            <div style={{ fontSize: 20 }}>{service.prazo}</div>
+          <div className="row">
+            <span className="k">Prazo</span>
+            <span className="v">{service.prazo}</span>
           </div>
         </div>
 
