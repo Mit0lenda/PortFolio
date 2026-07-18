@@ -96,8 +96,8 @@ export default async function ProjectPage({
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: 12,
-                letterSpacing: '0.08em',
+                fontSize: 11,
+                letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 color: 'var(--gray-support)',
               }}
@@ -126,7 +126,7 @@ export default async function ProjectPage({
         {media.flow && media.flow.length > 0 && <FlowDiagram steps={media.flow} labelPrefix={project.name} />}
 
         <div style={{ maxWidth: 720, marginTop: 48 }}>
-          <h2 style={{ fontSize: 22 }}>O problema</h2>
+          <h2 style={{ fontSize: 18, letterSpacing: '0.05em' }}>O problema</h2>
           <p style={{ color: 'var(--paper-dim)', fontSize: 18, lineHeight: 1.6, marginTop: 12 }}>
             {project.problem ?? project.desc}
           </p>
@@ -134,7 +134,7 @@ export default async function ProjectPage({
 
         {project.solution && (
           <div style={{ maxWidth: 720, marginTop: 40 }}>
-            <h2 style={{ fontSize: 22 }}>A solução</h2>
+            <h2 style={{ fontSize: 18, letterSpacing: '0.05em' }}>A solução</h2>
             <p style={{ color: 'var(--paper-dim)', fontSize: 18, lineHeight: 1.6, marginTop: 12 }}>
               {project.solution}
             </p>
@@ -145,21 +145,10 @@ export default async function ProjectPage({
 
         {project.tech && project.tech.length > 0 && (
           <div style={{ maxWidth: 720, marginTop: 40 }}>
-            <h2 style={{ fontSize: 22 }}>Tecnologias</h2>
-            <ul style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12, padding: 0, listStyle: 'none' }}>
+            <h2 style={{ fontSize: 18, letterSpacing: '0.05em' }}>Tecnologias</h2>
+            <ul className="venture-tags" style={{ marginTop: 12, padding: 0, listStyle: 'none' }}>
               {project.tech.map((tech) => (
-                <li
-                  key={tech}
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 12,
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    border: '1px solid var(--gray-line)',
-                    borderRadius: 4,
-                    padding: '6px 10px',
-                  }}
-                >
+                <li className="chip" key={tech}>
                   {tech}
                 </li>
               ))}

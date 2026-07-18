@@ -17,6 +17,7 @@
   --gray-support:     #A1A1AA;
   --gray-line:        #2A2A2A;
   --gray-line-soft:   #1F1F1F;
+  --red-error:        #FF7B7B;
 
   /* Semantic aliases */
   --bg-1:             var(--bg-primary);
@@ -1114,7 +1115,7 @@ section {
 .venture-shot {
   aspect-ratio: 16/9;
   overflow: hidden;
-  background: #000;
+  background: var(--bg-1);
   border-bottom: 1px solid var(--gray-line);
 }
 
@@ -2438,8 +2439,8 @@ footer {
 
 .cf-error {
   background: var(--bg-2);
-  border: 1px solid #ff7b7b;
-  color: #ff7b7b;
+  border: 1px solid var(--red-error);
+  color: var(--red-error);
   font-family: var(--font-mono);
 }
 
