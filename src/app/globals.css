@@ -2360,6 +2360,14 @@ footer {
   color: var(--gray-support);
 }
 
+.cf-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--gray-support);
+  margin: -.5rem 0 0;
+}
+
 .cf-input {
   width: 100%;
   background: var(--bg-2);
@@ -2393,7 +2401,10 @@ footer {
   width: 100%;
   padding: 1rem 1.5rem;
   background: var(--orange-impact);
-  color: var(--paper);
+  /* --bg-1 (not --paper) on orange-impact: paper text on this bg is ~3.3:1,
+     below WCAG AA's 4.5:1 for normal text. --bg-1 gives ~5.5:1 — same
+     dark-on-bright-accent pattern already used by .nav-cta/.btn-cta. */
+  color: var(--bg-1);
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 1rem;
@@ -2420,8 +2431,8 @@ footer {
 .cf-spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(247,242,232,.3);
-  border-top-color: var(--paper);
+  border: 2px solid rgba(8,8,8,.3);
+  border-top-color: var(--bg-1);
   border-radius: 50%;
   animation: cf-spin .7s linear infinite;
   flex-shrink: 0;
@@ -2493,7 +2504,9 @@ footer {
   gap: 10px;
 
   background: var(--orange-impact);
-  color: var(--paper);
+  /* --bg-1 (not --paper): paper-on-orange is ~3.3:1, fails WCAG AA (4.5:1)
+     for this 12px label. --bg-1 gives ~5.5:1 — matches .nav-cta/.btn-cta. */
+  color: var(--bg-1);
   border: 1px solid var(--orange-impact);
   padding: 14px 20px;
   cursor: pointer;
