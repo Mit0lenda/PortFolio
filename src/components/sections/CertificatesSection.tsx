@@ -29,9 +29,7 @@ const CertCard: React.FC<{
 
       <span className="cert-cred">✓ {kBadge}</span>
 
-      <h3 className="cert-name">
-        {cert.title}<span className="impact">.</span>
-      </h3>
+      <h3 className="cert-name">{cert.title}</h3>
 
       <p className="cert-desc">{cert.issuer}</p>
 

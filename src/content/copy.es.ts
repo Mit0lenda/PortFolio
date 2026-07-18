@@ -10,7 +10,7 @@ export const copyEs: Copy = {
     h1a: "TRANSFORMO", h1b: "CÓDIGO EN", h1c: "RESULTADO REAL.",
     lead: "Sitios, sistemas y automatizaciones para empresas que quieren crecer sin contratar más gente.",
     cta1: 'DM "proyecto" en Instagram →', cta2: "Mensaje por WhatsApp",
-    meta1: "DISPONIBLE · MAYO 2026", meta2: "// PORTO ALEGRE — BRASIL", meta3: "NICOLLAS FREITAS",
+    meta1: "DISPONIBLE · MAYO 2026", meta2: "// PORTO ALEGRE · BRASIL", meta3: "NICOLLAS FREITAS",
     badge1: "3º LUGAR NACIONAL", badge2: "iTwin4Good BR",
   },
   services: {
@@ -35,10 +35,10 @@ export const copyEs: Copy = {
     labelProj: "PROYECTO",
     list: [
       { id: "promocode", name: "PromoCode", tag: "Agente de IA · Consultor de compras por WhatsApp", trophy: "// MVP EN PRODUCCIÓN · N8N + IA + SUPABASE", desc: "Consultor de compras vía WhatsApp: entiende presupuesto, uso y urgencia en lenguaje natural, decide con un agente de IA (LangChain + herramientas), recuerda el historial de la conversación y aprende de cada recomendación vía memoria vectorial (RAG). Arquitectura: n8n orquestando el agente, Chatwoot como bandeja de entrada (un humano puede tomar la conversación en cualquier momento), Supabase con pgvector para memoria y Node.js para búsqueda y ranking de productos. Integración con marketplaces en curso." },
-      { id: "haven-link", name: "Haven Link", tag: "IA · Logística de emergencia", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR", desc: "Plataforma de IA para logística de emergencia — coordina rescate en desastres, conectando voluntarios, ONGs y organismos públicos vía mapa en tiempo real. Premiada nacionalmente." },
+      { id: "haven-link", name: "Haven Link", tag: "IA · Logística de emergencia", trophy: "🥉 3º LUGAR NACIONAL · iTwin4Good BR", desc: "Plataforma de IA para logística de emergencia: coordina rescate en desastres, conectando voluntarios, ONGs y organismos públicos vía mapa en tiempo real. Premiada nacionalmente." },
       { id: "nexus", name: "Nexus",      tag: "Startup · CEI-UFRGS",          trophy: "🚀 INCUBADA · CEI-UFRGS",            desc: "Plataforma de monitoreo de obras con IA aplicada. Mapa por construcción, control de stock por punto y detección visual en el sitio. Hoy incubada en el Centro de Emprendedurismo de la UFRGS." },
       { id: "atlas", name: "Atlas",      tag: "Sistema financiero FGTS",      trophy: "// DESCONTINUADO · FREELANCE",       desc: "Sistema financiero FGTS completo para un equipo comercial. CRM de propuestas, agenda, consultas masivas, exportación de reportes." },
-      { id: "crm-autonomo", name: "CRM Autónomo", tag: "Automatización · Captación de leads", trophy: "// EN PRODUCCIÓN · SISTEMA PROPIO", desc: "Motor de prospección que recorre el mapa por categoría y ciudad, identifica negocios sin sitio web y crea la oportunidad + tarea de seguimiento directo en el CRM — sin clics manuales, costo de API cero." },
+      { id: "crm-autonomo", name: "CRM Autónomo", tag: "Automatización · Captación de leads", trophy: "// EN PRODUCCIÓN · SISTEMA PROPIO", desc: "Motor de prospección que recorre el mapa por categoría y ciudad, identifica negocios sin sitio web y crea la oportunidad + tarea de seguimiento directo en el CRM, sin clics manuales, costo de API cero." },
     ],
     moreEyebrow: "// más proyectos",
     moreH2a: "Sin pantalla que mostrar,",
@@ -56,7 +56,7 @@ export const copyEs: Copy = {
     labelRole: "CEO & CO-FUNDADOR",
     cta: "visitar sitio →",
     list: [
-      { n: "Codaryn", tag: "Soluciones digitales", url: "codaryn.com.br", desc: "Empresa de soluciones digitales para tu negocio. Aplicamos tecnologías que simplifican desafíos y potencian resultados — equipo completo de programadores, soporte y administración.", tags: ["Equipo completo", "Soporte", "Tecnología aplicada"] },
+      { n: "Codaryn", tag: "Soluciones digitales", url: "codaryn.com.br", desc: "Empresa de soluciones digitales para tu negocio. Aplicamos tecnologías que simplifican desafíos y potencian resultados. Equipo completo de programadores, soporte y administración.", tags: ["Equipo completo", "Soporte", "Tecnología aplicada"] },
       { n: "Nexium",  tag: "Monitoreo de obras con IA", url: "nexusbrtech.com", desc: "Plataforma de monitoreo de obras con IA aplicada. Mapa por construcción, control de stock por punto y detección visual en el sitio. Incubada en CEI-UFRGS.", tags: ["IA aplicada", "Incubada CEI-UFRGS", "Mapa en tiempo real"] },
     ],
   },
@@ -72,7 +72,7 @@ export const copyEs: Copy = {
     sub: "NICOLLAS FREITAS · POA",
     h3a: "Ingeniero que", h3b: "programa.",
     bio1a: "Estudiante de Ciencias de la Computación en ", bio1b: "Unisinos + UERGS", bio1c: ", dev fullstack, ex-becario de la ", bio1d: "Policía Federal en pericia digital", bio1e: ".",
-    bio2: "Hoy atiendo PYMEs y negocios locales de todo Brasil como dev solo. Foco en entregar cosas que entran en producción y generan dinero — no vitrina de portafolio.",
+    bio2: "Hoy atiendo PYMEs y negocios locales de todo Brasil como dev solo. Foco en entregar cosas que entran en producción y generan dinero, no vitrina de portafolio.",
     a1h1: "3º", a1h2: "nacional", a1d: "iTwin4Good BR",
     a2h1: "Startup", a2h2: "incubada", a2d: "CEI-UFRGS",
     a3h1: "Pericia", a3h2: "digital", a3d: "Policía Federal",
@@ -99,7 +99,7 @@ export const copyEs: Copy = {
     list: [
       { q: "¿Cuál es el plazo medio para un sitio?",                  a: "Landing page: 3–10 días. Sitio institucional: 7–21 días. Sistema custom: a partir de 20 días. Te envío cronograma con hitos antes de empezar." },
       { q: "¿Haces mantenimiento después de la entrega?",             a: "Sí. Cobro mensual por SLA (correcciones, pequeñas evoluciones, monitoreo) o por hora suelta. Tú eliges." },
-      { q: "¿Necesito tener dominio y hosting?",                      a: "No es necesario — yo me encargo de la configuración. Si ya tienes, perfecto, migramos. Si no, te ayudo a comprar con factura." },
+      { q: "¿Necesito tener dominio y hosting?",                      a: "No es necesario, yo me encargo de la configuración. Si ya tienes, perfecto, migramos. Si no, te ayudo a comprar con factura." },
       { q: "¿Atiendes fuera de RS?",                                  a: "Sí. Trabajo con clientes de todo Brasil 100% remoto. Reuniones por Meet/Zoom y entregas semanales." },
       { q: "¿Cómo funciona el pago?",                                 a: "50% al inicio + 50% en la entrega para proyectos cortos. En proyectos largos, divido por hitos. PIX, boleto o tarjeta (con tasa)." },
       { q: "¿Qué es la automatización n8n?",                          a: "n8n es una herramienta que conecta tus sistemas (CRM, email, hoja de cálculo, WhatsApp, ERP) en un único flujo. Ej.: cliente llena formulario → entra al CRM → dispara email → crea propuesta." },

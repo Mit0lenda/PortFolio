@@ -10,7 +10,7 @@ export const copyEn: Copy = {
     h1a: "I TURN", h1b: "CODE INTO", h1c: "REAL RESULTS.",
     lead: "Websites, systems and automations for companies that want to grow without hiring more people.",
     cta1: 'DM "project" on Instagram →', cta2: "Message on WhatsApp",
-    meta1: "AVAILABLE · MAY 2026", meta2: "// PORTO ALEGRE — BRAZIL", meta3: "NICOLLAS FREITAS",
+    meta1: "AVAILABLE · MAY 2026", meta2: "// PORTO ALEGRE · BRAZIL", meta3: "NICOLLAS FREITAS",
     badge1: "3RD PLACE NATIONAL", badge2: "iTwin4Good BR",
   },
   services: {
@@ -35,10 +35,10 @@ export const copyEn: Copy = {
     labelProj: "PROJECT",
     list: [
       { id: "promocode", name: "PromoCode", tag: "AI Agent · WhatsApp shopping consultant", trophy: "// MVP IN PRODUCTION · N8N + AI + SUPABASE", desc: "WhatsApp shopping consultant: understands budget, use case and urgency in natural language, decides with an AI agent (LangChain + tools), remembers conversation history and learns from every recommendation via vector memory (RAG). Architecture: n8n orchestrating the agent, Chatwoot as the inbox (a human can take over any conversation at any time), Supabase with pgvector for memory, and Node.js for product search and ranking. Marketplace integration in progress." },
-      { id: "haven-link", name: "Haven Link", tag: "AI · Emergency logistics", trophy: "🥉 3RD PLACE NATIONAL · iTwin4Good BR", desc: "AI platform for emergency logistics — coordinates disaster rescue, connecting volunteers, NGOs and public agencies via real-time map. Awarded nationally." },
+      { id: "haven-link", name: "Haven Link", tag: "AI · Emergency logistics", trophy: "🥉 3RD PLACE NATIONAL · iTwin4Good BR", desc: "AI platform for emergency logistics: coordinates disaster rescue, connecting volunteers, NGOs and public agencies via real-time map. Awarded nationally." },
       { id: "nexus", name: "Nexus",      tag: "Startup · CEI-UFRGS",      trophy: "🚀 INCUBATED · CEI-UFRGS",             desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Currently incubated at UFRGS Entrepreneurship Center." },
       { id: "atlas", name: "Atlas",      tag: "FGTS financial system",    trophy: "// DISCONTINUED · FREELANCE",         desc: "Complete FGTS financial management system for a sales team. CRM for proposals, calendar, bulk queries, report exports." },
-      { id: "crm-autonomo", name: "Autonomous CRM", tag: "Automation · Lead generation", trophy: "// IN PRODUCTION · OWN SYSTEM", desc: "Prospecting engine that scans the map by category and city, identifies businesses without a website, and creates the deal + follow-up task straight in the CRM — zero manual clicks, zero API cost." },
+      { id: "crm-autonomo", name: "Autonomous CRM", tag: "Automation · Lead generation", trophy: "// IN PRODUCTION · OWN SYSTEM", desc: "Prospecting engine that scans the map by category and city, identifies businesses without a website, and creates the deal + follow-up task straight in the CRM, zero manual clicks, zero API cost." },
     ],
     moreEyebrow: "// more projects",
     moreH2a: "No screen to show,",
@@ -56,7 +56,7 @@ export const copyEn: Copy = {
     labelRole: "CEO & CO-FOUNDER",
     cta: "visit site →",
     list: [
-      { n: "Codaryn", tag: "Digital solutions", url: "codaryn.com.br", desc: "Digital solutions company for your business. We apply technologies that simplify challenges and amplify results — full team of developers, support and administration.", tags: ["Full team", "Support", "Applied tech"] },
+      { n: "Codaryn", tag: "Digital solutions", url: "codaryn.com.br", desc: "Digital solutions company for your business. We apply technologies that simplify challenges and amplify results. Full team of developers, support and administration.", tags: ["Full team", "Support", "Applied tech"] },
       { n: "Nexium",  tag: "AI construction monitoring", url: "nexusbrtech.com", desc: "Construction monitoring platform with applied AI. Per-site map, point-based stock control and visual detection on the construction site. Incubated at CEI-UFRGS.", tags: ["Applied AI", "CEI-UFRGS incubated", "Real-time map"] },
     ],
   },
@@ -72,7 +72,7 @@ export const copyEn: Copy = {
     sub: "NICOLLAS FREITAS · POA",
     h3a: "An engineer who", h3b: "codes.",
     bio1a: "Computer Science student at ", bio1b: "Unisinos + UERGS", bio1c: ", fullstack dev and former intern at the ", bio1d: "Federal Police in digital forensics", bio1e: ".",
-    bio2: "Today I serve SMBs and local businesses across Brazil as a solo dev. Focus on shipping things that go to production and make money — not portfolio vitrine.",
+    bio2: "Today I serve SMBs and local businesses across Brazil as a solo dev. Focus on shipping things that go to production and make money, not portfolio vitrine.",
     a1h1: "3rd", a1h2: "nationally", a1d: "iTwin4Good BR",
     a2h1: "Incubated", a2h2: "startup", a2d: "CEI-UFRGS",
     a3h1: "Digital", a3h2: "forensics", a3d: "Internship · Federal Police",
@@ -99,7 +99,7 @@ export const copyEn: Copy = {
     list: [
       { q: "What is the average timeline for a website?",         a: "Landing page: 3–10 days. Corporate site: 7–21 days. Custom system: 20+ days. I send a milestone schedule before starting." },
       { q: "Do you offer maintenance after delivery?",            a: "Yes. Monthly SLA (fixes, small evolutions, monitoring) or hourly billing. Your choice." },
-      { q: "Do I need to have a domain and hosting?",             a: "You don't need to — I handle setup. If you have one, great, we migrate. If not, I help you buy with proper invoicing." },
+      { q: "Do I need to have a domain and hosting?",             a: "You don't need to, I handle setup. If you have one, great, we migrate. If not, I help you buy with proper invoicing." },
       { q: "Do you serve clients outside Rio Grande do Sul?",     a: "Yes. I work with clients all over Brazil 100% remotely. Meetings via Meet/Zoom, weekly deliveries." },
       { q: "How does payment work?",                              a: "50% upfront + 50% on delivery for short projects. For long projects, milestone-based. PIX, bank slip or card (with fee)." },
       { q: "What is n8n automation?",                             a: "n8n is a tool that connects your systems (CRM, email, spreadsheet, WhatsApp, ERP) in a single flow. Ex.: client fills form → enters CRM → triggers email → creates proposal. Removes humans from repetitive tasks." },

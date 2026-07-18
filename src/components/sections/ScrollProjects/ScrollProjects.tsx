@@ -62,16 +62,13 @@ function useEnhancementMode(): Mode {
 const ProjectCopy: React.FC<{ p: ProjectItem; stack: string[] }> = ({ p, stack }) => {
   const result = p.results?.[0];
   const resultText = result
-    ? `${result.value}${result.context ? ` — ${result.context}` : ""}`
+    ? `${result.value}${result.context ? ` (${result.context})` : ""}`
     : p.trophy.replace(/^\/\/\s*/, "").replace(/^🥉\s*|^🚀\s*/, "");
 
   return (
     <div className="sp-copy">
       <span className="sp-tag">{p.tag}</span>
-      <h3 className="sp-name">
-        {p.name}
-        <span className="impact">.</span>
-      </h3>
+      <h3 className="sp-name">{p.name}</h3>
       <div className="sp-field">
         <span className="k">Problema</span>
         <span className="v">{p.problem ?? p.desc}</span>

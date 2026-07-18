@@ -31,10 +31,7 @@ const VentureCard: React.FC<{ v: Venture; img: string; labelRole: string; cta: s
       </div>
       <div className="venture-body">
         <span className="venture-role">{labelRole}</span>
-        <h3 className="venture-name">
-          {v.n}
-          <span className="impact">.</span>
-        </h3>
+        <h3 className="venture-name">{v.n}</h3>
         <span className="venture-tag">{v.tag}</span>
         <p className="venture-desc">{v.desc}</p>
         <div className="venture-tags">
