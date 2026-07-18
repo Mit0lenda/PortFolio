@@ -10,6 +10,19 @@ interface ContactModalProps {
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
+
+  // Remember the trigger and restore focus to it on close — otherwise focus
+  // drops to <body> when the modal unmounts, disorienting keyboard/screen
+  // reader users who opened it via the floating contact button.
+  useEffect(() => {
+    if (isOpen) {
+      triggerRef.current = document.activeElement as HTMLElement | null
+    } else if (triggerRef.current) {
+      triggerRef.current.focus()
+      triggerRef.current = null
+    }
+  }, [isOpen])
 
   // Close on ESC
   useEffect(() => {
