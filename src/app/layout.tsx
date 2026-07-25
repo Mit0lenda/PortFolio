@@ -154,6 +154,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${interFont.variable} ${spaceMonoFont.variable}`}>
+      <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_ANALYTICS_ID}');
+            `,
+          }}
+        />
+      </head>
       <body>
         <Providers>
           <Navbar />
@@ -171,22 +187,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
-        />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GOOGLE_ANALYTICS_ID}');
-            `,
-          }}
         />
         {/* Cloudflare Web Analytics — cookieless, privacy-first (OPT-04) */}
         {process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN && (
