@@ -10,6 +10,7 @@ import './globals.css'
 import './chatwoot.css'
 
 const BASE_URL = 'https://mitolenda.dev'
+const GOOGLE_ANALYTICS_ID = 'G-Y0W8YTKR8M'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -170,6 +171,22 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+        />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_ANALYTICS_ID}');
+            `,
+          }}
         />
         {/* Cloudflare Web Analytics — cookieless, privacy-first (OPT-04) */}
         {process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN && (
