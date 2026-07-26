@@ -7,14 +7,14 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 // inline (React style={{}}) e pelo snippet inline do Facebook Pixel.
 const CHATWOOT_ORIGIN = 'https://n8n-chatwoot.qzqlae.easypanel.host'
 const GOOGLE_TAG_MANAGER_ORIGIN = 'https://www.googletagmanager.com'
-const GOOGLE_ANALYTICS_ORIGIN = 'https://www.google-analytics.com'
+const GOOGLE_ANALYTICS_ORIGINS = 'https://*.google-analytics.com https://*.analytics.google.com'
 const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com ${CHATWOOT_ORIGIN} https://connect.facebook.net ${GOOGLE_TAG_MANAGER_ORIGIN}`,
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: https://*.supabase.co https://www.facebook.com ${GOOGLE_ANALYTICS_ORIGIN} ${GOOGLE_TAG_MANAGER_ORIGIN}`,
-  `connect-src 'self' https://*.supabase.co https://static.cloudflareinsights.com ${CHATWOOT_ORIGIN} wss://n8n-chatwoot.qzqlae.easypanel.host https://connect.facebook.net ${GOOGLE_ANALYTICS_ORIGIN} ${GOOGLE_TAG_MANAGER_ORIGIN}`,
-  `frame-src ${CHATWOOT_ORIGIN}`,
+  `img-src 'self' data: https://*.supabase.co https://www.facebook.com ${GOOGLE_ANALYTICS_ORIGINS} ${GOOGLE_TAG_MANAGER_ORIGIN}`,
+  `connect-src 'self' https://*.supabase.co https://static.cloudflareinsights.com ${CHATWOOT_ORIGIN} wss://n8n-chatwoot.qzqlae.easypanel.host https://connect.facebook.net ${GOOGLE_ANALYTICS_ORIGINS} ${GOOGLE_TAG_MANAGER_ORIGIN}`,
+  `frame-src ${CHATWOOT_ORIGIN} ${GOOGLE_TAG_MANAGER_ORIGIN}`,
   "font-src 'self' data:",
   "base-uri 'self'",
   "form-action 'self'",
