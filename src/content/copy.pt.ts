@@ -196,13 +196,13 @@ export const copyPt: Copy = {
       },
       {
         id: "infra-comunicacao", name: "Migração de Infraestrutura", tag: "Infraestrutura · Migração de sistemas", trophy: "// CONCLUÍDO · GOOGLE WORKSPACE + TWILIO",
-        desc: "Migração de ~80 contas de e-mail para Google Workspace, com estratégia de mixagem de planos para reduzir custo de licenciamento, e migração do canal de suporte de SMS para WhatsApp via Twilio/WABA.",
+        desc: "Migração de ~50 contas de e-mail para Google Workspace, com estratégia de mixagem de planos para reduzir custo de licenciamento, e migração do canal de suporte de SMS para WhatsApp via Twilio/WABA.",
         problem: "Infraestrutura de e-mail e canal de suporte por SMS geravam custo de licenciamento alto e limitação de canal, sem estratégia de otimização.",
-        solution: "Migração completa de ~80 contas de e-mail para Google Workspace, com mixagem de planos para reduzir custo de licenciamento. Migração do canal de suporte de SMS para WhatsApp via Twilio/WABA, ampliando a capacidade de atendimento.",
+        solution: "Migração completa de ~50 contas de e-mail para Google Workspace, com mixagem de planos para reduzir custo de licenciamento. Migração do canal de suporte de SMS para WhatsApp via Twilio/WABA, ampliando a capacidade de atendimento.",
         tech: ["Google Workspace", "Twilio", "WhatsApp Business API (WABA)"],
         role: "Infraestrutura · decisão técnica e execução",
         results: [
-          { label: "Contas migradas", value: "~80", context: "e-mail corporativo" },
+          { label: "Contas migradas", value: "~50", context: "e-mail corporativo" },
           { label: "Canal de suporte", value: "SMS → WhatsApp" },
         ],
       },

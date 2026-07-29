@@ -148,7 +148,7 @@ export const PROJECT_ASSETS: Record<string, ProjectAssets> = {
   "infra-comunicacao": {
     stack: ["Google Workspace", "Twilio", "WABA"],
     flow: [
-      { stage: "Diagnóstico", label: "~80 contas de e-mail", sub: "infraestrutura legada" },
+      { stage: "Diagnóstico", label: "~50 contas de e-mail", sub: "infraestrutura legada" },
       { stage: "Migração", label: "Google Workspace", sub: "mixagem de planos, custo otimizado" },
       { stage: "Canal de suporte", label: "SMS → WhatsApp", sub: "via Twilio/WABA" },
       { stage: "Saída", label: "Infraestrutura consolidada", sub: "custo reduzido, canal ampliado" },
