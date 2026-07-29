@@ -118,6 +118,42 @@ export const PROJECT_ASSETS: Record<string, ProjectAssets> = {
       { stage: "Saída", label: "Zero clique manual", sub: "custo de API zero" },
     ],
   },
+  "reddy": {
+    stack: ["n8n", "Twilio", "Chatwoot", "GPT-4o", "WhatsApp API"],
+    flow: [
+      { stage: "Entrada", label: "Cliente escreve no WhatsApp", sub: "número oficial via Twilio" },
+      { stage: "Processamento", label: "Detecção automática de idioma", sub: "por DDI, fallback PT-BR" },
+      { stage: "Diagnóstico", label: "Fluxo guiado", sub: "cadastro → conexão → dispositivo" },
+      { stage: "Integração", label: "Chatwoot inbox", sub: "humano assume quando quiser" },
+    ],
+  },
+  "cpm": {
+    stack: ["React", "NestJS", "Prisma", "PostgreSQL", "GitHub Actions"],
+    flow: [
+      { stage: "Entrada", label: "Lead entra no funil", sub: "pipeline de vendas" },
+      { stage: "Processamento", label: "Analytics do pipeline", sub: "visibilidade por etapa" },
+      { stage: "Detecção", label: "Anti-Limbo", sub: "oportunidade parada sem follow-up" },
+      { stage: "Saída", label: "Deploy controlado", sub: "staging → aprovação → produção" },
+    ],
+  },
+  "dashboard-financeiro": {
+    stack: ["SQL", "Modelagem DRE/PIER", "BI", "Figma"],
+    flow: [
+      { stage: "Entrada", label: "Lançamentos brutos do ERP", sub: "dados financeiros" },
+      { stage: "Processamento", label: "Modelagem DRE/PIER", sub: "6 blocos de despesas mapeados" },
+      { stage: "Validação", label: "Paridade 1:1", sub: "comparado a relatórios nativos" },
+      { stage: "Saída", label: "Painel executivo de KPIs", sub: "Receita, CMV, EBITDA, Margem" },
+    ],
+  },
+  "infra-comunicacao": {
+    stack: ["Google Workspace", "Twilio", "WABA"],
+    flow: [
+      { stage: "Diagnóstico", label: "~80 contas de e-mail", sub: "infraestrutura legada" },
+      { stage: "Migração", label: "Google Workspace", sub: "mixagem de planos, custo otimizado" },
+      { stage: "Canal de suporte", label: "SMS → WhatsApp", sub: "via Twilio/WABA" },
+      { stage: "Saída", label: "Infraestrutura consolidada", sub: "custo reduzido, canal ampliado" },
+    ],
+  },
 };
 
 export const FALLBACK_ASSETS: ProjectAssets = { stack: [] };
